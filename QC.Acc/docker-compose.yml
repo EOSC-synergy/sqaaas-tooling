@@ -1,0 +1,9 @@
+# Docker Compose template
+#
+version: "3.8"
+services:
+  QC.Acc: 
+    build: .
+    image: qc.acc
+    container_name: qc.acc
+
