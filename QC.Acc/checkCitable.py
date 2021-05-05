@@ -13,8 +13,6 @@ def isPathInRepository(repo,path):
         return False  
 
 g = Github()
-# In case an access token is needed
-#g = Github("access_token")
 repo = g.get_repo(sys.argv[1])
 
 assert(isPathInRepository(repo,"CITATION.json") or isPathInRepository(repo,"codemeta.json"))
