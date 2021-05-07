@@ -5,5 +5,5 @@ services:
   QC.Lic: 
     build: .
     image: qc.lic
-
+    container_name: qc.lic
 
