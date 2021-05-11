@@ -1,4 +1,3 @@
-#!/usr/local/bin/python
 from github import Github
 from github import GithubException
 from urllib.parse import urlparse
