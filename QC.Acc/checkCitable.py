@@ -19,12 +19,16 @@ def isFileInGithubRepo(repoPath,file):
 
 def isFileInGitlabRepo(server,repo,file):
     gl = gitlab.Gitlab(server)
-    project = gl.projects.get(repo)
-    items = project.repository_tree()
-    for item in items:
-        if(item['name'] == file):
-            print("File %s found in Gitlab repository %s"%(file,repo))                        
-            return True
+    try:
+        project = gl.projects.get(repo)
+        items = project.repository_tree()
+        for item in items:
+            if(item['name'] == file):
+                print("File %s found in Gitlab repository %s"%(file,repo))                        
+                return True
+    except gitlab.exceptions.GitlabGetError as e:
+        print("Repository not found or no permission to access it. ")
+        return False
     print("File %s not found in Github repository %s"%(file,repo))
     return False
 
