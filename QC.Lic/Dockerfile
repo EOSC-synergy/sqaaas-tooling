@@ -1,10 +1,9 @@
-FROM python:3
+FROM python:3-slim
 
 LABEL maintainer="davrodgon@users.noreply.github.com"
 
-RUN pip3 install PyGithub
+RUN pip3 install PyGithub python-gitlab
 
-COPY checkLicense.py /usr/local/bin/
-RUN chmod +x /usr/local/bin/checkLicense.py  
+COPY checkLicense.py /
 
-ENTRYPOINT [ "/usr/local/bin/checkLicense.py" ]
+ENTRYPOINT [ "python","/checkLicense.py" ]
