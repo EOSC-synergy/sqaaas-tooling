@@ -1,0 +1,62 @@
+{
+    "tools": {
+        "python": {
+            "tox": {
+                "jepl_support": true,
+                "docs": "https://tox.readthedocs.io/",
+                "docker": {
+                    "image": "painless/tox",
+                    "reviewed": "1970-01-01"
+                }
+            },
+            "bandit": {
+                "docs": "https://bandit.readthedocs.io/",
+                "docker": {
+                    "image": "secfigo/bandit",
+                    "reviewed": "1970-01-01"
+                }
+            }
+        },
+        "default": {
+            "checkCitable": {
+                "docs": "https://github.com/EOSC-synergy/sqa-composer-templates/tree/main/QC.Acc",
+                "docker": {
+                    "dockerfile": "Qc.Acc/Dockerfile",
+                    "composer_file": "QC.Acc/docker-compose.yml",
+                    "reviewed": "1970-01-01"
+                }
+            },
+            "checkLicense": {
+                "docs": "https://github.com/EOSC-synergy/sqa-composer-templates/tree/main/QC.Lic",
+                "docker": {
+                    "dockerfile": "Qc.Lic/Dockerfile",
+                    "composer_file": "QC.Lic/docker-compose.yml",
+                    "reviewed": "1970-01-01"
+                }
+            }
+        }
+    },
+    "criteria": {
+        "QC.Uni": {
+            "python": ["tox"]
+        },
+        "QC.Uni": {
+            "python": ["tox"]
+        },
+        "QC.Fun": {
+            "python": ["tox"]
+        },
+        "QC.Sec": {
+            "python": ["tox", "bandit"]
+        },
+        "QC.Doc": {
+            "python": ["tox"]
+        },
+        "QC.Acc": {
+            "default": ["checkCitable"]
+        },
+        "QC.Lic": {
+            "default": ["checkLicense"]
+        }
+    }
+}
