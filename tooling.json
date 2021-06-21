@@ -63,7 +63,9 @@
     },
     "criteria": {
         "QC.Sty": {
-            "python": ["tox"]
+            "dockerfile": ["hadolint"],
+            "json": ["jsonlint"],
+            "python": ["tox", "pycodestyle"]
         },
         "QC.Uni": {
             "python": ["tox"]
