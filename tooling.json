@@ -37,7 +37,7 @@
         }
     },
     "criteria": {
-        "QC.Uni": {
+        "QC.Sty": {
             "python": ["tox"]
         },
         "QC.Uni": {
