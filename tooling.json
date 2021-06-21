@@ -63,6 +63,11 @@
     },
     "criteria": {
         "QC.Sty": {
+            "description": {
+                "msg": "Use code style standards to guide your code writing so you let others understand it",
+                "improves": "readability, reusability",
+                "docs": "https://indigo-dc.github.io/sqa-baseline/#code-style-qc.sty"
+            },
             "tools": {
                 "dockerfile": ["hadolint"],
                 "json": ["jsonlint"],
@@ -70,31 +75,61 @@
             }
         },
         "QC.Uni": {
+            "description": {
+                "msg": "Test the behaviour of segments or units within your code (e.g. conditionals, loops, functions)",
+                "improves": "code design, early bug detection",
+                "docs": "https://indigo-dc.github.io/sqa-baseline/#unit-testing-qc.uni"
+            },
             "tools": {
                 "python": ["tox"]
             }
         },
         "QC.Fun": {
+            "description": {
+                "msg": "Ensure compliance with the functional requirements to meet your users’ expectations",
+                "improves": "end-user satisfaction, usability",
+                "docs": "https://indigo-dc.github.io/sqa-baseline/#functional-testing-qc.fun"
+            },
             "tools": {
                 "python": ["tox"]
             }
         },
         "QC.Sec": {
+            "description": {
+                "msg": "Secure your software by finding (statically) common issues associated to the programming language in use and look for disclosed security vulnerabilities",
+                "improves": "security issues detection",
+                "docs": "https://indigo-dc.github.io/sqa-baseline/#security-qc.sec"
+            },
             "tools": {
                 "python": ["tox", "bandit"]
             }
         },
         "QC.Doc": {
+            "description": {
+                "msg": "Treat documentation as code by using markup languages to automatically build and place it in online repositories",
+                "improves": "outreach capacity, documentation maintenance",
+                "docs": "https://indigo-dc.github.io/sqa-baseline/#documentation-qc.doc"
+            },
             "tools": {
                 "python": ["tox"]
             }
         },
         "QC.Acc": {
+            "description": {
+                "msg": "Source code and documentation publicly available in online repositories",
+                "improves": "reusability, reproducibility",
+                "docs": "https://indigo-dc.github.io/sqa-baseline/#code-accessibility-qc.acc"
+            },
             "tools": {
                 "default": ["checkCitable"]
             }
         },
         "QC.Lic": {
+            "description": {
+                "msg": "Usage of an open license to distribute your code",
+                "improves": "external contributions, reusability",
+                "docs": "https://indigo-dc.github.io/sqa-baseline/#licensing-qc.lic"
+            },
             "tools": {
                 "default": ["checkLicense"]
             }
