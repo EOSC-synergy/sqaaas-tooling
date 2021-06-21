@@ -63,27 +63,41 @@
     },
     "criteria": {
         "QC.Sty": {
-            "dockerfile": ["hadolint"],
-            "json": ["jsonlint"],
-            "python": ["tox", "pycodestyle"]
+            "tools": {
+                "dockerfile": ["hadolint"],
+                "json": ["jsonlint"],
+                "python": ["tox", "pycodestyle"]
+            }
         },
         "QC.Uni": {
-            "python": ["tox"]
+            "tools": {
+                "python": ["tox"]
+            }
         },
         "QC.Fun": {
-            "python": ["tox"]
+            "tools": {
+                "python": ["tox"]
+            }
         },
         "QC.Sec": {
-            "python": ["tox", "bandit"]
+            "tools": {
+                "python": ["tox", "bandit"]
+            }
         },
         "QC.Doc": {
-            "python": ["tox"]
+            "tools": {
+                "python": ["tox"]
+            }
         },
         "QC.Acc": {
-            "default": ["checkCitable"]
+            "tools": {
+                "default": ["checkCitable"]
+            }
         },
         "QC.Lic": {
-            "default": ["checkLicense"]
+            "tools": {
+                "default": ["checkLicense"]
+            }
         }
     }
 }
