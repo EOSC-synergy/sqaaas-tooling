@@ -1,7 +1,7 @@
 FROM python:3-slim
 LABEL maintainer="davrodgon@users.noreply.github.com"
 RUN pip3 install PyGithub python-gitlab
-COPY checkLicense.py /
+COPY QC.Lic/checkLicense.py /
 ENTRYPOINT [ "python","/checkLicense.py" ]
 
 FROM ruby:2.5
