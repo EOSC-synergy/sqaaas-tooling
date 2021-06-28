@@ -128,7 +128,7 @@
                 "docs": "https://indigo-dc.github.io/sqa-baseline/#code-accessibility-qc.acc"
             },
             "tools": {
-                "default": ["checkCitable"]
+                "default": ["licensee"]
             }
         },
         "QC.Lic": {
