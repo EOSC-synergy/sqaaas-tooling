@@ -67,7 +67,7 @@
                 },
                 "args": [
                     {"type": "subcommand", "description": "Detect the license of the given project", "value": "detect", "selectable": false, "args": [
-                        {"description": "Path to project's license", "format": "string", "value": "."}
+                        {"type": "positional", "description": "Path to project's license", "format": "string", "value": "."}
                     ]}
                 ]
             }
