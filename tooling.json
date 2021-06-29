@@ -62,7 +62,7 @@
             "licensee": {
                 "docs": "https://github.com/licensee/licensee",
                 "docker": {
-                    "dockerfile": "QC.Lic/Dockerfile",
+                    "dockerfile": "QC.Lic/licensee/Dockerfile",
                     "reviewed": "2021-06-28"
                 },
                 "args": [
