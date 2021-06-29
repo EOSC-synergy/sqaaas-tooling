@@ -133,7 +133,7 @@
                 "docs": "https://indigo-dc.github.io/sqa-baseline/#code-accessibility-qc.acc"
             },
             "tools": {
-                "default": ["licensee"]
+                "default": ["checkCitable"]
             }
         },
         "QC.Lic": {
@@ -143,7 +143,7 @@
                 "docs": "https://indigo-dc.github.io/sqa-baseline/#licensing-qc.lic"
             },
             "tools": {
-                "default": ["checkLicense"]
+                "default": ["licensee"]
             }
         }
     }
