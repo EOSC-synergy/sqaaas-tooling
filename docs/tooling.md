@@ -24,8 +24,8 @@ The following table summarizes the properties that ought to be set in the tool d
 | Tool property | Description | Required |
 | ------------- | ----------- | -------- |
 | `docs` | URL to the tool's official documentation | :heavy_check_mark: |
-| `docker` | See [Docker]() section | :heavy_check_mark: |
-| `args` | See [Arguments]() section | |
+| `docker` | See [Docker](#docker-docker-property) section | :heavy_check_mark: |
+| `args` | See [Arguments](#arguments-args-property) section | |
 
 ### Docker (`docker` property)
 The `docker` property includes the information related to the availability of the Docker image that contains the tool. Hence, it offers two main ways of getting the Docker image, either 1) pulling an existing image from a Docker registry, or 2) build the image from a Dockerfile. One of the two properties must be defined:
