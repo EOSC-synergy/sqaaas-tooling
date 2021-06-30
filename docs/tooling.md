@@ -1,5 +1,5 @@
 # Tooling metadata
-The [tooling.json](tooling.json) metadata file contains:
+The [tooling.json](../tooling.json) metadata file contains:
 1) the [`tools`](#tool-properties) property, where the tools are described, and
 2) the [`criteria`](#criteria-properties), having the mapping between the SQAaaS criteria<a href="#note1" id="note1ref"><sup>1</sup></a> and the tools.
 
