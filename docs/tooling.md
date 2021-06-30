@@ -20,6 +20,14 @@ The `args` property enables the definition of the arguments involved in the tool
 - *positional*: those arguments that are required and that are defined only by their value. They can be used both with a command or a subcommand. Continuing with the example above, the `git add` subcommand always require a positional argument (e.g. `git add file1`).
 - *optional*: those arguments that might be provided, but they are not required. The option name, which contains a single dash for the short version and two dashes for the long version, can be used both in conjunction with a value or, otherwise, by itself. An example is `git add --verbose file1`.
 
+| Property | Description | Required |
+| -------- | ----------- | -------- |
+| `type` | Type of the argument. Choose between [`subcommand`, `positional`, `optional`] | :heavy_check_mark: |
+| `description` | Short description of what the tool does | :heavy_check_mark: |
+| `value` | Argument value. When using optional arguments, the value includes both the option name and, if necessary, the associated value | |
+| `args` | Suitable when defining commands with more than one type of argument, it allows to define nested `args` properties | |
+| `selectable` | (for API clients) Whether the argument shall be customized by the user, or otherwise it is a fixed (non-modifiable) argument | |
+| `format` | (for API clients) the value's data type. Useful for graphical interfaces, provides the means to render the form elements (inputs, text areas, dropdowns, ..). Choose between [`string`, `array`] | |
 
 ## Criteria properties
 
