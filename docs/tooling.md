@@ -81,5 +81,9 @@ The SQA criteria<a href="#note1" id="note1ref"><sup>1</sup></a> that the SQAaaS 
 }
 ```
 
+Each criterion has two properties: `description` and `tools`, which are defined as follows:
+- The `tools` object contains one element per language being supported. The values are a list of tools from the ones defined in the `tools` property from the previous section.
+- The `description` object is meant to be used by the SQAaaS API clients. It provides information about the criterion that is suitable to contextualize it within the user interface.
+
 
 <a id="note1" href="#note1ref"><sup>1</sup></a><sub>Online versions: [software](https://indigo-dc.github.io/sqa-baseline/) and [service's](https://eosc-synergy.github.io/service-qa-baseline/) SQA criteria.</sub>
