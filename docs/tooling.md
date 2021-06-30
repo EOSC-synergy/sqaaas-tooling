@@ -4,7 +4,22 @@ The [tooling.json](tooling.json) metadata file contains:
 2) the [`criteria`](#criteria-properties), having the mapping between the SQAaaS criteria<a href="#note1" id="note1ref"><sup>1</sup></a> and the tools.
 
 ## Tool properties
-Tools are categorized under the (programming) language they apply to, so e.g. a new Python tool shall be added under `tools:python:<tool>`. The following table summarizes the properties that ought to be set in the tool definition:
+Tools are categorized under the (programming) language they apply to, so e.g. the [bandit](https://bandit.readthedocs.io/) Python tool shall be added under the `python` key:
+```yaml
+"tools": {
+    "python": {
+        "bandit": {
+            "docs": "https://bandit.readthedocs.io/",
+            "docker": {
+                "image": "secfigo/bandit",
+                "reviewed": "1970-01-01"
+            }
+        }
+    }
+}
+```
+
+The following table summarizes the properties that ought to be set in the tool definition:
 
 | Tool property | Description | Required |
 | ------------- | ----------- | -------- |
