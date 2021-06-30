@@ -52,7 +52,34 @@ The `args` property enables the definition of the arguments involved in the tool
 | `format` | string (enum) | (for API clients) the value's data type. Useful for graphical interfaces, provides the means to render the form elements (inputs, text areas, dropdowns, ..). Choose between [`string`, `array`] | |
 
 ## Criteria properties
+The SQA criteria<a href="#note1" id="note1ref"><sup>1</sup></a> that the SQAaaS platform is compliant with are identified by codes, such as `QC.Sty` for styling conventions or `QC.Lic` for the requirements related to the availability and maintenance of a source code license. The `criteria` key maps the tools (the `tools` key defined in the previous section) with the SQA criteria:
 
+```yaml
+"criteria": {
+    "QC.Sty": {
+        "description": {
+            "msg": "Use code style standards to guide your code writing so you let others understand it",
+            "improves": "readability, reusability",
+            "docs": "https://indigo-dc.github.io/sqa-baseline/#code-style-qc.sty"
+        },
+        "tools": {
+            "dockerfile": ["hadolint"],
+            "json": ["jsonlint"],
+            "python": ["tox", "pycodestyle"]
+        }
+    },
+    "QC.Lic": {
+        "description": {
+            "msg": "Usage of an open license to distribute your code",
+            "improves": "external contributions, reusability",
+            "docs": "https://indigo-dc.github.io/sqa-baseline/#licensing-qc.lic"
+        },
+        "tools": {
+            "default": ["licensee"]
+        }
+    }
+}
+```
 
 
 <a id="note1" href="#note1ref"><sup>1</sup></a><sub>Online versions: [software](https://indigo-dc.github.io/sqa-baseline/) and [service's](https://eosc-synergy.github.io/service-qa-baseline/) SQA criteria.</sub>
