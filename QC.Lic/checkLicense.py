@@ -4,7 +4,7 @@ from urllib.parse import urlparse
 import gitlab
 import sys
 
-def isLicensePresentGithub(url):
+def is_license_present_github(url):
     g = Github()
     repo = g.get_repo(url)
     try:
@@ -15,7 +15,7 @@ def isLicensePresentGithub(url):
         print("License not found in repository")
         return False
 
-def isFileInGitlabRepo(server,repo,file):
+def is_file_in_gitlab_repo(server,repo,file):
     gl = gitlab.Gitlab(server)
     try:
         project = gl.projects.get(repo)
@@ -31,18 +31,18 @@ def isFileInGitlabRepo(server,repo,file):
     return False
 
 
-def isLicenseFilePresent(url):
+def is_license_file_present(url):
     o = urlparse(url)
     repo = o.path[1:]
     if(o.hostname == 'github.com'):        
-        return isLicensePresentGithub(repo)
+        return is_license_present_github(repo)
     else:
         server = o.scheme + "://" + o.netloc
-        return isFileInGitlabRepo(server,repo,'LICENSE')
+        return is_file_in_gitlab_repo(server,repo,'LICENSE')
 
 
 url = sys.argv[1]
 print("Repository URL " , url)
-assert(isLicenseFilePresent(url))
+assert(is_license_file_present(url))
 
 
