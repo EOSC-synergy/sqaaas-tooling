@@ -6,13 +6,13 @@ import sys
 
 def is_license_present_github(url):
     g = Github()
-    repo = g.get_repo(url)
+    g_repo = g.get_repo(url)
     try:
-        license = repo.get_license()
-        print("Found license for repository %s: %s" %(repo.name,license.license))
+        repo_license = g_repo.get_license()
+        print("Found license for repository %s: %s" %(g_repo.name,repo_license.license))
         return True
     except GithubException:
-        print("License not found in repository")
+        print("License not found in GitHub repository")
         return False
 
 def is_file_in_gitlab_repo(server,repo,file):
@@ -22,12 +22,12 @@ def is_file_in_gitlab_repo(server,repo,file):
         items = project.repository_tree()
         for item in items:
             if(item['name'] == file):
-                print("File %s found in Gitlab repository %s"%(file,repo))                        
+                print("File %s found in GitLab repository %s"%(file,repo))                        
                 return True
-    except gitlab.exceptions.GitlabGetError as e:
+    except gitlab.exceptions.GitlabGetError:
         print("Repository not found or no permission to access it. ")
         return False
-    print("File %s not found in Github repository %s"%(file,repo))
+    print("File %s not found in GitLab repository %s"%(file,repo))
     return False
 
 
