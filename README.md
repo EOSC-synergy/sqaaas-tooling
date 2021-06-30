@@ -10,6 +10,6 @@ Note that the SQAaaS platform's user does not need to provide any input for usin
 *Learn more about the [`tooling.json` structure.](docs/tooling.md)*
 
 ## How to contribute with new tools
-Building upon the metadata, it is straightforward to get new tools supported by the SQAaaS platform. However, tools are first assessed and subject for approval in order to ensure their relevance for the selected quality criterion.
+Building upon the metadata, it is really straightforward to get new tools supported by the SQAaaS platform. However, tools are first assessed and subject for approval in order to ensure their relevance for the selected quality criterion.
 
 *Learn more about the [`approval process.`](docs/approval_process.md)*
