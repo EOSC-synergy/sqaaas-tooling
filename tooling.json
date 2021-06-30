@@ -65,11 +65,11 @@
                     "dockerfile": "QC.Lic/licensee/Dockerfile",
                     "reviewed": "2021-06-28"
                 },
-                "args": [
-                    {"type": "subcommand", "description": "Detect the license of the given project", "value": "detect", "selectable": false, "args": [
-                        {"type": "positional", "description": "Path to project's license", "format": "string", "value": "."}
-                    ]}
-                ]
+                "args": [{
+                    "type": "subcommand", "description": "Detect the license of the given project", "value": "detect", "selectable": false, "args": [{
+                        "type": "positional", "description": "Path to project's license", "format": "string", "value": "."
+                    }]
+                }]
             }
         }
     },
