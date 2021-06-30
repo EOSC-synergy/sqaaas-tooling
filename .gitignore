@@ -1,2 +1,5 @@
 .vscode/.ropeproject/config.py
 .vscode/.ropeproject/objectdb
+sonar-project.properties
+.scannerwork
+.sonar-project.properties.un~
