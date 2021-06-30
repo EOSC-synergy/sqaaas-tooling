@@ -27,7 +27,14 @@ The following table summarizes the properties that ought to be set in the tool d
 | `docker` | See [Docker]() section | :heavy_check_mark: |
 | `args` | See [Arguments]() section | |
 
-### Docker
+### Docker (`docker` property)
+The `docker` property includes the information related to the availability of the Docker image that contains the tool. Hence, it offers two main ways of getting the Docker image, either 1) pulling an existing image from a Docker registry, or 2) build the image from a Dockerfile. One of the two properties must be defined:
+
+| Property | Description | Required |
+| -------- | ----------- | -------- |
+| `image`| Docker registry URL (defaults to Docker Hub) | :heavy_check_mark: (only if `dockerfile` is not defined |
+| `dockerfile`| Relative path to the Dockerfile. This file shall be maintained in the present repository, under the criterion folder it applies to | :heavy_check_mark: (only if `image` is not defined |
+| `reviewed`| Date the image was last used (format YYYY-MM-DD)| |
 
 ### Arguments (`args` property)
 The `args` property enables the definition of the arguments involved in the tool execution. The type of argument can fall into the three categories set out below:
