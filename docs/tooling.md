@@ -46,8 +46,8 @@ The `args` property enables the definition of the arguments involved in the tool
 | -------- | ---- | ----------- | -------- |
 | `type` | string (enum) | Type of the argument. Choose between [`subcommand`, `positional`, `optional`] | :heavy_check_mark: |
 | `description` | string | Short description of what the tool does | :heavy_check_mark: |
-| `value` | <any type> | The value of the argument | |
-| `option` | <any type> | The option name (*only applicable for optional arguments*) | |
+| `value` | *any type* | The value of the argument | |
+| `option` | string | The option name (*only applicable for optional arguments*) | |
 | `format` | string (enum) | (for API clients) the value's data type. Useful for graphical interfaces, provides the means to render the form elements (inputs, text areas, dropdowns, ..). Choose between [`string`, `array`] | |
 | `selectable` | boolean | (for API clients) Whether the argument's value shall be customized by the user, or otherwise it is a fixed (non-modifiable) value | |
 | `repeatable` | boolean | (for API clients) Whether the same argument can be used several times | |
