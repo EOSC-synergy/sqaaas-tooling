@@ -68,6 +68,13 @@
                     "reviewed": "1970-01-01"
                 }
             },
+            "commands": {
+                "docs": "https://indigo-dc.github.io/jenkins-pipeline-library/2.0.0/user/config_file.html#commands",
+                "docker": {
+                    "dockerfile": "alpine:latest",
+                    "reviewed": "1970-01-01"
+                }
+            },
             "licensee": {
                 "docs": "https://github.com/licensee/licensee",
                 "docker": {
