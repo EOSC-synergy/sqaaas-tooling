@@ -54,7 +54,7 @@ The `args` property enables the definition of the arguments involved in the tool
 | `args` | object | Suitable when defining commands with more than one type of argument, it allows to define nested `args` properties | |
 
 ### The `default` property
-The `tools` property has a special key named `default`. This key contains the tools that are used by a specific SQA criterion by default (see [next section](#criteria-properties), so this implies that, for those specific set of criteria, the tool cannot be selected by the user.
+The `tools` property has a special key named `default`. Here you can define the tools that shall be available for all the defined criteria (in the [`criteria` property](#criteria-properties)).
 
 ## Criteria properties
 The SQA criteria<a href="#note1" id="note1ref"><sup>1</sup></a> that the SQAaaS platform is compliant with are identified by codes, such as `QC.Sty` for styling conventions or `QC.Lic` for the requirements related to the availability and maintenance of a source code license. The `criteria` key maps the tools (the `tools` key defined in the previous section) with the SQA criteria:
@@ -80,7 +80,7 @@ The SQA criteria<a href="#note1" id="note1ref"><sup>1</sup></a> that the SQAaaS 
             "docs": "https://indigo-dc.github.io/sqa-baseline/#licensing-qc.lic"
         },
         "tools": {
-            "default": ["licensee"]
+            "license": ["licensee"]
         }
     }
 }
@@ -88,7 +88,7 @@ The SQA criteria<a href="#note1" id="note1ref"><sup>1</sup></a> that the SQAaaS 
 
 Each criterion has two properties: `description` and `tools`, which are defined as follows:
 - The `tools` object contains one element per language being supported. The values are a list of tools from the ones defined in the `tools` property from the previous section.
-  - The key `default` might be used as any other language. The associated tool has to be one of the ones defined in the [`default` key](#the-default-property). 
+  - Note that the tools marked as [default](#the-default-property) will be automatically added. There is no need to define those in the criterion data.
 - The `description` object is meant to be used by the SQAaaS API clients. It provides information about the criterion that is suitable to contextualize it within the user interface.
 
 
