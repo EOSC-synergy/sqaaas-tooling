@@ -51,30 +51,7 @@
                 }
             }
         },
-        "default": {
-            "checkCitable": {
-                "docs": "https://github.com/EOSC-synergy/sqa-composer-templates/tree/main/QC.Acc",
-                "docker": {
-                    "dockerfile": "Qc.Acc/Dockerfile",
-                    "composer_file": "QC.Acc/docker-compose.yml",
-                    "reviewed": "1970-01-01"
-                }
-            },
-            "checkLicense": {
-                "docs": "https://github.com/EOSC-synergy/sqa-composer-templates/tree/main/QC.Lic",
-                "docker": {
-                    "dockerfile": "Qc.Lic/Dockerfile",
-                    "composer_file": "QC.Lic/docker-compose.yml",
-                    "reviewed": "1970-01-01"
-                }
-            },
-            "commands": {
-                "docs": "https://indigo-dc.github.io/jenkins-pipeline-library/2.0.0/user/config_file.html#commands",
-                "docker": {
-                    "dockerfile": "alpine:latest",
-                    "reviewed": "1970-01-01"
-                }
-            },
+        "license": {
             "licensee": {
                 "docs": "https://github.com/licensee/licensee",
                 "docker": {
@@ -86,7 +63,34 @@
                         "type": "positional", "description": "Path to project's license", "value": ".", "selectable": false
                     }]
                 }]
+            },
+            "checkLicense": {
+                "docs": "https://github.com/EOSC-synergy/sqa-composer-templates/tree/main/QC.Lic",
+                "docker": {
+                    "dockerfile": "Qc.Lic/Dockerfile",
+                    "composer_file": "QC.Lic/docker-compose.yml",
+                    "reviewed": "1970-01-01"
+                }
             }
+        },
+        "codemeta": {
+            "checkCitable": {
+                "docs": "https://github.com/EOSC-synergy/sqa-composer-templates/tree/main/QC.Acc",
+                "docker": {
+                    "dockerfile": "Qc.Acc/Dockerfile",
+                    "composer_file": "QC.Acc/docker-compose.yml",
+                    "reviewed": "1970-01-01"
+                }
+            }
+        },
+        "default": {
+            "commands": {
+                "docs": "https://indigo-dc.github.io/jenkins-pipeline-library/2.0.0/user/config_file.html#commands",
+                "docker": {
+                    "dockerfile": "alpine:latest",
+                    "reviewed": "1970-01-01"
+                }
+            },
         }
     },
     "criteria": {
@@ -149,7 +153,7 @@
                 "docs": "https://indigo-dc.github.io/sqa-baseline/#code-accessibility-qc.acc"
             },
             "tools": {
-                "default": ["checkCitable"]
+                "codemeta": ["checkCitable"]
             }
         },
         "QC.Lic": {
@@ -159,7 +163,7 @@
                 "docs": "https://indigo-dc.github.io/sqa-baseline/#licensing-qc.lic"
             },
             "tools": {
-                "default": ["licensee"]
+                "license": ["licensee"]
             }
         }
     }
