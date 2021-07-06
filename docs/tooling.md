@@ -25,6 +25,7 @@ The following table summarizes the properties that ought to be set in the tool d
 | ------------- | ---- | ----------- | -------- |
 | `docs` | string (url) | URL to the tool's official documentation | :heavy_check_mark: |
 | `docker` | object | See [Docker](#docker-docker-property) section | :heavy_check_mark: |
+| `executable` | string | Name of the executable. The tool's name is used by default.  <br>*This is only required when the executable to be used is different from the tool's name* | |
 | `args` | object | See [Arguments](#arguments-args-property) section | |
 
 ### Docker (`docker` property)
