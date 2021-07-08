@@ -57,7 +57,11 @@
                 "docker": {
                     "image": "ferag/fair_eva",
                     "reviewed": "2021-07-06"
-                }
+                },
+                "executable": "curl",
+                "args": [{
+                    "type": "positional", "description": "Endpoint", "value": "localhost", "selectable": false
+                }]
             }
         },
         "license": {
