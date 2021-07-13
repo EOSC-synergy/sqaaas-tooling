@@ -60,12 +60,7 @@
                 },
                 "executable": "/bin/curl",
                 "args": [
-                     {"type": "optional", "description": "", "option": "-H", "value": "'Content-Type: application/json'", "selectable": false},
-                     {"type": "optional", "description": "", "option": "-X", "value": "POST", "selectable": false},
-                     {"type": "optional", "description": "", "option": "-d", "value": "'{\"id\": \"10261/157765\", \"repo\": \"oai-pmh\",
-                              \"oai_base\": \"http://digital.csic.es/dspace-oai/request\"}'", "selectable": false},
-                     {"type": "positional", "description": "Endpoint", "value": "http://localhost:9090/v1.0/rda/rda_all", "selectable": false}
-                 ]
+                     {"type": "optional", "description": "", "option": "-H", "value": "'Content-Type: application/json'", "selectable": false}]
             }
         },
         "license": {
