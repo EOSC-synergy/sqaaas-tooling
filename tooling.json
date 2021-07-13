@@ -58,7 +58,7 @@
                     "image": "ferag/fair_eva:test",
                     "reviewed": "2021-07-06"
                 },
-                "executable": "curl",
+                "executable": "/bin/curl",
                 "args": [{
                     "type": "positional", "description": "Endpoint", "value": "localhost", "selectable": false
                 }]
