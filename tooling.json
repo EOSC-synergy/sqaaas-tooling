@@ -55,7 +55,7 @@
             "fair-evaluator": {
                 "docs": "https://github.com/EOSC-synergy/FAIR_eva",
                 "docker": {
-                    "image": "ferag/fair_eva:test",
+                    "image": "ferag/fair_eva:fair",
                     "reviewed": "2021-07-06"
                 },
                 "executable": "/bin/curl",
