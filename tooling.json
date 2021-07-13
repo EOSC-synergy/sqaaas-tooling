@@ -58,7 +58,7 @@
                     "image": "ferag/fair_eva:fair",
                     "reviewed": "2021-07-06"
                 },
-                "executable": "/FAIR_eva/fair.py && /bin/curl",
+                "executable": "/bin/curl",
                 "args": [
                          {"type": "optional", "description": "", "option": "-H", "value": "'Content-Type: application/json'", "selectable": false},
                          {"type": "optional", "description": "", "option": "-X", "value": "POST", "selectable": false},
