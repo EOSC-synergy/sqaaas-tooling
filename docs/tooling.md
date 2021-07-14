@@ -35,7 +35,7 @@ The `docker` property includes the information related to the availability of th
 | -------- | ---- | ----------- | -------- |
 | `image`| string (url) | Docker registry URL (defaults to Docker Hub) | :white_check_mark: (only if `dockerfile` is not defined |
 | `dockerfile`| string (path) | Relative path to the Dockerfile. This file shall be maintained in the present repository, under the criterion folder it applies to | :white_check_mark: (only if `image` is not defined |
-| `reviewed`| string (date) | Date the image was last used (format YYYY-MM-DD)| |
+| `reviewed`| string (date) | Date the image was last used (format YYYY-MM-DD)| :heavy_check_mark: |
 
 ### Arguments (`args` property)
 The `args` property enables the definition of the arguments involved in the tool execution. The type of argument can fall into the three categories set out below:
