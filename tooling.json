@@ -56,6 +56,7 @@
                 "docs": "https://github.com/EOSC-synergy/FAIR_eva",
                 "docker": {
                     "image": "ferag/fair_eva:fair",
+                    "oneshot": false,
                     "reviewed": "2021-07-06"
                 },
                 "executable": "/bin/curl",
