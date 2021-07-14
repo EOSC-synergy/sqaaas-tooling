@@ -51,6 +51,21 @@
                 }
             }
         },
+        "fair": {
+            "fair-evaluator": {
+                "docs": "https://github.com/EOSC-synergy/FAIR_eva",
+                "docker": {
+                    "image": "ferag/fair_eva:fair",
+                    "reviewed": "2021-07-06"
+                },
+                "executable": "/bin/curl",
+                "args": [
+                         {"type": "optional", "description": "", "option": "-H", "value": "'Content-Type: application/json'", "selectable": false},
+                         {"type": "optional", "description": "", "option": "-X", "value": "POST", "selectable": false},
+                         {"type": "optional", "description": "", "option": "-d", "value": "'{\"id\": \"10261/157765\", \"repo\": \"oai-pmh\", \"oai_base\": \"http://digital.csic.es/dspace-oai/request\"}'", "selectable": false},
+                         {"type": "positional", "description": "Endpoint", "value": "http://localhost:9090/v1.0/rda/rda_all", "selectable": false}]
+            }
+        },
         "license": {
             "licensee": {
                 "docs": "https://github.com/licensee/licensee",
@@ -164,6 +179,16 @@
             },
             "tools": {
                 "license": ["licensee"]
+            }
+        },
+        "QC.FAIR": {
+            "description": {
+                "msg": "FAIRness level of Digital Objects.",
+                "improves": "findability, accessibility, interoperability, reusability",
+                "docs": "https://indigo-dc.github.io/sqa-baseline/"
+            },
+            "tools": {
+                "fair": ["fair-evaluator"]
             }
         }
     }
