@@ -65,6 +65,22 @@
                          {"type": "optional", "description": "", "option": "-X", "value": "POST", "selectable": false},
                          {"type": "optional", "description": "", "option": "-d", "value": "'{\"id\": \"10261/157765\", \"repo\": \"oai-pmh\", \"oai_base\": \"http://digital.csic.es/dspace-oai/request\"}'", "selectable": false},
                          {"type": "positional", "description": "Endpoint", "value": "http://localhost:9090/v1.0/rda/rda_all", "selectable": false}]
+            },
+            "F-UJI": {
+                "docs": "https://github.com/pangaea-data-publisher/fuji/blob/master/README.md",
+                "docker": {
+                    "image": "steinsteiny/fuji:fair",
+                    "oneshot": false,
+                    "reviewed": "2021-07-20"
+                },
+                "executable": "/bin/curl",
+                "args": [
+                         {"type": "optional", "description": "Facilitate content negotiation.", "option": "-H", "value": "'Accept: application/json'", "selectable": false},
+                         {"type": "optional", "description": "", "option": "-H", "value": "'Content-Type: application/json'", "selectable": false},
+                         {"type": "optional", "description": "BasicAuth credentials", "option": "-H", "value": "'Authorization: Basic bWFydmVsOndvbmRlcndvbWFu'", "selectable": false},
+                         {"type": "optional", "description": "HTTP Method", "option": "-X", "value": "POST", "selectable": false},
+                         {"type": "optional", "description": "Evaluator's input parameters", "option": "-d", "value": "'{\"metadata_service_endpoint\":\"http://digital.csic.es/dspace-oai/request\",\"metadata_service_type\":\"oai_pmh\",\"object_identifier\":\"http://hdl.handle.net/10261/157765\",\"test_debug\":true,\"use_datacite\":true}'", "selectable": false},
+                         {"type": "positional", "description": "Evaluator's endpoint", "value": "http://localhost:1071/fuji/api/v1/evaluate", "selectable": false}]
             }
         },
         "license": {
@@ -189,7 +205,7 @@
                 "docs": "https://indigo-dc.github.io/sqa-baseline/"
             },
             "tools": {
-                "fair": ["fair-evaluator"]
+                "fair": ["fair-evaluator", "F-UJI"]
             }
         }
     }
