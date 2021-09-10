@@ -6,7 +6,10 @@
                 "docker": {
                     "image": "hadolint/hadolint:latest-alpine",
                     "reviewed": "2021-06-21"
-                }
+                },
+                "args": [{
+                    "type": "optional", "description": "Ignore rules (see https://github.com/hadolint/hadolint#rules)", "value": "--ignore", "format": "string", "selectable": true, "repeatable": true
+                }]
             }
         },
         "java": {
