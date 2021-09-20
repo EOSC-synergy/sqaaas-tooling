@@ -76,7 +76,7 @@
                     "oneshot": false,
                     "reviewed": "2021-07-20"
                 },
-                "executable": "curl",
+                "executable": "sleep 10 && curl",
                 "args": [
                          {"type": "optional", "description": "Facilitate content negotiation.", "option": "-H", "value": "'Accept: application/json'", "selectable": false},
                          {"type": "optional", "description": "", "option": "-H", "value": "\"Content-Type: application/json\"", "selectable": false},
