@@ -51,7 +51,15 @@
                 "docker": {
                     "image": "painless/tox",
                     "reviewed": "1970-01-01"
+                },
+                "args": [{
+                    "type": "optional", "description": "Path to the tox.ini file", "value": ".", "format": "string", "selectable": true
+                },
+                {
+                    "type": "positional", "description": "Test ENV", "value": "tox.ini", "format": "string", "selectable": true, "repeatable": true
                 }
+                ]
+                
             }
         },
         "fair": {
@@ -64,10 +72,10 @@
                 },
                 "executable": "/bin/curl",
                 "args": [
-                         {"type": "optional", "description": "", "option": "-H", "value": "'Content-Type: application/json'", "selectable": false},
-                         {"type": "optional", "description": "", "option": "-X", "value": "POST", "selectable": false},
-                         {"type": "optional", "description": "", "option": "-d", "value": "'{\"id\": \"10261/157765\", \"repo\": \"oai-pmh\", \"oai_base\": \"http://digital.csic.es/dspace-oai/request\"}'", "selectable": false},
-                         {"type": "positional", "description": "Endpoint", "value": "http://localhost:9090/v1.0/rda/rda_all", "selectable": false}]
+                         {"type": "optional", "format": "string", "description": "", "option": "-H", "value": "'Content-Type: application/json'", "selectable": true},
+                         {"type": "optional", "format": "string", "description": "", "option": "-X", "value": "POST", "selectable": true},
+                         {"type": "optional", "format": "string", "description": "", "option": "-d", "value": "'{\"id\": \"10261/157765\", \"repo\": \"oai-pmh\", \"oai_base\": \"http://digital.csic.es/dspace-oai/request\"}'", "selectable": true},
+                         {"type": "positional", "format": "string", "description": "Endpoint", "value": "http://localhost:9090/v1.0/rda/rda_all", "selectable": true}]
             },
             "F-UJI": {
                 "docs": "https://github.com/pangaea-data-publisher/fuji/blob/master/README.md",
@@ -124,7 +132,12 @@
                 "docker": {
                     "dockerfile": "alpine:latest",
                     "reviewed": "1970-01-01"
-                }
+                },
+                 "args": [
+                    {
+                        "type": "positional", "description": "Commands", "value": "", "format": "string", "selectable": true, "repeatable": true
+                    }
+                ]
             }
         }
     },
