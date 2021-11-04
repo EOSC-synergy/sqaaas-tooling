@@ -8,7 +8,7 @@
                     "reviewed": "2021-06-21"
                 },
                 "args": [{
-                    "type": "optional", "description": "Ignore rules (see https://github.com/hadolint/hadolint#rules)", "value": "--ignore", "format": "string", "selectable": true, "repeatable": true
+                    "type": "optional", "description": "Ignore rules (see https://github.com/hadolint/hadolint#rules)", "option": "--ignore", "format": "string", "selectable": true, "repeatable": true
                 }]
             }
         },
@@ -53,7 +53,7 @@
                     "reviewed": "1970-01-01"
                 },
                 "args": [{
-                    "type": "optional", "description": "Path to the tox.ini file", "value": ".", "format": "string", "selectable": true
+                    "type": "optional", "description": "Path to the tox.ini file", "option": "-c", "value": ".", "format": "string", "selectable": true
                 },
                 {
                     "type": "positional", "description": "Test ENV", "value": "tox.ini", "format": "string", "selectable": true, "repeatable": true
