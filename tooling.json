@@ -8,7 +8,7 @@
                     "reviewed": "2021-06-21"
                 },
                 "args": [{
-                    "type": "optional", "description": "Ignore rules (see https://github.com/hadolint/hadolint#rules)", "option": "--ignore", "format": "string", "selectable": true, "repeatable": true
+                    "type": "optional", "description": "Ignore rules (see https://github.com/hadolint/hadolint#rules)", "option": "--ignore", "value": "", "format": "string", "selectable": true, "repeatable": true
                 }]
             }
         },
