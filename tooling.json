@@ -56,7 +56,7 @@
                     "type": "optional", "description": "Path to the tox.ini file", "option": "-c", "value": "tox.ini", "format": "string", "selectable": true
                 },
                 {
-                    "type": "positional", "description": "Test environment", "option": "-e", "value": "", "format": "string", "selectable": true, "repeatable": true
+                    "type": "optional", "description": "Test environment", "option": "-e", "value": "", "format": "string", "selectable": true, "repeatable": true
                 }
                 ]
                 
