@@ -59,7 +59,7 @@
                     "type": "optional", "description": "Test environment", "option": "-e", "value": "", "format": "string", "selectable": true, "repeatable": true
                 }
                 ]
-                
+
             }
         },
         "fair": {
@@ -118,10 +118,10 @@
         },
         "codemeta": {
             "checkCitable": {
-                "docs": "https://github.com/EOSC-synergy/sqa-composer-templates/tree/main/QC.Acc",
+                "docs": "https://github.com/EOSC-synergy/sqa-composer-templates/tree/main/QC.Met",
                 "docker": {
                     "dockerfile": "Qc.Acc/Dockerfile",
-                    "composer_file": "QC.Acc/docker-compose.yml",
+                    "composer_file": "QC.Met/docker-compose.yml",
                     "reviewed": "1970-01-01"
                 }
             }
@@ -194,10 +194,10 @@
                 "python": ["tox"]
             }
         },
-        "QC.Acc": {
+        "QC.Met": {
             "description": {
-                "msg": "Source code and documentation publicly available in online repositories",
-                "improves": "reusability, reproducibility",
+                "msg": "Make source code citable",
+                "improves": "findability",
                 "docs": "https://indigo-dc.github.io/sqa-baseline/#code-accessibility-qc.acc"
             },
             "tools": {
