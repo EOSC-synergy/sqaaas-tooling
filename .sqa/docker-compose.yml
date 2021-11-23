@@ -2,6 +2,7 @@ services:
   qc.sty_sloppy-plum-gharial:
     command: sleep 6000000
     image: cytopia/jsonlint
+    entrypoint: /bin/sh
     volumes:
     - source: ./
       target: /sqaaas-build
