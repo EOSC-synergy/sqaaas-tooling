@@ -1,0 +1,15 @@
+config:
+  credentials: []
+  project_repos:
+    github.com/EOSC-synergy/sqaaas-tooling:
+      branch: staging
+      repo: https://github.com/EOSC-synergy/sqaaas-tooling
+environment: {}
+sqa_criteria:
+  QC.Sty:
+    repos:
+      this_repo:
+        commands:
+        - jsonlint tooling.json
+        container: qc.sty_sloppy-plum-gharial
+timeout: 600
