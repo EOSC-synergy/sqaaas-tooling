@@ -48,7 +48,7 @@
             "pycodestyle": {
                 "docs": "https://pycodestyle.pycqa.org/",
                 "docker": {
-                    "image": "cytopia/pycodestyle",
+                    "dockerfile": "QC.Sty/pycodestyle/Dockerfile",
                     "reviewed": "2021-11-23"
                 },
                 "args": [{
