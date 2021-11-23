@@ -29,7 +29,7 @@
                     "reviewed": "1970-01-01"
                 },
                 "args": [{
-                    "type": "positional", "description": "Path to JSON file", "value": "", "selectable": true
+                    "type": "positional", "description": "Path to JSON file", "value": "", "format": "string", "selectable": true, "repeatable": false
                 }]
 
             }
