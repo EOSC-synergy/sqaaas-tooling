@@ -49,8 +49,11 @@
                 "docs": "https://pycodestyle.pycqa.org/",
                 "docker": {
                     "image": "cytopia/pycodestyle",
-                    "reviewed": "1970-01-01"
-                }
+                    "reviewed": "2021-11-23"
+                },
+                "args": [{
+                    "type": "positional", "description": "Path to Python project or file/s", "value": ".", "format": "string", "selectable": true, "repeatable": true
+                }]
             },
             "tox": {
                 "jepl_support": true,
