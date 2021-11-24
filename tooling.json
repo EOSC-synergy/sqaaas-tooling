@@ -144,7 +144,8 @@
                     "dockerfile": "alpine:latest",
                     "reviewed": "1970-01-01"
                 },
-                 "args": [
+                "executable": "",
+                "args": [
                     {
                         "type": "positional", "description": "Commands", "value": "", "format": "string", "selectable": true, "repeatable": true
                     }
