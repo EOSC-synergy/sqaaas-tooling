@@ -28,7 +28,7 @@
             "jsonlint": {
                 "docs": "https://github.com/zaach/jsonlint",
                 "docker": {
-                    "image": "cytopia/jsonlint",
+                    "dockerfile": "QC.Sty/jsonlint/Dockerfile",
                     "reviewed": "2021-11-23"
                 },
                 "args": [{
