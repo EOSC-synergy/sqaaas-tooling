@@ -42,8 +42,14 @@
                 "docs": "https://bandit.readthedocs.io/",
                 "docker": {
                     "image": "secfigo/bandit",
-                    "reviewed": "1970-01-01"
-                }
+                    "reviewed": "2021-11-25"
+                },
+                "args": [{
+                    "type": "optional", "description": "find and process files in subdirectories", "option": "--recursive", "value": "", "format": "string", "selectable": false, "repeatable": false
+                },
+                {
+                    "type": "positional", "description": "source file(s) or directory(s) to be tested", "value": ".", "format": "string", "selectable": true, "repeatable": true
+                }]
             },
             "pycodestyle": {
                 "docs": "https://pycodestyle.pycqa.org/",
