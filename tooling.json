@@ -121,7 +121,7 @@
                     "type": "subcommand", "description": "Detect the license of the given project", "value": "detect", "selectable": false, "args": [{
                         "type": "positional", "description": "Path to project's license", "value": ".", "selectable": false
                     }],
-                    "type": "optional", "description": "JSON output", "option": "--json", "value": "", "selectable": false
+                    "type": "optional", "description": "JSON output", "option": "--json", "selectable": false
                 }]
             },
             "checkLicense": {
