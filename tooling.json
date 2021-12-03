@@ -125,7 +125,13 @@
                         "type": "positional", "description": "Path to project's license", "value": ".", "selectable": false
                     }],
                     "type": "optional", "description": "JSON output", "option": "--json", "selectable": false
-                }]
+                }],
+                "reporting": {
+                    "plugin": {
+                        "name": "licensee",
+                        "threshold": 50
+                    }
+                }
             },
             "checkLicense": {
                 "docs": "https://github.com/EOSC-synergy/sqa-composer-templates/tree/main/QC.Lic",
