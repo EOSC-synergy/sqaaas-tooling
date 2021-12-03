@@ -8,6 +8,9 @@
                     "reviewed": "2021-06-21"
                 },
                 "args": [{
+                    "type": "positional", "description": "Path to Dockerfile", "value": "Dockerfile", "format": "string", "selectable": true, "repeatable": false
+                },
+                {
                     "type": "optional", "description": "Ignore rules (see https://github.com/hadolint/hadolint#rules)", "option": "--ignore", "value": "", "format": "string", "selectable": true, "repeatable": true
                 }]
             }
@@ -18,16 +21,23 @@
                 "docker": {
                     "image": "davrodgon/checkstyle",
                     "reviewed": "1970-01-01"
-                }
+                },
+                "args": [{
+                    "type": "positional", "description": "source file(s) or directory(ies) to be analyzed", "value": ".", "format": "string", "selectable": true, "repeatable": true
+                }]
             }
         },
         "json": {
             "jsonlint": {
                 "docs": "https://github.com/zaach/jsonlint",
                 "docker": {
-                    "image": "cytopia/jsonlint",
-                    "reviewed": "1970-01-01"
-                }
+                    "dockerfile": "QC.Sty/jsonlint/Dockerfile",
+                    "reviewed": "2021-11-23"
+                },
+                "args": [{
+                    "type": "positional", "description": "Path to JSON file", "value": "", "format": "string", "selectable": true, "repeatable": false
+                }]
+
             }
         },
         "python": {
@@ -35,15 +45,24 @@
                 "docs": "https://bandit.readthedocs.io/",
                 "docker": {
                     "image": "secfigo/bandit",
-                    "reviewed": "1970-01-01"
-                }
+                    "reviewed": "2021-11-25"
+                },
+                "args": [{
+                    "type": "optional", "description": "find and process files in subdirectories", "option": "--recursive", "format": "string", "selectable": false, "repeatable": false
+                },
+                {
+                    "type": "positional", "description": "source file(s) or directory(s) to be tested", "value": ".", "format": "string", "selectable": true, "repeatable": true
+                }]
             },
             "pycodestyle": {
                 "docs": "https://pycodestyle.pycqa.org/",
                 "docker": {
-                    "image": "cytopia/pycodestyle",
-                    "reviewed": "1970-01-01"
-                }
+                    "dockerfile": "QC.Sty/pycodestyle/Dockerfile",
+                    "reviewed": "2021-11-23"
+                },
+                "args": [{
+                    "type": "positional", "description": "Path to Python project or file/s", "value": ".", "format": "string", "selectable": true, "repeatable": true
+                }]
             },
             "tox": {
                 "jepl_support": true,
@@ -104,7 +123,8 @@
                 "args": [{
                     "type": "subcommand", "description": "Detect the license of the given project", "value": "detect", "selectable": false, "args": [{
                         "type": "positional", "description": "Path to project's license", "value": ".", "selectable": false
-                    }]
+                    }],
+                    "type": "optional", "description": "JSON output", "option": "--json", "selectable": false
                 }]
             },
             "checkLicense": {
@@ -130,10 +150,11 @@
             "commands": {
                 "docs": "https://indigo-dc.github.io/jenkins-pipeline-library/2.0.0/user/config_file.html#commands",
                 "docker": {
-                    "dockerfile": "alpine:latest",
+                    "image": "alpine:latest",
                     "reviewed": "1970-01-01"
                 },
-                 "args": [
+                "executable": "",
+                "args": [
                     {
                         "type": "positional", "description": "Commands", "value": "", "format": "string", "selectable": true, "repeatable": true
                     }
