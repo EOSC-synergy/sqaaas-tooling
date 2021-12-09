@@ -127,10 +127,8 @@
                     "type": "optional", "description": "JSON output", "option": "--json", "selectable": false
                 }],
                 "reporting": {
-                    "plugin": {
-                        "name": "licensee",
-                        "threshold": 50
-                    }
+                    "validator": "licensee",
+                    "threshold": 50
                 }
             },
             "checkLicense": {
