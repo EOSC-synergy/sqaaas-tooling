@@ -27,6 +27,7 @@ The following table summarizes the properties that ought to be set in the tool d
 | `docker` | object | See [Docker](#docker-docker-property) section | :heavy_check_mark: |
 | `executable` | string | Name of the executable. The tool's name is used by default.  <br>*This is only required when the executable to be used is different from the tool's name* | |
 | `args` | object | See [Arguments](#arguments-args-property) section | |
+| `reporting` | object | See [Reporting](#reporting-reporting-property) section | |
 
 ### Docker (`docker` property)
 The `docker` property includes the information related to the availability of the Docker image that contains the tool. Hence, it offers two main ways of getting the Docker image, either 1) pulling an existing image from a Docker registry, or 2) build the image from a Dockerfile. One of the two properties must be defined:
@@ -54,6 +55,15 @@ The `args` property enables the definition of the arguments involved in the tool
 | `selectable` | boolean | (for API clients) Whether the argument's value shall be customized by the user, or otherwise it is a fixed (non-modifiable) value | :white_check_mark: (for API clients) |
 | `repeatable` | boolean | (for API clients) Whether the same argument can be used several times | :white_check_mark: (for API clients) |
 | `args` | object | Suitable when defining commands with more than one type of argument, it allows to define nested `args` properties | |
+
+### Reporting (`reporting` property)
+The `reporting` property provides the pointers to the suitable output validator that is capable of parsing the data produced by the given tool. The list of available validator plugins officially supported in the SQAaaS platform can be found in the [sqaaas-reporting-plugins](https://github.com/eosc-synergy/sqaaas-reporting-plugins) repository.
+
+The set of sub-properties that are meaningful to the `reporting` property are the following:
+| Property | Type | Description | Required |
+| -------- | ---- | ----------- | -------- |
+| `validator` | string | Id of the validator (the [report2sqaaas](https://github.com/eosc-synergy/sqaaas-reporting) CLI provides the possible choices) | :heavy_check_mark: |
+| `threshold` | int | The threshold that sets the output as valid or invalid  | :white_check_mark: |
 
 ### The `default` property
 The `tools` property has a special key named `default`. Here you can define the tools that shall be available for all the defined criteria (in the [`criteria` property](#criteria-properties)).
