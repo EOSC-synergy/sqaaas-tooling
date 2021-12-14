@@ -65,6 +65,8 @@ The set of sub-properties that are meaningful to the `reporting` property are th
 | `validator` | string | Id of the validator (the [report2sqaaas](https://github.com/eosc-synergy/sqaaas-reporting) CLI provides the possible choices) | :heavy_check_mark: |
 | `threshold` | int | The threshold that sets the output as valid or invalid  | :white_check_mark: |
 
+*Note*: these names of the sub-properties **have to match** the names of the input arguments defined in [report2sqaaas](https://github.com/EOSC-synergy/sqaaas-reporting) module.
+
 ### The `default` property
 The `tools` property has a special key named `default`. Here you can define the tools that shall be available for all the defined criteria (in the [`criteria` property](#criteria-properties)).
 
