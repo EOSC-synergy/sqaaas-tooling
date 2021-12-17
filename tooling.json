@@ -128,7 +128,8 @@
                 }],
                 "reporting": {
                     "validator": "licensee",
-                    "threshold": 50
+                    "threshold": 50,
+                    "requirement_level": "REQUIRED"
                 }
             },
             "checkLicense": {
