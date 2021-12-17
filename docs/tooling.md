@@ -64,9 +64,11 @@ The set of sub-properties that are meaningful to the `reporting` property are th
 | -------- | ---- | ----------- | -------- |
 | `validator` | string | Id of the validator (the [report2sqaaas](https://github.com/eosc-synergy/sqaaas-reporting) CLI provides the possible choices) | :heavy_check_mark: |
 | `threshold` | int | The threshold that sets the output as valid or invalid  | :white_check_mark: |
-| `requirement_level` | string (enum) |  Sets the relevance of the tool in regards to the fulfillment of the associated criterion. Choose between [REQUIRED, RECOMMENDED, OPTIONAL] (OPTIONAL is the default value, both [REQUIRED, RECOMMENDED] are executed by the QAA module)  | :white_check_mark: |
+| `requirement_level` | string (enum) |  Sets the relevance of the tool in regards to the fulfillment of the associated criterion. Choose between [`REQUIRED`, `RECOMMENDED`, `OPTIONAL`] | :white_check_mark: |
 
-*Note*: these names of the sub-properties **have to match** the names of the input arguments defined in [report2sqaaas](https://github.com/EOSC-synergy/sqaaas-reporting) module.
+*Note*:
+ - The `validator` and `threshold` properties are passed as input arguments to the [report2sqaaas](https://github.com/EOSC-synergy/sqaaas-reporting) module, and thus, they must be **aligned/match** those from such module.
+ - The `requirement_level` of the tools is `OPTIONAL` by default (if no value is provided). Both [`REQUIRED`, `RECOMMENDED`] tools are processed by the QAA module, but only the `REQUIRED` are considered to determine the fulfillment of the criterion.
 
 ### The `default` property
 The `tools` property has a special key named `default`. Here you can define the tools that shall be available for all the defined criteria (in the [`criteria` property](#criteria-properties)).
