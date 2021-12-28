@@ -157,6 +157,15 @@
                 }
             }
         },
+        "markdown": {
+            "markdownlint": {
+                "docs": "https://github.com/markdownlint/markdownlint",
+                "docker": {
+                    "image": "markdownlint/markdownlint:0.11.0",
+                    "reviewed": "1970-01-01"
+                }
+            }
+        },
         "default": {
             "commands": {
                 "docs": "https://indigo-dc.github.io/jenkins-pipeline-library/2.0.0/user/config_file.html#commands",
@@ -223,7 +232,8 @@
                 "docs": "https://indigo-dc.github.io/sqa-baseline/#documentation-qc.doc"
             },
             "tools": {
-                "python": ["tox"]
+                "python": ["tox"],
+                "markdown": ["markdownlint"]
             }
         },
         "QC.Met": {
