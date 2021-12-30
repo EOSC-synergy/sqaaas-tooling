@@ -1,5 +1,26 @@
 {
     "tools": {
+        "scm": {
+            "git": {
+                "docs": "https://git-scm.com/",
+                "docker": {
+                    "image": "bitnami/git",
+                    "reviewed": "2021-12-30"
+                },
+                "args": [
+                    {
+                        "type": "positional", "description": "Pick out and massage parameters", "value": "rev-parse", "selectable": false
+                    },
+                    {
+                        "type": "optional", "description": "Current working directory is inside the repository's work directory?", "value": "--is-inside-work-tree", "selectable": false
+                    }
+                ],
+                "reporting": {
+                    "validator": "boolean",
+                    "requirement_level": "REQUIRED"
+                }
+            }
+        },
         "dockerfile": {
             "hadolint": {
                 "docs": "https://github.com/hadolint/hadolint",
@@ -183,6 +204,16 @@
         }
     },
     "criteria": {
+        "QC.Acc": {
+            "description": {
+                "msg": "Code publicly available and managed by a version control system",
+                "improves": "collaboration, reproducibility",
+                "docs": "https://indigo-dc.github.io/sqa-baseline/#code-accessibility-qc.acc"
+            },
+            "tools": {
+                "scm": ["git"]
+            }
+        },
         "QC.Sty": {
             "description": {
                 "msg": "Use code style standards to guide your code writing so you let others understand it",
