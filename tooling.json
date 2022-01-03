@@ -193,6 +193,10 @@
                 "docker": {
                     "image": "QC.Doc/Dockerfile",
                     "reviewed": "2022-01-03"
+                },
+                "reporting": {
+                    "validator": "json_not_empty",
+                    "requirement_level": "REQUIRED"
                 }
             }
         },
