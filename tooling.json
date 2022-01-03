@@ -195,7 +195,7 @@
                 ],
                 "reporting": {
                     "validator": "markdownlint",
-                    "requirement_level": "REQUIRED"
+                    "requirement_level": "RECOMMENDED"
                 }
             }
         },
