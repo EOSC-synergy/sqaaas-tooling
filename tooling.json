@@ -12,7 +12,7 @@
                         "type": "positional", "description": "Pick out and massage parameters", "value": "rev-parse", "selectable": false
                     },
                     {
-                        "type": "optional", "description": "Current working directory is inside the repository's work directory?", "value": "--is-inside-work-tree", "selectable": false
+                        "type": "optional", "description": "Current working directory is inside the repository's work directory?", "option": "--is-inside-work-tree", "selectable": false
                     }
                 ],
                 "reporting": {
