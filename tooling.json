@@ -187,6 +187,15 @@
                 }
             }
         },
+        "readme": {
+            "find_readme.py": {
+                "docs": "QC.Doc/find_readme.py",
+                "docker": {
+                    "image": "QC.Doc/Dockerfile",
+                    "reviewed": "2022-01-03"
+                }
+            }
+        },
         "default": {
             "commands": {
                 "docs": "https://indigo-dc.github.io/jenkins-pipeline-library/2.0.0/user/config_file.html#commands",
@@ -264,7 +273,8 @@
             },
             "tools": {
                 "python": ["tox"],
-                "markdown": ["markdownlint"]
+                "markdown": ["markdownlint"],
+                "readme": ["find_readme.py"]
             }
         },
         "QC.Met": {
