@@ -204,7 +204,7 @@
             "find_readme.py": {
                 "docs": "QC.Doc/find_readme.py",
                 "docker": {
-                    "image": "QC.Doc/Dockerfile",
+                    "dockerfile": "QC.Doc/Dockerfile",
                     "reviewed": "2022-01-03"
                 },
                 "reporting": {
