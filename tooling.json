@@ -185,6 +185,7 @@
                     "dockerfile": "QC.Doc/markdownlint/Dockerfile",
                     "reviewed": "1970-01-01"
                 },
+                "executable": "mdl",
                 "args": [
                     {
                         "type": "optional", "description": "JSON output", "option": "--json", "selectable": false
