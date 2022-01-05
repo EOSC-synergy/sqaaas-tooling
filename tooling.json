@@ -207,6 +207,11 @@
                     "dockerfile": "QC.Doc/Dockerfile",
                     "reviewed": "2022-01-03"
                 },
+                "args": [
+                    {
+                        "type": "positional", "description": "Root path of the code repository", "value": ".", "selectable": false
+                    }
+                ],
                 "reporting": {
                     "validator": "json_not_empty",
                     "requirement_level": "REQUIRED"
