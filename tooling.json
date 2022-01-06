@@ -213,7 +213,8 @@
                     }
                 ],
                 "reporting": {
-                    "validator": "json_not_empty",
+                    "validator": "find_readme",
+                    "threshold": 0,
                     "requirement_level": "REQUIRED"
                 }
             }
