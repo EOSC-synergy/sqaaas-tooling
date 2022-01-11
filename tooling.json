@@ -176,6 +176,24 @@
                     "composer_file": "QC.Met/checkCitable/docker-compose.yml",
                     "reviewed": "1970-01-01"
                 }
+            },
+            "validate_codemeta": {
+                "docs": "",
+                "docker": {
+                    "image": "busybox:1.35.0",
+                    "reviewed": "2021-01-11"
+                },
+                "executable": "cat",
+                "args": [
+                    {
+                        "type": "positional", "description": "Codemeta file name", "value": "codemeta.json", "selectable": false
+                    }
+                ],
+                "reporting": {
+                    "validator": "json_not_empty",
+                    "requirement_level": "REQUIRED"
+                }
+
             }
         },
         "markdown": {
@@ -307,7 +325,7 @@
                 "docs": "https://indigo-dc.github.io/sqa-baseline/#code-accessibility-qc.acc"
             },
             "tools": {
-                "codemeta": ["checkCitable"]
+                "codemeta": ["checkCitable", "validate_codemeta"]
             }
         },
         "QC.Lic": {
