@@ -172,8 +172,8 @@
             "checkCitable": {
                 "docs": "https://github.com/EOSC-synergy/sqa-composer-templates/tree/main/QC.Met",
                 "docker": {
-                    "dockerfile": "Qc.Acc/Dockerfile",
-                    "composer_file": "QC.Met/docker-compose.yml",
+                    "dockerfile": "Qc.Met/checkCitable/Dockerfile",
+                    "composer_file": "QC.Met/checkCitable/docker-compose.yml",
                     "reviewed": "1970-01-01"
                 }
             }
