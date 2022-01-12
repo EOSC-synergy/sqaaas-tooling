@@ -180,7 +180,7 @@
             "validate_codemeta": {
                 "docs": "",
                 "docker": {
-                    "image": "busybox:1.35.0",
+                    "image": "alpine:3.15.0",
                     "reviewed": "2021-01-11"
                 },
                 "executable": "cat",
