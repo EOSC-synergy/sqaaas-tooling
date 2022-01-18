@@ -21,7 +21,7 @@
                 }
             }
         },
-        "dockerfile": {
+        "Dockerfile": {
             "hadolint": {
                 "docs": "https://github.com/hadolint/hadolint",
                 "docker": {
@@ -36,7 +36,7 @@
                 }]
             }
         },
-        "java": {
+        "Java": {
             "checkstyle": {
                 "docs": "https://github.com/checkstyle/checkstyle",
                 "docker": {
@@ -48,7 +48,7 @@
                 }]
             }
         },
-        "json": {
+        "JSON": {
             "jsonlint": {
                 "docs": "https://github.com/zaach/jsonlint",
                 "docker": {
