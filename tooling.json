@@ -289,6 +289,69 @@
                 "scm": ["git"]
             }
         },
+        "QC.Doc": {
+            "description": {
+                "msg": "Treat documentation as code by using markup languages to automatically build and place it in online repositories",
+                "improves": "outreach capacity, documentation maintenance",
+                "docs": "https://indigo-dc.github.io/sqa-baseline/#documentation-qc.doc"
+            },
+            "tools": {
+                "python": ["tox"],
+                "markdown": ["markdownlint"],
+                "reStructuredText": ["restructuredtext-lint"],
+                "readme": ["find_readme.py"]
+            }
+        },
+        "QC.FAIR": {
+            "description": {
+                "msg": "FAIRness level of Digital Objects.",
+                "improves": "findability, accessibility, interoperability, reusability",
+                "docs": "https://indigo-dc.github.io/sqa-baseline/"
+            },
+            "tools": {
+                "fair": ["fair-evaluator", "F-UJI"]
+            }
+        },
+        "QC.Fun": {
+            "description": {
+                "msg": "Ensure compliance with the functional requirements to meet your users’ expectations",
+                "improves": "end-user satisfaction, usability",
+                "docs": "https://indigo-dc.github.io/sqa-baseline/#functional-testing-qc.fun"
+            },
+            "tools": {
+                "python": ["tox"]
+            }
+        },
+        "QC.Lic": {
+            "description": {
+                "msg": "Usage of an open license to distribute your code",
+                "improves": "external contributions, reusability",
+                "docs": "https://indigo-dc.github.io/sqa-baseline/#licensing-qc.lic"
+            },
+            "tools": {
+                "license": ["licensee"]
+            }
+        },
+        "QC.Met": {
+            "description": {
+                "msg": "Make source code citable",
+                "improves": "findability",
+                "docs": "https://indigo-dc.github.io/sqa-baseline/#code-accessibility-qc.acc"
+            },
+            "tools": {
+                "codemeta": ["checkCitable", "validate_codemeta"]
+            }
+        },
+        "QC.Sec": {
+            "description": {
+                "msg": "Secure your software by finding (statically) common issues associated to the programming language in use and look for disclosed security vulnerabilities",
+                "improves": "security issues detection",
+                "docs": "https://indigo-dc.github.io/sqa-baseline/#security-qc.sec"
+            },
+            "tools": {
+                "python": ["tox", "bandit"]
+            }
+        },
         "QC.Sty": {
             "description": {
                 "msg": "Use code style standards to guide your code writing so you let others understand it",
@@ -309,69 +372,6 @@
             },
             "tools": {
                 "python": ["tox"]
-            }
-        },
-        "QC.Fun": {
-            "description": {
-                "msg": "Ensure compliance with the functional requirements to meet your users’ expectations",
-                "improves": "end-user satisfaction, usability",
-                "docs": "https://indigo-dc.github.io/sqa-baseline/#functional-testing-qc.fun"
-            },
-            "tools": {
-                "python": ["tox"]
-            }
-        },
-        "QC.Sec": {
-            "description": {
-                "msg": "Secure your software by finding (statically) common issues associated to the programming language in use and look for disclosed security vulnerabilities",
-                "improves": "security issues detection",
-                "docs": "https://indigo-dc.github.io/sqa-baseline/#security-qc.sec"
-            },
-            "tools": {
-                "python": ["tox", "bandit"]
-            }
-        },
-        "QC.Doc": {
-            "description": {
-                "msg": "Treat documentation as code by using markup languages to automatically build and place it in online repositories",
-                "improves": "outreach capacity, documentation maintenance",
-                "docs": "https://indigo-dc.github.io/sqa-baseline/#documentation-qc.doc"
-            },
-            "tools": {
-                "python": ["tox"],
-                "markdown": ["markdownlint"],
-                "reStructuredText": ["restructuredtext-lint"],
-                "readme": ["find_readme.py"]
-            }
-        },
-        "QC.Met": {
-            "description": {
-                "msg": "Make source code citable",
-                "improves": "findability",
-                "docs": "https://indigo-dc.github.io/sqa-baseline/#code-accessibility-qc.acc"
-            },
-            "tools": {
-                "codemeta": ["checkCitable", "validate_codemeta"]
-            }
-        },
-        "QC.Lic": {
-            "description": {
-                "msg": "Usage of an open license to distribute your code",
-                "improves": "external contributions, reusability",
-                "docs": "https://indigo-dc.github.io/sqa-baseline/#licensing-qc.lic"
-            },
-            "tools": {
-                "license": ["licensee"]
-            }
-        },
-        "QC.FAIR": {
-            "description": {
-                "msg": "FAIRness level of Digital Objects.",
-                "improves": "findability, accessibility, interoperability, reusability",
-                "docs": "https://indigo-dc.github.io/sqa-baseline/"
-            },
-            "tools": {
-                "fair": ["fair-evaluator", "F-UJI"]
             }
         }
     }
