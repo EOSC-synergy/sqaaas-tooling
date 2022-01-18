@@ -218,6 +218,31 @@
                 }
             }
         },
+        "reStructuredText": {
+            "restructuredtext-lint": {
+                "docs": "https://github.com/twolfson/restructuredtext-lint",
+                "docker": {
+                    "dockerfile": "QC.Doc/restructuredtext-lint/Dockerfile",
+                    "reviewed": "2022-01-18"
+                },
+                "executable": "rst-lint",
+                "args": [
+                    {
+                        "type": "optional", "description": "Minimum error level to report (default: 'warning')", "option": "--level", "value": "warning", "selectable": false
+                    },
+                    {
+                        "type": "optional", "description": "Format of the output (default: 'text')", "option": "--format", "value": "json", "selectable": false
+                    },
+                    {
+                        "type": "positional", "description": "File/folder to lint", "value": ".", "selectable": true, "format": "string"
+                    }
+                ],
+                "reporting": {
+                    "validator": "json_not_empty",
+                    "requirement_level": "RECOMMENDED"
+                }
+            }
+        },
         "readme": {
             "find_readme.py": {
                 "docs": "QC.Doc/find_readme.py",
@@ -315,6 +340,7 @@
             "tools": {
                 "python": ["tox"],
                 "markdown": ["markdownlint"],
+                "reStructuredText": ["restructuredtext-lint"],
                 "readme": ["find_readme.py"]
             }
         },
