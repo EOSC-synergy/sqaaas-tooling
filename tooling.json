@@ -61,7 +61,7 @@
 
             }
         },
-        "python": {
+        "Python": {
             "bandit": {
                 "docs": "https://bandit.readthedocs.io/",
                 "docker": {
@@ -196,7 +196,7 @@
 
             }
         },
-        "markdown": {
+        "Markdown": {
             "markdownlint": {
                 "docs": "https://github.com/markdownlint/markdownlint",
                 "docker": {
@@ -296,8 +296,8 @@
                 "docs": "https://indigo-dc.github.io/sqa-baseline/#documentation-qc.doc"
             },
             "tools": {
-                "python": ["tox"],
-                "markdown": ["markdownlint"],
+                "Python": ["tox"],
+                "Markdown": ["markdownlint"],
                 "reStructuredText": ["restructuredtext-lint"],
                 "readme": ["find_readme.py"]
             }
@@ -319,7 +319,7 @@
                 "docs": "https://indigo-dc.github.io/sqa-baseline/#functional-testing-qc.fun"
             },
             "tools": {
-                "python": ["tox"]
+                "Python": ["tox"]
             }
         },
         "QC.Lic": {
@@ -349,7 +349,7 @@
                 "docs": "https://indigo-dc.github.io/sqa-baseline/#security-qc.sec"
             },
             "tools": {
-                "python": ["tox", "bandit"]
+                "Python": ["tox", "bandit"]
             }
         },
         "QC.Sty": {
@@ -359,9 +359,9 @@
                 "docs": "https://indigo-dc.github.io/sqa-baseline/#code-style-qc.sty"
             },
             "tools": {
-                "dockerfile": ["hadolint"],
-                "json": ["jsonlint"],
-                "python": ["tox", "pycodestyle"]
+                "Dockerfile": ["hadolint"],
+                "JSON": ["jsonlint"],
+                "Python": ["tox", "pycodestyle"]
             }
         },
         "QC.Uni": {
@@ -371,7 +371,7 @@
                 "docs": "https://indigo-dc.github.io/sqa-baseline/#unit-testing-qc.uni"
             },
             "tools": {
-                "python": ["tox"]
+                "Python": ["tox"]
             }
         }
     }

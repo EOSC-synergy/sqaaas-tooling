@@ -4,10 +4,10 @@ The [tooling.json](../tooling.json) metadata file contains:
 2) the [`criteria`](#criteria-properties), having the mapping between the SQAaaS criteria<a href="#note1" id="note1ref"><sup>1</sup></a> and the tools.
 
 ## Tool properties
-Tools are categorized under the (programming) language they apply to, so e.g. the [bandit](https://bandit.readthedocs.io/) Python tool shall be added under the `python` key:
+Tools are categorized under the (programming) language they apply to, so e.g. the [bandit](https://bandit.readthedocs.io/) Python tool shall be added under the `Python` key:
 ```yaml
 "tools": {
-    "python": {
+    "Python": {
         "bandit": {
             "docs": "https://bandit.readthedocs.io/",
             "docker": {
@@ -85,9 +85,9 @@ The SQA criteria<a href="#note1" id="note1ref"><sup>1</sup></a> that the SQAaaS 
             "docs": "https://indigo-dc.github.io/sqa-baseline/#code-style-qc.sty"
         },
         "tools": {
-            "dockerfile": ["hadolint"],
-            "json": ["jsonlint"],
-            "python": ["tox", "pycodestyle"]
+            "Dockerfile": ["hadolint"],
+            "JSON": ["jsonlint"],
+            "Python": ["tox", "pycodestyle"]
         }
     },
     "QC.Lic": {
