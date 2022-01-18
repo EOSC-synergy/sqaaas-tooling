@@ -4,7 +4,7 @@ The [tooling.json](../tooling.json) metadata file contains:
 2) the [`criteria`](#criteria-properties), having the mapping between the SQAaaS criteria<a href="#note1" id="note1ref"><sup>1</sup></a> and the tools.
 
 ## Tool properties
-Tools are categorized under the (programming) language they apply to, so e.g. the [bandit](https://bandit.readthedocs.io/) Python tool shall be added under the `Python` key:
+Tools are categorized under the (programming) language they apply to, so e.g. Python's [bandit](https://bandit.readthedocs.io/) tool shall be added under the `Python` key:
 ```yaml
 "tools": {
     "Python": {
@@ -18,6 +18,8 @@ Tools are categorized under the (programming) language they apply to, so e.g. th
     }
 }
 ```
+*NOTE*: the name of the languages are compliant with the ones used in the [GitHub's linguist tool](https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml). The reason
+lies in the fact that file extensions for any given language are obtained from `linguist` metadata.
 
 The following table summarizes the properties that ought to be set in the tool definition:
 
