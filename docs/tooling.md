@@ -19,7 +19,7 @@ Tools are categorized under the (programming) language they apply to, so e.g. Py
 }
 ```
 *NOTE*: the name of the languages are compliant with the ones used in the [GitHub's linguist tool](https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml). The reason 
-relies on the fact that file extensions for any given language are obtained from `linguist` metadata.
+lies in the fact that file extensions for any given language are obtained from `linguist` metadata.
 
 The following table summarizes the properties that ought to be set in the tool definition:
 
