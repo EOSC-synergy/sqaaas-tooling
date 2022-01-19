@@ -168,6 +168,24 @@
                 }
             }
         },
+        "Citation File Format": {
+            "cff-converter-python": {
+                "docs": "https://github.com/citation-file-format/cff-converter-python",
+                "docker": {
+                    "dockerfile": "QC.Met/cff-converter-python/Dockerfile",
+                    "reviewed": "2022-01-19"
+                },
+                "executable": "cffconvert",
+                "args": [
+                    {
+                    }
+                ],
+                "reporting": {
+                    "validator": "json_not_empty",
+                    "requirement_level": "REQUIRED"
+                }
+            }
+        }
         "CodeMeta": {
             "checkCitable": {
                 "docs": "https://github.com/EOSC-synergy/sqa-composer-templates/tree/main/QC.Met",
@@ -181,7 +199,7 @@
                 "docs": "",
                 "docker": {
                     "image": "alpine:3.15.0",
-                    "reviewed": "2021-01-11"
+                    "reviewed": "2022-01-11"
                 },
                 "executable": "cat",
                 "args": [
@@ -193,7 +211,6 @@
                     "validator": "json_not_empty",
                     "requirement_level": "REQUIRED"
                 }
-
             }
         },
         "Markdown": {
