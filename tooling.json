@@ -168,7 +168,7 @@
                 }
             }
         },
-        "codemeta": {
+        "CodeMeta": {
             "checkCitable": {
                 "docs": "https://github.com/EOSC-synergy/sqa-composer-templates/tree/main/QC.Met",
                 "docker": {
@@ -339,7 +339,7 @@
                 "docs": "https://indigo-dc.github.io/sqa-baseline/#code-accessibility-qc.acc"
             },
             "tools": {
-                "codemeta": ["checkCitable", "validate_codemeta"]
+                "CodeMeta": ["checkCitable", "validate_codemeta"]
             }
         },
         "QC.Sec": {
