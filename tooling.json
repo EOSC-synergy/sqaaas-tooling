@@ -290,10 +290,14 @@
                 "executable": "rst-lint",
                 "args": [
                     {
-                        "type": "optional", "description": "Minimum error level to report (default: 'warning')", "option": "--level", "value": "warning", "selectable": false
+                        "type": "optional", "description": "Minimum error level to report (default: 'warning')", "option": "--level", "value": [
+                            "warning", "error", "severe", "info", "debug"
+                        ], "selectable": true
                     },
                     {
-                        "type": "optional", "description": "Format of the output (default: 'text')", "option": "--format", "value": "json", "selectable": false
+                        "type": "optional", "description": "Format of the output (default: 'text')", "option": "--format", "value": [
+                            "json", "text"
+                        ], "selectable": true
                     },
                     {
                         "type": "positional", "description": "File/folder to lint", "value": ".", "selectable": true, "format": "string"
