@@ -181,7 +181,7 @@
                     }
                 ],
                 "reporting": {
-                    "validator": "json_not_empty",
+                    "validator": "__STAGE_EXIT_STATUS__",
                     "requirement_level": "REQUIRED"
                 }
             }
