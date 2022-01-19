@@ -185,7 +185,7 @@
                     "requirement_level": "REQUIRED"
                 }
             }
-        }
+        },
         "CodeMeta": {
             "checkCitable": {
                 "docs": "https://github.com/EOSC-synergy/sqa-composer-templates/tree/main/QC.Met",
