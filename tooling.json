@@ -178,6 +178,7 @@
                 "executable": "cffconvert",
                 "args": [
                     {
+                        "type": "optional", "description": "Validate the CITATION.cff file", "option": "--validate", "selectable": false
                     }
                 ],
                 "reporting": {
@@ -356,7 +357,8 @@
                 "docs": "https://indigo-dc.github.io/sqa-baseline/#code-accessibility-qc.acc"
             },
             "tools": {
-                "CodeMeta": ["checkCitable", "validate_codemeta"]
+                "CodeMeta": ["checkCitable", "validate_codemeta"],
+                "Citation File Format": ["cff-converter-python"]
             }
         },
         "QC.Sec": {
