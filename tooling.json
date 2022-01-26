@@ -274,7 +274,9 @@
                 },
                 "args": [
                     {
-                        "type": "optional", "description": "Type of file to look for in the code repository", "option": "--file-type", "value": "",  "format": "string", "selectable": true, "repeatable": false
+                        "type": "optional", "description": "Type of file to look for in the code repository", "option": "--file-type", "value": [
+                            "README", "CODE_OF_CONDUCT", "CONTRIBUTING"
+                        ],  "format": "array", "selectable": true, "repeatable": false
                     },
                     {
                         "type": "optional", "description": "Path to look for in the code repository", "option": "--path", "value": "", "format": "string", "selectable": true, "repeatable": false
