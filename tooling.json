@@ -261,7 +261,7 @@
                 }
             }
         },
-        "readme": {
+        "Contribution-enabling Files": {
             "find_doc_files.py": {
                 "docs": "QC.Doc/find_doc_files.py",
                 "docker": {
@@ -270,7 +270,13 @@
                 },
                 "args": [
                     {
-                        "type": "positional", "description": "Type of file to look for in the code repository", "value": "README", "selectable": false
+                        "type": "optional", "description": "Type of file to look for in the code repository", "option": "--file-type", "value": "",  "format": "string", "selectable": true, "repeatable": false
+                    },
+                    {
+                        "type": "optional", "description": "Path to look for in the code repository", "option": "--path", "value": "", "format": "string", "selectable": true, "repeatable": false
+                    },
+                    {
+                        "type": "optional", "description": "Filter by extension (default: ['', '.markdown', '.mdown', '.mkdn', '.md', '.textile', '.rdoc', '.org', '.creole', '.mediawiki', '.wiki', '.rst', '.asciidoc', '.adoc', '.asc', '.pod'])", "option": "--extension", "value": "",  "selectable": true, "repeatable": false
                     }
                 ],
                 "reporting": {
@@ -317,7 +323,7 @@
                 "Python": ["tox"],
                 "Markdown": ["markdownlint"],
                 "reStructuredText": ["restructuredtext-lint"],
-                "readme": ["find_readme.py"]
+                "Contribution-enabling Files": ["find_doc_files.py"]
             }
         },
         "QC.FAIR": {
