@@ -261,20 +261,26 @@
                 }
             }
         },
-        "readme": {
-            "find_readme.py": {
-                "docs": "QC.Doc/find_readme.py",
+        "Contribution-enabling Files": {
+            "find_doc_files.py": {
+                "docs": "QC.Doc/find_doc_files.py",
                 "docker": {
                     "dockerfile": "QC.Doc/Dockerfile",
-                    "reviewed": "2022-01-03"
+                    "reviewed": "2022-01-26"
                 },
                 "args": [
                     {
-                        "type": "positional", "description": "Root path of the code repository", "value": ".", "selectable": false
+                        "type": "optional", "description": "Type of file to look for in the code repository", "option": "--file-type", "value": "",  "format": "string", "selectable": true, "repeatable": false
+                    },
+                    {
+                        "type": "optional", "description": "Path to look for in the code repository", "option": "--path", "value": "", "format": "string", "selectable": true, "repeatable": false
+                    },
+                    {
+                        "type": "optional", "description": "Filter by extension (default: ['', '.markdown', '.mdown', '.mkdn', '.md', '.textile', '.rdoc', '.org', '.creole', '.mediawiki', '.wiki', '.rst', '.asciidoc', '.adoc', '.asc', '.pod'])", "option": "--extension", "value": "",  "selectable": true, "repeatable": false
                     }
                 ],
                 "reporting": {
-                    "validator": "find_readme",
+                    "validator": "find_doc_files",
                     "threshold": 0,
                     "requirement_level": "REQUIRED"
                 }
@@ -317,7 +323,7 @@
                 "Python": ["tox"],
                 "Markdown": ["markdownlint"],
                 "reStructuredText": ["restructuredtext-lint"],
-                "readme": ["find_readme.py"]
+                "Contribution-enabling Files": ["find_doc_files.py"]
             }
         },
         "QC.FAIR": {
