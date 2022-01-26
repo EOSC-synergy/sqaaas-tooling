@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import argparse
+import json
 from pathlib import Path
 
 
@@ -98,6 +99,6 @@ def main():
                 file_found: {'size': get_st_size(file_found)}
             })
 
-    return out
+    return json.dumps(out)
 
 print(main())
