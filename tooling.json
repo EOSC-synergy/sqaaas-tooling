@@ -280,7 +280,7 @@
                     }
                 ],
                 "reporting": {
-                    "validator": "find_readme",
+                    "validator": "find_doc_files",
                     "threshold": 0,
                     "requirement_level": "REQUIRED"
                 }
