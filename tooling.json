@@ -262,15 +262,15 @@
             }
         },
         "readme": {
-            "find_readme.py": {
-                "docs": "QC.Doc/find_readme.py",
+            "find_doc_files.py": {
+                "docs": "QC.Doc/find_doc_files.py",
                 "docker": {
                     "dockerfile": "QC.Doc/Dockerfile",
-                    "reviewed": "2022-01-03"
+                    "reviewed": "2022-01-26"
                 },
                 "args": [
                     {
-                        "type": "positional", "description": "Root path of the code repository", "value": ".", "selectable": false
+                        "type": "positional", "description": "Type of file to look for in the code repository", "value": "README", "selectable": false
                     }
                 ],
                 "reporting": {
