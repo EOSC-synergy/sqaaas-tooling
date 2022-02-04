@@ -94,12 +94,12 @@ def main():
             extensions=args.extension,
             check_single_path=args.path
         )
+        file_data = {}
         if file_found:
-            out.append({
-                file_type: {
-                    file_found: {'size': get_st_size(file_found)}
-                }
-            })
+            file_data = {
+                file_found: {'size': get_st_size(file_found)}
+            }
+        out.append({file_type: file_data})
 
     return json.dumps(out)
 
