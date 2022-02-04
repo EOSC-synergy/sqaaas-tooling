@@ -96,7 +96,9 @@ def main():
         )
         if file_found:
             out.append({
-                file_found: {'size': get_st_size(file_found)}
+                file_type: {
+                    file_found: {'size': get_st_size(file_found)}
+                }
             })
 
     return json.dumps(out)
