@@ -87,8 +87,9 @@ def main():
     if not args.extension:
         args.extension = AVAILABLE_EXTENSIONS
 
-    out = []
+    out = {}
     for file_type in args.file_type:
+        file_found_list = []
         file_found = find_file(
             file_type=file_type,
             extensions=args.extension,
@@ -97,9 +98,11 @@ def main():
         file_data = {}
         if file_found:
             file_data = {
-                file_found: {'size': get_st_size(file_found)}
+                'file_name': file_found,
+                'size': get_st_size(file_found)
             }
-        out.append({file_type: file_data})
+            file_found_list.append(file_data)
+        out[file_type] = file_found_list
 
     return json.dumps(out)
 
