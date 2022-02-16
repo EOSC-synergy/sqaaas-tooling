@@ -166,6 +166,13 @@
                     "composer_file": "QC.Lic/docker-compose.yml",
                     "reviewed": "1970-01-01"
                 }
+            },
+            "osi_approved_licenses.py": {
+                "docs": "https://github.com/EOSC-synergy/sqaaas-tooling/tree/main/QC.Lic",
+                "docker": {
+                    "dockerfile": "QC.Lic/osi_approved_licenses.py/Dockerfile",
+                    "reviewed": "2022-02-11"
+                }
             }
         },
         "Citation File Format": {
