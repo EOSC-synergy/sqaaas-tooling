@@ -82,7 +82,11 @@
                     {
                         "type": "positional", "description": "source file(s) or directory(s) to be tested", "value": ".", "format": "string", "selectable": true, "repeatable": true
                     }
-                ]
+                ],
+                "reporting": {
+                    "validator": "bandit",
+                    "requirement_level": "REQUIRED"
+                }
             },
             "pycodestyle": {
                 "docs": "https://pycodestyle.pycqa.org/",
