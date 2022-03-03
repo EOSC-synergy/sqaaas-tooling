@@ -69,12 +69,20 @@
                     "image": "secfigo/bandit",
                     "reviewed": "2021-11-25"
                 },
-                "args": [{
-                    "type": "optional", "description": "find and process files in subdirectories", "option": "--recursive", "format": "string", "selectable": false, "repeatable": false
-                },
-                {
-                    "type": "positional", "description": "source file(s) or directory(s) to be tested", "value": ".", "format": "string", "selectable": true, "repeatable": true
-                }]
+                "args": [
+                    {
+                        "type": "optional", "description": "report only issues of a given confidence level or higher", "option": "--confidence-level", "value": "high", "format": "string", "selectable": false, "repeatable": false
+                    },
+                    {
+                        "type": "optional", "description": "report only issues of a given severity level or higher", "option": "--severity-level",  "value": "high", "format": "string", "selectable": false, "repeatable": false
+                    },
+                    {
+                        "type": "optional", "description": "find and process files in subdirectories", "option": "--recursive", "format": "string", "selectable": false, "repeatable": false
+                    },
+                    {
+                        "type": "positional", "description": "source file(s) or directory(s) to be tested", "value": ".", "format": "string", "selectable": true, "repeatable": true
+                    }
+                ]
             },
             "pycodestyle": {
                 "docs": "https://pycodestyle.pycqa.org/",
