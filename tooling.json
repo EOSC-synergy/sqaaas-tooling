@@ -71,6 +71,9 @@
                 },
                 "args": [
                     {
+                        "type": "optional", "description": "specify output format", "option": "-f", "value": "json", "format": "string", "selectable": false, "repeatable": false
+                    },
+                    {
                         "type": "optional", "description": "report only issues of a given confidence level or higher", "option": "--confidence-level", "value": "high", "format": "string", "selectable": false, "repeatable": false
                     },
                     {
