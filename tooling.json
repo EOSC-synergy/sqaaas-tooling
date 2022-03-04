@@ -66,8 +66,8 @@
             "bandit": {
                 "docs": "https://bandit.readthedocs.io/",
                 "docker": {
-                    "image": "secfigo/bandit",
-                    "reviewed": "2021-11-25"
+                    "dockerfile": "QC.Sec/bandit/Dockerfile",
+                    "reviewed": "2022-03-04"
                 },
                 "args": [
                     {
