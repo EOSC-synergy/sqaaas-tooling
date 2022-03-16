@@ -94,6 +94,22 @@
                     "requirement_level": "REQUIRED"
                 }
             },
+            "flake8": {
+                "docs": "https://flake8.pycqa.org/",
+                "docker": {
+                    "image": "pipelinecomponents/flake8:0.9.0",
+                    "reviewed": "2022-03-04"
+                },
+                "args": [
+                    {
+                        "type": "positional", "description": "Path to Python project or file/s", "value": ".", "format": "string", "selectable": true, "repeatable": true
+                    }
+                ],
+                "reporting": {
+                    "validator": "flake8",
+                    "requirement_level": "REQUIRED"
+                }
+            },
             "pycodestyle": {
                 "docs": "https://pycodestyle.pycqa.org/",
                 "docker": {
@@ -407,7 +423,7 @@
             "tools": {
                 "Dockerfile": ["hadolint"],
                 "JSON": ["jsonlint"],
-                "Python": ["tox", "pycodestyle"]
+                "Python": ["tox", "flake8", "pycodestyle"]
             }
         },
         "QC.Uni": {
