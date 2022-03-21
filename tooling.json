@@ -17,8 +17,7 @@
                 ],
                 "reporting": {
                     "validator": "boolean",
-                    "requirement_level": "REQUIRED",
-                    "subcriterion": "QC.Acc01"
+                    "requirement_level": "REQUIRED"
                 }
             }
         },
@@ -245,8 +244,7 @@
                 ],
                 "reporting": {
                     "validator": "json_not_empty",
-                    "requirement_level": "REQUIRED",
-                    "subcriterion": "QC.Met01"
+                    "requirement_level": "REQUIRED"
                 }
             }
         },
@@ -293,8 +291,7 @@
                 ],
                 "reporting": {
                     "validator": "json_not_empty",
-                    "requirement_level": "RECOMMENDED",
-                    "subcriterion": "QC.Sty01"
+                    "requirement_level": "RECOMMENDED"
                 }
             }
         },
