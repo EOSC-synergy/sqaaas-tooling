@@ -295,7 +295,7 @@
                 "reporting": {
                     "validator": "json_not_empty",
                     "requirement_level": "RECOMMENDED",
-                    "subcriterion": "QC.Sty01"
+                    "subcriterion": "QC.Doc02.X"
                 }
             }
         },
