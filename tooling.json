@@ -334,6 +334,7 @@
                     "dockerfile": "bitnami/kubectl:1.23",
                     "reviewed": "2022-03-23"
                 },
+                "native_template": "kubectl",
                 "args": [
                     {
                         "type": "positional", "description": "YAML deployment files", "value": "",  "format": "string", "selectable": true, "repeatable": true
