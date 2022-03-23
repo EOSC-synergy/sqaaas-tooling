@@ -324,6 +324,20 @@
                 }
             }
         },
+        "Kubernetes": {
+            "kubectl": {
+                "docs": "https://kubernetes.io/docs/reference/kubectl/",
+                "docker": {
+                    "dockerfile": "bitnami/kubectl:1.23",
+                    "reviewed": "2022-03-23"
+                },
+                "args": [
+                    {
+                        "type": "positional", "description": "YAML deployment files", "value": "",  "format": "string", "selectable": true, "repeatable": true
+                    }
+                ]
+            }
+        },
         "default": {
             "commands": {
                 "docs": "https://indigo-dc.github.io/jenkins-pipeline-library/2.0.0/user/config_file.html#commands",
@@ -435,6 +449,16 @@
             },
             "tools": {
                 "Python": ["tox"]
+            }
+        },
+        "SvcQC.Dep": {
+            "description": {
+                "msg": "Perform the service deployment in an automated fashion following Infrastructure as Code (IaC) templates",
+                "improves": "immutable infrastructure deployment and maintenance",
+                "docs": "https://eosc-synergy.github.io/service-qa-baseline/#dep"
+            },
+            "tools": {
+                "Kubernetes": ["kubectl"]
             }
         }
     }
