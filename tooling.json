@@ -217,8 +217,9 @@
                     }
                 ],
                 "reporting": {
-                    "validator": "__STAGE_EXIT_STATUS__",
-                    "requirement_level": "REQUIRED"
+                    "validator": "cff",
+                    "requirement_level": "REQUIRED",
+                    "subcriterion": "QC.Met01"
                 }
             }
         },
