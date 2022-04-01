@@ -269,7 +269,9 @@
                 ],
                 "reporting": {
                     "validator": "markdownlint",
-                    "requirement_level": "RECOMMENDED"
+                    "requirement_level": "RECOMMENDED",
+                    "doc_file_type": "Markdown",
+                    "doc_file_standard": "markdownlint"
                 }
             }
         },
@@ -293,9 +295,10 @@
                     }
                 ],
                 "reporting": {
-                    "validator": "json_not_empty",
+                    "validator": "markdownlint",
                     "requirement_level": "RECOMMENDED",
-                    "subcriterion": "QC.Doc02.X"
+                    "doc_file_type": "reStructuredText",
+                    "doc_file_standard": "restructuredtext-lint"
                 }
             }
         },
