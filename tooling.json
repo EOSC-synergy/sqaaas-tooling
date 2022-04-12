@@ -336,7 +336,7 @@
                     "dockerfile": "bitnami/kubectl:1.23",
                     "reviewed": "2022-03-23"
                 },
-                "native_template": "kubectl_kustomize",
+                "template": "kubectl_kustomize",
                 "args": [
                     {
                         "type": "positional", "description": "Kustomization directory", "value": "", "format": "string", "selectable": true, "repeatable": false
@@ -349,7 +349,7 @@
                     "dockerfile": "bitnami/kubectl:1.23",
                     "reviewed": "2022-03-23"
                 },
-                "native_template": "kubectl_config_files",
+                "template": "kubectl_config_files",
                 "args": [
                     {
                         "type": "positional", "description": "File, directory or URL of the configuration file in YAML format", "value": "", "format": "string", "selectable": true, "repeatable": true
