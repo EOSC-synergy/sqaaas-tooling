@@ -138,10 +138,11 @@
             }
         },
         "fair": {
-            "fair-eva.py": {
+            "fair-evaluator": {
+                "executable" : "fair-eva.py",
                 "docs": "QC.FAIR/fair-eva.py",
                 "docker": {
-                    "image": "QC.FAIR/Dockerfile",
+                    "dockerfile": "QC.FAIR/Dockerfile",
                     "oneshot": false,
                     "reviewed": "2022-04-05"
                 },
