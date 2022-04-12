@@ -24,7 +24,7 @@ def is_file_in_gitlab_repo(server,repo,file):
         items = project.repository_tree()
         for item in items:
             if(item['name'] == file):
-                print("File %s found in GitLab repository %s"%(file,repo))                        
+                print("File %s found in GitLab repository %s"%(file,repo))
                 return True
     except gitlab.exceptions.GitlabGetError:
         print("Repository not found or no permission to access it.")
@@ -35,7 +35,7 @@ def is_file_in_gitlab_repo(server,repo,file):
 def is_file_in_repo(url,file):
     o = urlparse(url)
     repo = o.path[1:]
-    if(o.hostname == 'github.com'):        
+    if(o.hostname == 'github.com'):
         return is_file_in_github_repo(repo,file)
     else:
         server = o.scheme + "://" + o.netloc

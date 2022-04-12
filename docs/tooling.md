@@ -4,10 +4,10 @@ The [tooling.json](../tooling.json) metadata file contains:
 2) the [`criteria`](#criteria-properties), having the mapping between the SQAaaS criteria<a href="#note1" id="note1ref"><sup>1</sup></a> and the tools.
 
 ## Tool properties
-Tools are categorized under the (programming) language they apply to, so e.g. the [bandit](https://bandit.readthedocs.io/) Python tool shall be added under the `python` key:
+Tools are categorized under the (programming) language they apply to, so e.g. Python's [bandit](https://bandit.readthedocs.io/) tool shall be added under the `Python` key:
 ```yaml
 "tools": {
-    "python": {
+    "Python": {
         "bandit": {
             "docs": "https://bandit.readthedocs.io/",
             "docker": {
@@ -18,6 +18,8 @@ Tools are categorized under the (programming) language they apply to, so e.g. th
     }
 }
 ```
+*NOTE*: the name of the languages are compliant with the ones used in the [GitHub's linguist tool](https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml). The reason
+lies in the fact that file extensions for any given language are obtained from `linguist` metadata.
 
 The following table summarizes the properties that ought to be set in the tool definition:
 
@@ -27,6 +29,7 @@ The following table summarizes the properties that ought to be set in the tool d
 | `docker` | object | See [Docker](#docker-docker-property) section | :heavy_check_mark: |
 | `executable` | string | Name of the executable. The tool's name is used by default.  <br>*This is only required when the executable to be used is different from the tool's name* | |
 | `args` | object | See [Arguments](#arguments-args-property) section | |
+| `reporting` | object | See [Reporting](#reporting-reporting-property) section | |
 
 ### Docker (`docker` property)
 The `docker` property includes the information related to the availability of the Docker image that contains the tool. Hence, it offers two main ways of getting the Docker image, either 1) pulling an existing image from a Docker registry, or 2) build the image from a Dockerfile. One of the two properties must be defined:
@@ -55,6 +58,20 @@ The `args` property enables the definition of the arguments involved in the tool
 | `repeatable` | boolean | (for API clients) Whether the same argument can be used several times | :white_check_mark: (for API clients) |
 | `args` | object | Suitable when defining commands with more than one type of argument, it allows to define nested `args` properties | |
 
+### Reporting (`reporting` property)
+The `reporting` property provides the pointers to the suitable output validator that is capable of parsing the data produced by the given tool. The list of available validator plugins officially supported in the SQAaaS platform can be found in the [sqaaas-reporting-plugins](https://github.com/eosc-synergy/sqaaas-reporting-plugins) repository.
+
+The set of sub-properties that are meaningful to the `reporting` property are the following:
+| Property | Type | Description | Required |
+| -------- | ---- | ----------- | -------- |
+| `validator` | string | Id of the validator (the [report2sqaaas](https://github.com/eosc-synergy/sqaaas-reporting) CLI provides the possible choices) | :heavy_check_mark: |
+| `threshold` | int | The threshold that sets the output as valid or invalid  | :white_check_mark: |
+| `requirement_level` | string (enum) |  Sets the relevance of the tool in regards to the fulfillment of the associated criterion. Choose between [`REQUIRED`, `RECOMMENDED`, `OPTIONAL`] | :white_check_mark: |
+
+*Note*:
+ - The `validator` and `threshold` properties are passed as input arguments to the [report2sqaaas](https://github.com/EOSC-synergy/sqaaas-reporting) module, and thus, they must be **aligned/match** those from such module.
+ - The `requirement_level` of the tools is `OPTIONAL` by default (if no value is provided). Both [`REQUIRED`, `RECOMMENDED`] tools are processed by the QAA module, but only the `REQUIRED` are considered to determine the fulfillment of the criterion.
+
 ### The `default` property
 The `tools` property has a special key named `default`. Here you can define the tools that shall be available for all the defined criteria (in the [`criteria` property](#criteria-properties)).
 
@@ -70,9 +87,9 @@ The SQA criteria<a href="#note1" id="note1ref"><sup>1</sup></a> that the SQAaaS 
             "docs": "https://indigo-dc.github.io/sqa-baseline/#code-style-qc.sty"
         },
         "tools": {
-            "dockerfile": ["hadolint"],
-            "json": ["jsonlint"],
-            "python": ["tox", "pycodestyle"]
+            "Dockerfile": ["hadolint"],
+            "JSON": ["jsonlint"],
+            "Python": ["tox", "pycodestyle"]
         }
     },
     "QC.Lic": {

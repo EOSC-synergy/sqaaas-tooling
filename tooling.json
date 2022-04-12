@@ -1,10 +1,32 @@
 {
     "tools": {
-        "dockerfile": {
+        "scm": {
+            "git": {
+                "docs": "https://git-scm.com/",
+                "docker": {
+                    "image": "bitnami/git:2.34.1",
+                    "reviewed": "2021-12-30"
+                },
+                "args": [
+                    {
+                        "type": "positional", "description": "Pick out and massage parameters", "value": "rev-parse", "selectable": false
+                    },
+                    {
+                        "type": "optional", "description": "Current working directory is inside the repository's work directory?", "option": "--is-inside-work-tree", "selectable": false
+                    }
+                ],
+                "reporting": {
+                    "validator": "boolean",
+                    "requirement_level": "REQUIRED",
+                    "subcriterion": "QC.Acc01"
+                }
+            }
+        },
+        "Dockerfile": {
             "hadolint": {
                 "docs": "https://github.com/hadolint/hadolint",
                 "docker": {
-                    "image": "hadolint/hadolint:latest-alpine",
+                    "image": "hadolint/hadolint:2.8.0-alpine",
                     "reviewed": "2021-06-21"
                 },
                 "args": [{
@@ -15,7 +37,7 @@
                 }]
             }
         },
-        "java": {
+        "Java": {
             "checkstyle": {
                 "docs": "https://github.com/checkstyle/checkstyle",
                 "docker": {
@@ -27,7 +49,7 @@
                 }]
             }
         },
-        "json": {
+        "JSON": {
             "jsonlint": {
                 "docs": "https://github.com/zaach/jsonlint",
                 "docker": {
@@ -40,19 +62,53 @@
 
             }
         },
-        "python": {
+        "Python": {
             "bandit": {
                 "docs": "https://bandit.readthedocs.io/",
                 "docker": {
-                    "image": "secfigo/bandit",
-                    "reviewed": "2021-11-25"
+                    "dockerfile": "QC.Sec/bandit/Dockerfile",
+                    "reviewed": "2022-03-04"
                 },
-                "args": [{
-                    "type": "optional", "description": "find and process files in subdirectories", "option": "--recursive", "format": "string", "selectable": false, "repeatable": false
+                "args": [
+                    {
+                        "type": "optional", "description": "specify output format", "option": "-f", "value": "json", "format": "string", "selectable": false, "repeatable": false
+                    },
+                    {
+                        "type": "optional", "description": "only show output in the case of an error", "option": "--quiet", "value": "", "format": "string", "selectable": false, "repeatable": false
+                    },
+                    {
+                        "type": "optional", "description": "report only issues of a given confidence level or higher", "option": "--confidence-level", "value": "high", "format": "string", "selectable": false, "repeatable": false
+                    },
+                    {
+                        "type": "optional", "description": "report only issues of a given severity level or higher", "option": "--severity-level",  "value": "high", "format": "string", "selectable": false, "repeatable": false
+                    },
+                    {
+                        "type": "optional", "description": "find and process files in subdirectories", "option": "--recursive", "format": "string", "selectable": false, "repeatable": false
+                    },
+                    {
+                        "type": "positional", "description": "source file(s) or directory(s) to be tested", "value": ".", "format": "string", "selectable": true, "repeatable": true
+                    }
+                ],
+                "reporting": {
+                    "validator": "bandit",
+                    "requirement_level": "REQUIRED"
+                }
+            },
+            "flake8": {
+                "docs": "https://flake8.pycqa.org/",
+                "docker": {
+                    "image": "pipelinecomponents/flake8:0.9.0",
+                    "reviewed": "2022-03-04"
                 },
-                {
-                    "type": "positional", "description": "source file(s) or directory(s) to be tested", "value": ".", "format": "string", "selectable": true, "repeatable": true
-                }]
+                "args": [
+                    {
+                        "type": "positional", "description": "Path to Python project or file/s", "value": ".", "format": "string", "selectable": true, "repeatable": true
+                    }
+                ],
+                "reporting": {
+                    "validator": "flake8",
+                    "requirement_level": "REQUIRED"
+                }
             },
             "pycodestyle": {
                 "docs": "https://pycodestyle.pycqa.org/",
@@ -120,12 +176,23 @@
                     "dockerfile": "QC.Lic/licensee/Dockerfile",
                     "reviewed": "2021-06-28"
                 },
-                "args": [{
-                    "type": "subcommand", "description": "Detect the license of the given project", "value": "detect", "selectable": false, "args": [{
-                        "type": "positional", "description": "Path to project's license", "value": ".", "selectable": false
-                    }],
-                    "type": "optional", "description": "JSON output", "option": "--json", "selectable": false
-                }]
+                "args": [
+                    {
+                        "type": "subcommand", "description": "Detect the license of the given project", "value": "detect", "selectable": false, "args": [
+                            {
+                                "type": "positional", "description": "Path to project's license", "value": ".", "selectable": false
+                            }
+                        ]
+                    },
+                    {
+                        "type": "optional", "description": "JSON output", "option": "--json", "selectable": false
+                    }
+                ],
+                "reporting": {
+                    "validator": "licensee",
+                    "threshold": 50,
+                    "requirement_level": "REQUIRED"
+                }
             },
             "checkLicense": {
                 "docs": "https://github.com/EOSC-synergy/sqa-composer-templates/tree/main/QC.Lic",
@@ -136,13 +203,124 @@
                 }
             }
         },
-        "codemeta": {
+        "Citation File Format": {
+            "cff-converter-python": {
+                "docs": "https://github.com/citation-file-format/cff-converter-python",
+                "docker": {
+                    "dockerfile": "QC.Met/cff-converter-python/Dockerfile",
+                    "reviewed": "2022-01-19"
+                },
+                "executable": "cffconvert",
+                "args": [
+                    {
+                        "type": "optional", "description": "Validate the CITATION.cff file", "option": "--validate", "selectable": false
+                    }
+                ],
+                "reporting": {
+                    "validator": "cff",
+                    "requirement_level": "REQUIRED",
+                    "subcriterion": "QC.Met01"
+                }
+            }
+        },
+        "CodeMeta": {
             "checkCitable": {
                 "docs": "https://github.com/EOSC-synergy/sqa-composer-templates/tree/main/QC.Met",
                 "docker": {
-                    "dockerfile": "Qc.Acc/Dockerfile",
-                    "composer_file": "QC.Met/docker-compose.yml",
+                    "dockerfile": "Qc.Met/checkCitable/Dockerfile",
+                    "composer_file": "QC.Met/checkCitable/docker-compose.yml",
                     "reviewed": "1970-01-01"
+                }
+            },
+            "validate_codemeta": {
+                "docs": "",
+                "docker": {
+                    "image": "alpine:3.15.0",
+                    "reviewed": "2022-01-11"
+                },
+                "executable": "cat",
+                "args": [
+                    {
+                        "type": "positional", "description": "Codemeta file name", "value": "codemeta.json", "selectable": false
+                    }
+                ],
+                "reporting": {
+                    "validator": "json_not_empty",
+                    "requirement_level": "REQUIRED",
+                    "subcriterion": "QC.Met01"
+                }
+            }
+        },
+        "Markdown": {
+            "markdownlint": {
+                "docs": "https://github.com/markdownlint/markdownlint",
+                "docker": {
+                    "dockerfile": "QC.Doc/markdownlint/Dockerfile",
+                    "reviewed": "1970-01-01"
+                },
+                "executable": "mdl",
+                "args": [
+                    {
+                        "type": "optional", "description": "JSON output", "option": "--json", "selectable": false
+                    },
+                    {
+                        "type": "positional", "description": "Project's root path", "value": ".", "selectable": true, "format": "string"
+                    }
+                ],
+                "reporting": {
+                    "validator": "markdownlint",
+                    "requirement_level": "RECOMMENDED"
+                }
+            }
+        },
+        "reStructuredText": {
+            "restructuredtext-lint": {
+                "docs": "https://github.com/twolfson/restructuredtext-lint",
+                "docker": {
+                    "dockerfile": "QC.Doc/restructuredtext-lint/Dockerfile",
+                    "reviewed": "2022-01-18"
+                },
+                "executable": "rst-lint",
+                "args": [
+                    {
+                        "type": "optional", "description": "Minimum error level to report (default: 'warning')", "option": "--level", "value": "warning", "selectable": false
+                    },
+                    {
+                        "type": "optional", "description": "Format of the output (default: 'text')", "option": "--format", "value": "json", "selectable": false
+                    },
+                    {
+                        "type": "positional", "description": "File/folder to lint", "value": ".", "selectable": true, "format": "string"
+                    }
+                ],
+                "reporting": {
+                    "validator": "json_not_empty",
+                    "requirement_level": "RECOMMENDED",
+                    "subcriterion": "QC.Doc02.X"
+                }
+            }
+        },
+        "Contribution-enabling Files": {
+            "find_doc_files.py": {
+                "docs": "QC.Doc/find_doc_files.py",
+                "docker": {
+                    "dockerfile": "QC.Doc/Dockerfile",
+                    "reviewed": "2022-01-26"
+                },
+                "args": [
+                    {
+                        "type": "optional", "description": "Type of file to look for in the code repository", "option": "--file-type", "value": "",  "format": "string", "selectable": true, "repeatable": false
+                    },
+                    {
+                        "type": "optional", "description": "Path to look for in the code repository", "option": "--path", "value": "", "format": "string", "selectable": true, "repeatable": false
+                    },
+                    {
+                        "type": "optional", "description": "Filter by extension (default: ['', '.markdown', '.mdown', '.mkdn', '.md', '.textile', '.rdoc', '.org', '.creole', '.mediawiki', '.wiki', '.rst', '.asciidoc', '.adoc', '.asc', '.pod'])", "option": "--extension", "value": "",  "selectable": true, "repeatable": false
+                    }
+                ],
+                "reporting": {
+                    "validator": "find_doc_files",
+                    "threshold": 0,
+                    "requirement_level": "REQUIRED"
                 }
             }
         },
@@ -150,7 +328,7 @@
             "commands": {
                 "docs": "https://indigo-dc.github.io/jenkins-pipeline-library/2.0.0/user/config_file.html#commands",
                 "docker": {
-                    "image": "alpine:latest",
+                    "image": "alpine:3.15.0",
                     "reviewed": "1970-01-01"
                 },
                 "executable": "",
@@ -163,46 +341,14 @@
         }
     },
     "criteria": {
-        "QC.Sty": {
+        "QC.Acc": {
             "description": {
-                "msg": "Use code style standards to guide your code writing so you let others understand it",
-                "improves": "readability, reusability",
-                "docs": "https://indigo-dc.github.io/sqa-baseline/#code-style-qc.sty"
+                "msg": "Code publicly available and managed by a version control system",
+                "improves": "collaboration, reproducibility",
+                "docs": "https://indigo-dc.github.io/sqa-baseline/#code-accessibility-qc.acc"
             },
             "tools": {
-                "dockerfile": ["hadolint"],
-                "json": ["jsonlint"],
-                "python": ["tox", "pycodestyle"]
-            }
-        },
-        "QC.Uni": {
-            "description": {
-                "msg": "Test the behaviour of segments or units within your code (e.g. conditionals, loops, functions)",
-                "improves": "code design, early bug detection",
-                "docs": "https://indigo-dc.github.io/sqa-baseline/#unit-testing-qc.uni"
-            },
-            "tools": {
-                "python": ["tox"]
-            }
-        },
-        "QC.Fun": {
-            "description": {
-                "msg": "Ensure compliance with the functional requirements to meet your users’ expectations",
-                "improves": "end-user satisfaction, usability",
-                "docs": "https://indigo-dc.github.io/sqa-baseline/#functional-testing-qc.fun"
-            },
-            "tools": {
-                "python": ["tox"]
-            }
-        },
-        "QC.Sec": {
-            "description": {
-                "msg": "Secure your software by finding (statically) common issues associated to the programming language in use and look for disclosed security vulnerabilities",
-                "improves": "security issues detection",
-                "docs": "https://indigo-dc.github.io/sqa-baseline/#security-qc.sec"
-            },
-            "tools": {
-                "python": ["tox", "bandit"]
+                "scm": ["git"]
             }
         },
         "QC.Doc": {
@@ -212,17 +358,30 @@
                 "docs": "https://indigo-dc.github.io/sqa-baseline/#documentation-qc.doc"
             },
             "tools": {
-                "python": ["tox"]
+                "Python": ["tox"],
+                "Markdown": ["markdownlint"],
+                "reStructuredText": ["restructuredtext-lint"],
+                "Contribution-enabling Files": ["find_doc_files.py"]
             }
         },
-        "QC.Met": {
+        "QC.FAIR": {
             "description": {
-                "msg": "Make source code citable",
-                "improves": "findability",
-                "docs": "https://indigo-dc.github.io/sqa-baseline/#code-accessibility-qc.acc"
+                "msg": "FAIRness level of Digital Objects.",
+                "improves": "findability, accessibility, interoperability, reusability",
+                "docs": "https://indigo-dc.github.io/sqa-baseline/"
             },
             "tools": {
-                "codemeta": ["checkCitable"]
+                "fair": ["fair-evaluator", "F-UJI"]
+            }
+        },
+        "QC.Fun": {
+            "description": {
+                "msg": "Ensure compliance with the functional requirements to meet your users’ expectations",
+                "improves": "end-user satisfaction, usability",
+                "docs": "https://indigo-dc.github.io/sqa-baseline/#functional-testing-qc.fun"
+            },
+            "tools": {
+                "Python": ["tox"]
             }
         },
         "QC.Lic": {
@@ -235,14 +394,47 @@
                 "license": ["licensee"]
             }
         },
-        "QC.FAIR": {
+        "QC.Met": {
             "description": {
-                "msg": "FAIRness level of Digital Objects.",
-                "improves": "findability, accessibility, interoperability, reusability",
-                "docs": "https://indigo-dc.github.io/sqa-baseline/"
+                "msg": "Make source code citable",
+                "improves": "findability",
+                "docs": "https://indigo-dc.github.io/sqa-baseline/#code-accessibility-qc.acc"
             },
             "tools": {
-                "fair": ["fair-evaluator", "F-UJI"]
+                "CodeMeta": ["checkCitable", "validate_codemeta"],
+                "Citation File Format": ["cff-converter-python"]
+            }
+        },
+        "QC.Sec": {
+            "description": {
+                "msg": "Secure your software by finding (statically) common issues associated to the programming language in use and look for disclosed security vulnerabilities",
+                "improves": "security issues detection",
+                "docs": "https://indigo-dc.github.io/sqa-baseline/#security-qc.sec"
+            },
+            "tools": {
+                "Python": ["tox", "bandit"]
+            }
+        },
+        "QC.Sty": {
+            "description": {
+                "msg": "Use code style standards to guide your code writing so you let others understand it",
+                "improves": "readability, reusability",
+                "docs": "https://indigo-dc.github.io/sqa-baseline/#code-style-qc.sty"
+            },
+            "tools": {
+                "Dockerfile": ["hadolint"],
+                "JSON": ["jsonlint"],
+                "Python": ["tox", "flake8", "pycodestyle"]
+            }
+        },
+        "QC.Uni": {
+            "description": {
+                "msg": "Test the behaviour of segments or units within your code (e.g. conditionals, loops, functions)",
+                "improves": "code design, early bug detection",
+                "docs": "https://indigo-dc.github.io/sqa-baseline/#unit-testing-qc.uni"
+            },
+            "tools": {
+                "Python": ["tox"]
             }
         }
     }

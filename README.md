@@ -1,5 +1,5 @@
-# sqa-composer-templates
-Tools supported by the SQAaaS platform
+# sqaaas-tooling
+Tooling metadata for the tools supported by the SQAaaS platform
 
 ## How a tool is dynamically loaded by the SQAaaS platform
 1) The [SQAaaS API](https://github.com/eosc-synergy/sqaaas-api-server) loads the content of the tool's metadata file (`tooling.json`), which is then offered upon requests to `/criteria` path (see [API's spec](https://eosc-synergy.github.io/sqaaas-api-spec/#operation/get_criteria))
