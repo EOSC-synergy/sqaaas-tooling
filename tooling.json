@@ -139,18 +139,23 @@
         },
         "fair": {
             "fair-evaluator": {
-                "docs": "https://github.com/EOSC-synergy/FAIR_eva",
+                "executable" : "fair-eva.py",
+                "docs": "QC.FAIR/fair-eva.py",
                 "docker": {
-                    "image": "ferag/fair_eva:fair",
+                    "dockerfile": "QC.FAIR/Dockerfile",
                     "oneshot": false,
-                    "reviewed": "2021-07-06"
+                    "reviewed": "2022-04-05"
                 },
-                "executable": "/bin/curl",
                 "args": [
-                         {"type": "optional", "format": "string", "description": "", "option": "-H", "value": "'Content-Type: application/json'", "selectable": true},
+                         {"type": "optional", "format": "string", "description": "", "option": "-H", "value": "application/json", "selectable": true},
                          {"type": "optional", "format": "string", "description": "", "option": "-X", "value": "POST", "selectable": true},
                          {"type": "optional", "format": "string", "description": "", "option": "-d", "value": "'{\"id\": \"10261/157765\", \"repo\": \"oai-pmh\", \"oai_base\": \"http://digital.csic.es/dspace-oai/request\"}'", "selectable": true},
-                         {"type": "positional", "format": "string", "description": "Endpoint", "value": "http://localhost:9090/v1.0/rda/rda_all", "selectable": true}]
+                         {"type": "optional", "format": "string", "description": "Endpoint", "option": "--tool_endpoint", "value": "http://localhost:9090/v1.0/rda/rda_all", "selectable": true}],
+            "reporting": {
+                    "validator": "fair-eva",
+                    "threshold": 0,
+                    "requirement_level": "REQUIRED"
+            }
             },
             "F-UJI": {
                 "docs": "https://github.com/pangaea-data-publisher/fuji/blob/master/README.md",
