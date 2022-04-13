@@ -339,8 +339,8 @@
                 "template": "kubectl_kustomize",
                 "args": [
                     {
-                        "type": "positional", "description": "Kustomization directory", "value": "", "format": "string", "selectable": true, "repeatable": false,
-                        "type": "optional", "description": "[from kubectl-rollout-status] The length of time to wait before ending watch, zero means never. Any other values should contain a corresponding time unit (e.g. 1s, 2m, 3h)", "option": "--timeout", "value": "0s",  "format": "string", "selectable": true, "repeatable": false
+                        "type": "positional", "description": "Kustomization directory", "id": "k8s_config_files", "value": "", "format": "string", "selectable": true, "repeatable": false,
+                        "type": "optional", "description": "[from kubectl-rollout-status] The length of time to wait before ending watch, zero means never. Any other values should contain a corresponding time unit (e.g. 1s, 2m, 3h)",  "id": "k8s_rollout_status_timeout", "option": "--timeout", "value": "0s",  "format": "string", "selectable": true, "repeatable": false
                     }
                 ]
             },
@@ -353,8 +353,7 @@
                 "template": "kubectl_config_files",
                 "args": [
                     {
-                        "type": "positional", "description": "File, directory or URL of the configuration file in YAML format", "value": "", "format": "string", "selectable": true, "repeatable": true,
-                        "type": "optional", "description": "[from kubectl-rollout-status] The length of time to wait before ending watch, zero means never. Any other values should contain a corresponding time unit (e.g. 1s, 2m, 3h)", "option": "--timeout", "value": "0s",  "format": "string", "selectable": true, "repeatable": false
+                        "type": "positional", "description": "File, directory or URL of the configuration file in YAML format", "id": "k8s_config_files", "value": "", "format": "string", "selectable": true, "repeatable": true
                     }
                 ]
             }
