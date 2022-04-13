@@ -288,10 +288,14 @@
                 "executable": "rst-lint",
                 "args": [
                     {
-                        "type": "optional", "description": "Minimum error level to report (default: 'warning')", "option": "--level", "value": "warning", "selectable": false
+                        "type": "optional", "description": "Minimum error level to report (default: 'warning')", "option": "--level", "value": [
+                            "warning", "error", "severe", "info", "debug"
+                        ], "format": "array", "selectable": true
                     },
                     {
-                        "type": "optional", "description": "Format of the output (default: 'text')", "option": "--format", "value": "json", "selectable": false
+                        "type": "optional", "description": "Format of the output (default: 'text')", "option": "--format", "value": [
+                            "json", "text"
+                        ], "format": "array", "selectable": true
                     },
                     {
                         "type": "positional", "description": "File/folder to lint", "value": ".", "selectable": true, "format": "string"
@@ -313,7 +317,9 @@
                 },
                 "args": [
                     {
-                        "type": "optional", "description": "Type of file to look for in the code repository", "option": "--file-type", "value": "",  "format": "string", "selectable": true, "repeatable": false
+                        "type": "optional", "description": "Type of file to look for in the code repository", "option": "--file-type", "value": [
+                            "README", "CODE_OF_CONDUCT", "CONTRIBUTING"
+                        ],  "format": "array", "selectable": true, "repeatable": false
                     },
                     {
                         "type": "optional", "description": "Path to look for in the code repository", "option": "--path", "value": "", "format": "string", "selectable": true, "repeatable": false
