@@ -14,7 +14,7 @@ RUN pip3 install -r requirements.txt
 
 EXPOSE 5000 9090
 RUN ls
-COPY config.ini.template /FAIR_eva/config.ini
+RUN cp config.ini.template config.ini
 RUN cd /FAIR_eva
 RUN chmod 777 start.sh
 RUN cat start.sh
