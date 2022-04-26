@@ -28,6 +28,7 @@ The following table summarizes the properties that ought to be set in the tool d
 | `docs` | string (url) | URL to the tool's official documentation | :heavy_check_mark: |
 | `docker` | object | See [Docker](#docker-docker-property) section | :heavy_check_mark: |
 | `executable` | string | Name of the executable. The tool's name is used by default.  <br>*This is only required when the executable to be used is different from the tool's name* | |
+| `template` | string | Name of the template to use to compose the final command (not a concatenation of `args`)) | |
 | `args` | object | See [Arguments](#arguments-args-property) section | |
 | `reporting` | object | See [Reporting](#reporting-reporting-property) section | |
 
@@ -51,6 +52,7 @@ The `args` property enables the definition of the arguments involved in the tool
 | -------- | ---- | ----------- | -------- |
 | `type` | string (enum) | Type of the argument. Choose between [`subcommand`, `positional`, `optional`] | :heavy_check_mark: |
 | `description` | string | Short description of what the tool does | :heavy_check_mark: |
+| `id` | string | Identifier of the argument (used only when `template` property is defined) | :white_check_mark: |
 | `value` | *any type* | The value of the argument | |
 | `option` | string | The option name (*only applicable for optional arguments*) | :white_check_mark: (for optional arguments) |
 | `format` | string (enum) | (for API clients) the value's data type. Useful for graphical interfaces, provides the means to render the form elements (inputs, text areas, dropdowns, ..). Choose between [`string`, `array`] | :white_check_mark: (for API clients) |
