@@ -5,6 +5,7 @@ import json
 import requests
 from pathlib import Path
 
+
 def get_input_args():
     parser = argparse.ArgumentParser(description=(
         'Prepare requests for FAIR assessment tool'
@@ -13,7 +14,6 @@ def get_input_args():
         '-ID',
         metavar='ID',
         type=str,
-        choices=AVAILABLE_HEADERS,
         help='Persistent Identifier'
     )
     parser.add_argument(
@@ -34,7 +34,7 @@ def get_input_args():
         type=str,
         help='Enpoint to perform HTTP request. Example: http://localhost:9090/v1.0/rda/rda_all'
     )
-    
+
     return parser.parse_args()
 
 
