@@ -104,7 +104,7 @@
             }
         },
         "fair": {
-            "fair-evaluator": {
+            "fair-eva": {
                 "executable" : "fair-eva.py",
                 "docs": "QC.FAIR/fair-eva.py",
                 "docker": {
@@ -113,10 +113,10 @@
                     "reviewed": "2022-04-05"
                 },
                 "args": [
-                         {"type": "optional", "format": "string", "description": "", "option": "-H", "value": "application/json", "selectable": true},
-                         {"type": "optional", "format": "string", "description": "", "option": "-X", "value": "POST", "selectable": true},
-                         {"type": "optional", "format": "string", "description": "", "option": "-d", "value": "'{\"id\": \"10261/157765\", \"repo\": \"oai-pmh\", \"oai_base\": \"http://digital.csic.es/dspace-oai/request\"}'", "selectable": true},
-                         {"type": "optional", "format": "string", "description": "Endpoint", "option": "--tool_endpoint", "value": "http://localhost:9090/v1.0/rda/rda_all", "selectable": true}],
+                         {"type": "optional", "format": "string", "description": "Persistent Identifier", "option": "-ID", "value": "10261/157765", "selectable": true},
+                         {"type": "optional", "format": "string", "description": "FAIR EVA plugin", "option": "-R", "value": "oai-pmh", "selectable": true},
+                         {"type": "optional", "format": "string", "description": "OAI-PMH Endpoint", "option": "-B", "value": "http://digital.csic.es/dspace-oai/request", "selectable": true},
+                         {"type": "optional", "format": "string", "description": "FAIR EVA endpoint", "option": "--tool_endpoint", "value": "http://localhost:9090/v1.0/rda/rda_all", "selectable": true}],
             "reporting": {
                     "validator": "fair-eva",
                     "threshold": 0,
