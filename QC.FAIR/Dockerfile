@@ -20,4 +20,4 @@ RUN chmod 777 start.sh
 RUN cat start.sh
 COPY fair-eva.py /usr/bin
 RUN chmod +x /usr/bin/fair-eva.py
-CMD /FAIR_eva/start.sh
+CMD ["/FAIR_eva/start.sh", "/FAIR_eva/config.ini"]
