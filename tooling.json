@@ -341,7 +341,7 @@
                 "docs": "https://indigo-dc.github.io/sqa-baseline/"
             },
             "tools": {
-                "fair": ["fair-evaluator", "F-UJI"]
+                "fair": ["fair-eva", "F-UJI"]
             }
         },
         "QC.Fun": {
