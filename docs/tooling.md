@@ -28,6 +28,7 @@ The following table summarizes the properties that ought to be set in the tool d
 | `docs` | string (url) | URL to the tool's official documentation | :heavy_check_mark: |
 | `docker` | object | See [Docker](#docker-docker-property) section | :heavy_check_mark: |
 | `executable` | string | Name of the executable. The tool's name is used by default.  <br>*This is only required when the executable to be used is different from the tool's name* | |
+| `template` | string | Name of the template to use to compose the final command (not a concatenation of `args`)) | |
 | `args` | object | See [Arguments](#arguments-args-property) section | |
 | `reporting` | object | See [Reporting](#reporting-reporting-property) section | |
 
@@ -51,12 +52,18 @@ The `args` property enables the definition of the arguments involved in the tool
 | -------- | ---- | ----------- | -------- |
 | `type` | string (enum) | Type of the argument. Choose between [`subcommand`, `positional`, `optional`] | :heavy_check_mark: |
 | `description` | string | Short description of what the tool does | :heavy_check_mark: |
+| `id` | string | Identifier of the argument (used only when `template` property is defined) | :white_check_mark: |
 | `value` | *any type* | The value of the argument | |
-| `option` | string | The option name (*only applicable for optional arguments*) | :white_check_mark: (for optional arguments) |
+| `option` | string | The option name (*only applicable for optional arguments*). See [Special option values](#special-option-values) section for additional customization | :white_check_mark: (for optional arguments) |
 | `format` | string (enum) | (for API clients) the value's data type. Useful for graphical interfaces, provides the means to render the form elements (inputs, text areas, dropdowns, ..). Choose between [`string`, `array`] | :white_check_mark: (for API clients) |
 | `selectable` | boolean | (for API clients) Whether the argument's value shall be customized by the user, or otherwise it is a fixed (non-modifiable) value | :white_check_mark: (for API clients) |
 | `repeatable` | boolean | (for API clients) Whether the same argument can be used several times | :white_check_mark: (for API clients) |
 | `args` | object | Suitable when defining commands with more than one type of argument, it allows to define nested `args` properties | |
+
+#### Special `option` values
+The name of the `option` property might tell the SQAaaS API to perform additional work. So far it is only supported to  set credentials when the `option` value contains the following substrings:
+- `jenkins-credential-id`, such as in `--kubeconfig-jenkins-credential-id`.
+- `jenkins-credential-variable`, such as in `--kubeconfig-jenkins-credential-variable`.
 
 ### Reporting (`reporting` property)
 The `reporting` property provides the pointers to the suitable output validator that is capable of parsing the data produced by the given tool. The list of available validator plugins officially supported in the SQAaaS platform can be found in the [sqaaas-reporting-plugins](https://github.com/eosc-synergy/sqaaas-reporting-plugins) repository.

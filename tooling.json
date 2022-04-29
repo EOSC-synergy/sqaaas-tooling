@@ -41,7 +41,7 @@
             "checkstyle": {
                 "docs": "https://github.com/checkstyle/checkstyle",
                 "docker": {
-                    "image": "davrodgon/checkstyle",
+                    "image": "davrodgon/checkstyle@sha256:2ed1d4efd817afde40b219057935139818ee6b88105e75010bde53cd65786bf2",
                     "reviewed": "1970-01-01"
                 },
                 "args": [{
@@ -77,10 +77,10 @@
                         "type": "optional", "description": "only show output in the case of an error", "option": "--quiet", "value": "", "format": "string", "selectable": false, "repeatable": false
                     },
                     {
-                        "type": "optional", "description": "report only issues of a given confidence level or higher", "option": "--confidence-level", "value": "high", "format": "string", "selectable": false, "repeatable": false
+                        "type": "optional", "description": "report only issues of a given confidence level or higher", "option": "--confidence-level", "value": ["all", "low", "medium", "high"], "format": "array", "selectable": true, "repeatable": false
                     },
                     {
-                        "type": "optional", "description": "report only issues of a given severity level or higher", "option": "--severity-level",  "value": "high", "format": "string", "selectable": false, "repeatable": false
+                        "type": "optional", "description": "report only issues of a given severity level or higher", "option": "--severity-level",  "value": ["all", "low", "medium", "high"], "format": "array", "selectable": true, "repeatable": false
                     },
                     {
                         "type": "optional", "description": "find and process files in subdirectories", "option": "--recursive", "format": "string", "selectable": false, "repeatable": false
@@ -124,7 +124,7 @@
                 "jepl_support": true,
                 "docs": "https://tox.readthedocs.io/",
                 "docker": {
-                    "image": "painless/tox",
+                    "image": "painless/tox@sha256:4f31b329507f9ab658e3c36c5252ad063cabe3d978d6836e0ba322ccb79af060",
                     "reviewed": "1970-01-01"
                 },
                 "args": [{
@@ -138,24 +138,29 @@
             }
         },
         "fair": {
-            "fair-evaluator": {
-                "docs": "https://github.com/EOSC-synergy/FAIR_eva",
+            "fair-eva": {
+                "executable" : "fair-eva.py",
+                "docs": "QC.FAIR/fair-eva.py",
                 "docker": {
-                    "image": "ferag/fair_eva:fair",
+                    "dockerfile": "QC.FAIR/Dockerfile",
                     "oneshot": false,
-                    "reviewed": "2021-07-06"
+                    "reviewed": "2022-04-05"
                 },
-                "executable": "/bin/curl",
                 "args": [
-                         {"type": "optional", "format": "string", "description": "", "option": "-H", "value": "'Content-Type: application/json'", "selectable": true},
-                         {"type": "optional", "format": "string", "description": "", "option": "-X", "value": "POST", "selectable": true},
-                         {"type": "optional", "format": "string", "description": "", "option": "-d", "value": "'{\"id\": \"10261/157765\", \"repo\": \"oai-pmh\", \"oai_base\": \"http://digital.csic.es/dspace-oai/request\"}'", "selectable": true},
-                         {"type": "positional", "format": "string", "description": "Endpoint", "value": "http://localhost:9090/v1.0/rda/rda_all", "selectable": true}]
+                         {"type": "optional", "format": "string", "description": "Persistent Identifier", "option": "-ID", "value": "10261/157765", "selectable": true},
+                         {"type": "optional", "format": "string", "description": "FAIR EVA plugin", "option": "-R", "value": "oai-pmh", "selectable": true},
+                         {"type": "optional", "format": "string", "description": "OAI-PMH Endpoint", "option": "-B", "value": "http://digital.csic.es/dspace-oai/request", "selectable": true},
+                         {"type": "optional", "format": "string", "description": "FAIR EVA endpoint", "option": "--tool_endpoint", "value": "http://localhost:9090/v1.0/rda/rda_all", "selectable": true}],
+            "reporting": {
+                    "validator": "fair-eva",
+                    "threshold": 0,
+                    "requirement_level": "REQUIRED"
+            }
             },
             "F-UJI": {
                 "docs": "https://github.com/pangaea-data-publisher/fuji/blob/master/README.md",
                 "docker": {
-                    "image": "steinsteiny/fuji:fair",
+                    "image": "steinsteiny/fuji:v1.3.8.full",
                     "oneshot": false,
                     "reviewed": "2021-07-20"
                 },
@@ -283,10 +288,14 @@
                 "executable": "rst-lint",
                 "args": [
                     {
-                        "type": "optional", "description": "Minimum error level to report (default: 'warning')", "option": "--level", "value": "warning", "selectable": false
+                        "type": "optional", "description": "Minimum error level to report (default: 'warning')", "option": "--level", "value": [
+                            "warning", "error", "severe", "info", "debug"
+                        ], "format": "array", "selectable": true
                     },
                     {
-                        "type": "optional", "description": "Format of the output (default: 'text')", "option": "--format", "value": "json", "selectable": false
+                        "type": "optional", "description": "Format of the output (default: 'text')", "option": "--format", "value": [
+                            "json", "text"
+                        ], "format": "array", "selectable": true
                     },
                     {
                         "type": "positional", "description": "File/folder to lint", "value": ".", "selectable": true, "format": "string"
@@ -308,7 +317,9 @@
                 },
                 "args": [
                     {
-                        "type": "optional", "description": "Type of file to look for in the code repository", "option": "--file-type", "value": "",  "format": "string", "selectable": true, "repeatable": false
+                        "type": "optional", "description": "Type of file to look for in the code repository", "option": "--file-type", "value": [
+                            "README", "CODE_OF_CONDUCT", "CONTRIBUTING"
+                        ],  "format": "array", "selectable": true, "repeatable": false
                     },
                     {
                         "type": "optional", "description": "Path to look for in the code repository", "option": "--path", "value": "", "format": "string", "selectable": true, "repeatable": false
@@ -322,6 +333,40 @@
                     "threshold": 0,
                     "requirement_level": "REQUIRED"
                 }
+            }
+        },
+        "Kubernetes": {
+            "kubectl (via kustomize)": {
+                "docs": "https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/",
+                "docker": {
+                    "image": "bitnami/kubectl:1.23",
+                    "reviewed": "2022-03-23"
+                },
+                "template": "kubectl_kustomize",
+                "args": [
+                    {
+                        "type": "positional", "description": "Kustomization directory", "id": "k8s_config_files", "value": "", "format": "string", "selectable": true, "repeatable": false,
+                        "type": "optional", "description": "[from kubectl-rollout-status] The length of time to wait before ending watch, zero means never. Any other values should contain a corresponding time unit (e.g. 1s, 2m, 3h)",  "id": "k8s_rollout_status_timeout", "option": "--timeout", "value": "0s",  "format": "string", "selectable": true, "repeatable": false,
+                        "type": "optional", "description": "Jenkins credential ID with the value of KUBECONFIG environment variable", "option": "--kubeconfig-jenkins-credential-id", "value": "kubernetes-cluster",  "format": "string", "selectable": true, "repeatable": false,
+                        "type": "optional", "description": "KUBECONFIG environment variable name", "option": "--kubeconfig-jenkins-credential-variable", "value": "KUBECONFIG",  "format": "string", "selectable": false, "repeatable": false
+                    }
+                ]
+            },
+            "kubectl (via configuration files)": {
+                "docs": "https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/",
+                "docker": {
+                    "image": "bitnami/kubectl:1.23",
+                    "reviewed": "2022-03-23"
+                },
+                "template": "kubectl_config_files",
+                "args": [
+                    {
+                        "type": "positional", "description": "File, directory or URL of the configuration file in YAML format", "id": "k8s_config_files", "value": "", "format": "string", "selectable": true, "repeatable": true,
+                        "type": "optional", "description": "[from kubectl-rollout-status] The length of time to wait before ending watch, zero means never. Any other values should contain a corresponding time unit (e.g. 1s, 2m, 3h)",  "id": "k8s_rollout_status_timeout", "option": "--timeout", "value": "0s",  "format": "string", "selectable": true, "repeatable": false,
+                        "type": "optional", "description": "Jenkins credential ID with the value of KUBECONFIG environment variable", "option": "--kubeconfig-jenkins-credential-id", "value": "kubernetes-cluster",  "format": "string", "selectable": true, "repeatable": false,
+                        "type": "optional", "description": "KUBECONFIG environment variable name", "option": "--kubeconfig-jenkins-credential-variable", "value": "KUBECONFIG",  "format": "string", "selectable": false, "repeatable": false
+                    }
+                ]
             }
         },
         "default": {
@@ -371,7 +416,7 @@
                 "docs": "https://indigo-dc.github.io/sqa-baseline/"
             },
             "tools": {
-                "fair": ["fair-evaluator", "F-UJI"]
+                "fair": ["fair-eva", "F-UJI"]
             }
         },
         "QC.Fun": {
@@ -435,6 +480,19 @@
             },
             "tools": {
                 "Python": ["tox"]
+            }
+        },
+        "SvcQC.Dep": {
+            "description": {
+                "msg": "Perform the service deployment in an automated fashion following Infrastructure as Code (IaC) templates",
+                "improves": "immutable infrastructure deployment and maintenance",
+                "docs": "https://eosc-synergy.github.io/service-qa-baseline/#dep"
+            },
+            "tools": {
+                "Kubernetes": [
+                    "kubectl (via kustomize)",
+                    "kubectl (via configuration files)"
+                ]
             }
         }
     }
