@@ -41,7 +41,7 @@
             "checkstyle": {
                 "docs": "https://github.com/checkstyle/checkstyle",
                 "docker": {
-                    "image": "davrodgon/checkstyle",
+                    "image": "davrodgon/checkstyle@sha256:2ed1d4efd817afde40b219057935139818ee6b88105e75010bde53cd65786bf2",
                     "reviewed": "1970-01-01"
                 },
                 "args": [{
@@ -124,7 +124,7 @@
                 "jepl_support": true,
                 "docs": "https://tox.readthedocs.io/",
                 "docker": {
-                    "image": "painless/tox",
+                    "image": "painless/tox@sha256:4f31b329507f9ab658e3c36c5252ad063cabe3d978d6836e0ba322ccb79af060",
                     "reviewed": "1970-01-01"
                 },
                 "args": [{
@@ -160,7 +160,7 @@
             "F-UJI": {
                 "docs": "https://github.com/pangaea-data-publisher/fuji/blob/master/README.md",
                 "docker": {
-                    "image": "steinsteiny/fuji:fair",
+                    "image": "steinsteiny/fuji:v1.3.8.full",
                     "oneshot": false,
                     "reviewed": "2021-07-20"
                 },
