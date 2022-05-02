@@ -508,7 +508,7 @@
             "description": {
                 "msg": "Ensure compliance with the functional requirements to meet your users’ expectations",
                 "improves": "end-user satisfaction, usability",
-                "docs": "https://indigo-dc.github.io/sqa-baseline/#functional-testing-qc.fun"
+                "docs": "https://eosc-synergy.github.io/service-qa-baseline/#fun"
             },
             "tools": {
                 "Python": ["tox"]
