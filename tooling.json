@@ -431,17 +431,6 @@
                 "fair": ["fair-eva", "F-UJI"]
             }
         },
-        "QC.Fun": {
-            "type": "software",
-            "description": {
-                "msg": "Ensure compliance with the functional requirements to meet your users’ expectations",
-                "improves": "end-user satisfaction, usability",
-                "docs": "https://indigo-dc.github.io/sqa-baseline/#functional-testing-qc.fun"
-            },
-            "tools": {
-                "Python": ["tox"]
-            }
-        },
         "QC.Lic": {
             "type": "software",
             "description": {
@@ -512,6 +501,17 @@
                     "kubectl (via kustomize)",
                     "kubectl (via configuration files)"
                 ]
+            }
+        },
+        "SvcQC.Fun": {
+            "type": "service",
+            "description": {
+                "msg": "Ensure compliance with the functional requirements to meet your users’ expectations",
+                "improves": "end-user satisfaction, usability",
+                "docs": "https://indigo-dc.github.io/sqa-baseline/#functional-testing-qc.fun"
+            },
+            "tools": {
+                "Python": ["tox"]
             }
         }
     }
