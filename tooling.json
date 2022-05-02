@@ -387,6 +387,7 @@
     },
     "criteria": {
         "QC.Acc": {
+            "type": "software",
             "description": {
                 "msg": "Code publicly available and managed by a version control system",
                 "improves": "collaboration, reproducibility",
@@ -397,6 +398,7 @@
             }
         },
         "QC.Doc": {
+            "type": "software",
             "description": {
                 "msg": "Treat documentation as code by using markup languages to automatically build and place it in online repositories",
                 "improves": "outreach capacity, documentation maintenance",
@@ -410,6 +412,7 @@
             }
         },
         "QC.FAIR": {
+            "type": "fair",
             "description": {
                 "msg": "FAIRness level of Digital Objects.",
                 "improves": "findability, accessibility, interoperability, reusability",
@@ -419,17 +422,8 @@
                 "fair": ["fair-eva", "F-UJI"]
             }
         },
-        "QC.Fun": {
-            "description": {
-                "msg": "Ensure compliance with the functional requirements to meet your users’ expectations",
-                "improves": "end-user satisfaction, usability",
-                "docs": "https://indigo-dc.github.io/sqa-baseline/#functional-testing-qc.fun"
-            },
-            "tools": {
-                "Python": ["tox"]
-            }
-        },
         "QC.Lic": {
+            "type": "software",
             "description": {
                 "msg": "Usage of an open license to distribute your code",
                 "improves": "external contributions, reusability",
@@ -440,6 +434,7 @@
             }
         },
         "QC.Met": {
+            "type": "software",
             "description": {
                 "msg": "Make source code citable",
                 "improves": "findability",
@@ -451,6 +446,7 @@
             }
         },
         "QC.Sec": {
+            "type": "software",
             "description": {
                 "msg": "Secure your software by finding (statically) common issues associated to the programming language in use and look for disclosed security vulnerabilities",
                 "improves": "security issues detection",
@@ -461,6 +457,7 @@
             }
         },
         "QC.Sty": {
+            "type": "software",
             "description": {
                 "msg": "Use code style standards to guide your code writing so you let others understand it",
                 "improves": "readability, reusability",
@@ -473,6 +470,7 @@
             }
         },
         "QC.Uni": {
+            "type": "software",
             "description": {
                 "msg": "Test the behaviour of segments or units within your code (e.g. conditionals, loops, functions)",
                 "improves": "code design, early bug detection",
@@ -483,6 +481,7 @@
             }
         },
         "SvcQC.Dep": {
+            "type": "service",
             "description": {
                 "msg": "Perform the service deployment in an automated fashion following Infrastructure as Code (IaC) templates",
                 "improves": "immutable infrastructure deployment and maintenance",
@@ -493,6 +492,17 @@
                     "kubectl (via kustomize)",
                     "kubectl (via configuration files)"
                 ]
+            }
+        },
+        "SvcQC.Fun": {
+            "type": "service",
+            "description": {
+                "msg": "Ensure compliance with the functional requirements to meet your users’ expectations",
+                "improves": "end-user satisfaction, usability",
+                "docs": "https://eosc-synergy.github.io/service-qa-baseline/#fun"
+            },
+            "tools": {
+                "Python": ["tox"]
             }
         }
     }
