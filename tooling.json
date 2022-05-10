@@ -335,6 +335,19 @@
                 }
             }
         },
+        "Semantic Versioning": {
+            "is_semver.py": {
+                "docs": "QC.Ver/is_semver.py",
+                "docker": {
+                    "dockerfile": "QC.Ver/Dockerfile",
+                    "reviewed": "2022-05-10"
+                },
+                "reporting": {
+                    "validator": "is_semver",
+                    "requirement_level": "REQUIRED"
+                }
+            }
+        },
         "Kubernetes": {
             "kubectl (via kustomize)": {
                 "docs": "https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/",
@@ -484,6 +497,17 @@
             },
             "tools": {
                 "Python": ["tox"]
+            }
+        },
+        "QC.Ver": {
+            "type": "software",
+            "description": {
+                "msg": "Software releases follow Semantic Versioning specification",
+                "improves": "dependency management",
+                "docs": "https://indigo-dc.github.io/sqa-baseline/#semantic-versioning-qc.ver"
+            },
+            "tools": {
+                "SemVer": ["is_semver.py"]
             }
         },
         "SvcQC.Dep": {
