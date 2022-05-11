@@ -154,7 +154,7 @@
             "reporting": {
                     "validator": "fair-eva",
                     "threshold": 0,
-                    "requirement_level": "REQUIRED"
+                    "requirement_level": "OPTIONAL"
             }
             },
             "F-UJI": {
