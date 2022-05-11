@@ -510,7 +510,7 @@
                 "docs": "https://indigo-dc.github.io/sqa-baseline/#semantic-versioning-qc.ver"
             },
             "tools": {
-                "SemVer": ["is_semver.py"]
+                "Semantic Versioning": ["is_semver.py"]
             }
         },
         "SvcQC.Dep": {
