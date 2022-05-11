@@ -77,10 +77,10 @@
                         "type": "optional", "description": "only show output in the case of an error", "option": "--quiet", "value": "", "format": "string", "selectable": false, "repeatable": false
                     },
                     {
-                        "type": "optional", "description": "report only issues of a given confidence level or higher", "option": "--confidence-level", "value": ["all", "low", "medium", "high"], "format": "array", "selectable": true, "repeatable": false
+                        "type": "optional", "description": "report only issues of a given confidence level or higher", "option": "--confidence-level", "value": ["high", "all", "low", "medium"], "format": "array", "selectable": true, "repeatable": false
                     },
                     {
-                        "type": "optional", "description": "report only issues of a given severity level or higher", "option": "--severity-level",  "value": ["all", "low", "medium", "high"], "format": "array", "selectable": true, "repeatable": false
+                        "type": "optional", "description": "report only issues of a given severity level or higher", "option": "--severity-level",  "value": ["high", "all", "low", "medium"], "format": "array", "selectable": true, "repeatable": false
                     },
                     {
                         "type": "optional", "description": "find and process files in subdirectories", "option": "--recursive", "format": "string", "selectable": false, "repeatable": false
