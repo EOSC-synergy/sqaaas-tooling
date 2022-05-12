@@ -321,7 +321,7 @@
                 "args": [
                     {
                         "type": "optional", "description": "Type of file to look for in the code repository", "option": "--file-type", "value": [
-                            "README", "CODE_OF_CONDUCT", "CONTRIBUTING"
+                            "all", "README", "CODE_OF_CONDUCT", "CONTRIBUTING"
                         ],  "format": "array", "selectable": true, "repeatable": false
                     },
                     {

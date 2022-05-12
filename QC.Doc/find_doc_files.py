@@ -7,6 +7,7 @@ from pathlib import Path
 
 # Types of files to look for
 FILE_TYPES = [
+    'all',
     'README',
     'CODE_OF_CONDUCT',
     'CONTRIBUTING'
@@ -80,7 +81,9 @@ def find_file(file_type, extensions, check_single_path=None):
 
 def main():
     args = get_input_args()
-    if not args.file_type:
+
+    FILE_TYPES.remove('all')
+    if not args.file_type or args.file_type in ['all']:
         args.file_type = FILE_TYPES
     else:
         args.file_type = [args.file_type]
