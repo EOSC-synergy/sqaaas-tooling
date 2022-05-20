@@ -339,8 +339,8 @@
             }
         },
         "Semantic Versioning": {
-            "is_semver.py": {
-                "docs": "QC.Ver/is_semver.py",
+            "get_git_tags.py": {
+                "docs": "QC.Ver/get_git_tags.py",
                 "docker": {
                     "dockerfile": "QC.Ver/Dockerfile",
                     "reviewed": "2022-05-10"
@@ -510,7 +510,7 @@
                 "docs": "https://indigo-dc.github.io/sqa-baseline/#semantic-versioning-qc.ver"
             },
             "tools": {
-                "Semantic Versioning": ["is_semver.py"]
+                "Semantic Versioning": ["get_git_tags.py"]
             }
         },
         "SvcQC.Dep": {
