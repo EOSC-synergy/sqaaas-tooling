@@ -320,7 +320,7 @@
                 },
                 "args": [
                     {
-                        "type": "optional", "description": "Type of file to look for in the code repository", "option": "--file-type", "value": [
+                        "type": "optional", "description": "Type of file to look for in the code repository", "option": "--file_type", "value": [
                             "all", "README", "CODE_OF_CONDUCT", "CONTRIBUTING"
                         ],  "format": "array", "selectable": true, "repeatable": false
                     },
