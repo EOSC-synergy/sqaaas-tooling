@@ -22,8 +22,13 @@ def main():
     args = get_input_args()
 
     repo = git.Repo(args.repo_path)
-    tags = repo.git.tag('-l', '--contains', 'HEAD')
-    tag_list = tags.split('\n')
+    try:
+        tags = repo.git.describe('--exact-match', 'HEAD')
+        tag_list = tags.split('\n')
+    except git.exc.GitCommandError as e:
+        tag_list = []
+
+    return tag_list
 
 
 print(main())
