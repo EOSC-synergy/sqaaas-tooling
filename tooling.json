@@ -2,6 +2,7 @@
     "tools": {
         "scm": {
             "git": {
+                "version": "2.34.1",
                 "docs": "https://git-scm.com/",
                 "docker": {
                     "image": "bitnami/git:2.34.1",
@@ -24,6 +25,7 @@
         },
         "Dockerfile": {
             "hadolint": {
+                "version": "v2.8.0-0-g398770f-dirty",
                 "docs": "https://github.com/hadolint/hadolint",
                 "docker": {
                     "image": "hadolint/hadolint:2.8.0-alpine",
@@ -39,6 +41,7 @@
         },
         "Java": {
             "checkstyle": {
+                "version": "8.43",
                 "docs": "https://github.com/checkstyle/checkstyle",
                 "docker": {
                     "image": "davrodgon/checkstyle@sha256:2ed1d4efd817afde40b219057935139818ee6b88105e75010bde53cd65786bf2",
@@ -51,6 +54,7 @@
         },
         "JSON": {
             "jsonlint": {
+                "version": "1.6.3",
                 "docs": "https://github.com/zaach/jsonlint",
                 "docker": {
                     "dockerfile": "QC.Sty/jsonlint/Dockerfile",
@@ -64,6 +68,7 @@
         },
         "Python": {
             "bandit": {
+                "version": "1.7.4",
                 "docs": "https://bandit.readthedocs.io/",
                 "docker": {
                     "dockerfile": "QC.Sec/bandit/Dockerfile",
@@ -95,6 +100,7 @@
                 }
             },
             "flake8": {
+                "version": "4.0.1 (mccabe: 0.6.1, pycodestyle: 2.8.0, pyflakes: 2.4.0)",
                 "docs": "https://flake8.pycqa.org/",
                 "docker": {
                     "image": "pipelinecomponents/flake8:0.9.0",
@@ -111,6 +117,7 @@
                 }
             },
             "pycodestyle": {
+                "version": "2.8.0",
                 "docs": "https://pycodestyle.pycqa.org/",
                 "docker": {
                     "dockerfile": "QC.Sty/pycodestyle/Dockerfile",
@@ -122,6 +129,7 @@
             },
             "tox": {
                 "jepl_support": true,
+                "version": "3.14.0",
                 "docs": "https://tox.readthedocs.io/",
                 "docker": {
                     "image": "painless/tox@sha256:4f31b329507f9ab658e3c36c5252ad063cabe3d978d6836e0ba322ccb79af060",
@@ -140,6 +148,7 @@
         "fair": {
             "fair-eva": {
                 "executable" : "fair-eva.py",
+                "version": "latest",
                 "docs": "QC.FAIR/fair-eva.py",
                 "docker": {
                     "dockerfile": "QC.FAIR/Dockerfile",
@@ -158,6 +167,7 @@
             }
             },
             "F-UJI": {
+                "version": "1.3.8",
                 "docs": "https://github.com/pangaea-data-publisher/fuji/blob/master/README.md",
                 "docker": {
                     "image": "steinsteiny/fuji:v1.3.8.full",
@@ -176,6 +186,7 @@
         },
         "license": {
             "licensee": {
+                "version": "9.15.1",
                 "docs": "https://github.com/licensee/licensee",
                 "docker": {
                     "dockerfile": "QC.Lic/licensee/Dockerfile",
@@ -200,6 +211,7 @@
                 }
             },
             "checkLicense": {
+                "version": "latest",
                 "docs": "https://github.com/EOSC-synergy/sqa-composer-templates/tree/main/QC.Lic",
                 "docker": {
                     "dockerfile": "Qc.Lic/Dockerfile",
@@ -210,6 +222,7 @@
         },
         "Citation File Format": {
             "cff-converter-python": {
+                "version": "2.0.0",
                 "docs": "https://github.com/citation-file-format/cff-converter-python",
                 "docker": {
                     "dockerfile": "QC.Met/cff-converter-python/Dockerfile",
@@ -230,6 +243,7 @@
         },
         "CodeMeta": {
             "checkCitable": {
+                "version": "latest",
                 "docs": "https://github.com/EOSC-synergy/sqa-composer-templates/tree/main/QC.Met",
                 "docker": {
                     "dockerfile": "Qc.Met/checkCitable/Dockerfile",
@@ -238,6 +252,7 @@
                 }
             },
             "validate_codemeta": {
+                "version": "latest",
                 "docs": "",
                 "docker": {
                     "image": "alpine:3.15.0",
@@ -258,6 +273,7 @@
         },
         "Markdown": {
             "markdownlint": {
+                "version": "0.11.0",
                 "docs": "https://github.com/markdownlint/markdownlint",
                 "docker": {
                     "dockerfile": "QC.Doc/markdownlint/Dockerfile",
@@ -282,6 +298,7 @@
         },
         "reStructuredText": {
             "restructuredtext-lint": {
+                "version": "1.3.2",
                 "docs": "https://github.com/twolfson/restructuredtext-lint",
                 "docker": {
                     "dockerfile": "QC.Doc/restructuredtext-lint/Dockerfile",
@@ -313,6 +330,7 @@
         },
         "Contribution-enabling Files": {
             "find_doc_files.py": {
+                "version": "latest",
                 "docs": "QC.Doc/find_doc_files.py",
                 "docker": {
                     "dockerfile": "QC.Doc/Dockerfile",
@@ -340,6 +358,7 @@
         },
         "Semantic Versioning": {
             "get_git_tags.py": {
+                "version": "latest",
                 "docs": "QC.Ver/get_git_tags.py",
                 "docker": {
                     "dockerfile": "QC.Ver/Dockerfile",
@@ -353,6 +372,7 @@
         },
         "Kubernetes": {
             "kubectl (via kustomize)": {
+                "version": "1.23.6",
                 "docs": "https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/",
                 "docker": {
                     "image": "bitnami/kubectl:1.23",
@@ -375,6 +395,7 @@
                 ]
             },
             "kubectl (via configuration files)": {
+                "version": "1.23.6",
                 "docs": "https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/",
                 "docker": {
                     "image": "bitnami/kubectl:1.23",
