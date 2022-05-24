@@ -162,16 +162,19 @@
                 "docker": {
                     "image": "steinsteiny/fuji:v1.3.8.full",
                     "oneshot": false,
-                    "reviewed": "2021-07-20"
+                    "reviewed": "2022-05-20"
                 },
-                "executable": "curl",
+                "executable": "fuji.py",
                 "args": [
-                         {"type": "optional", "description": "Facilitate content negotiation.", "option": "-H", "value": "'Accept: application/json'", "selectable": false},
-                         {"type": "optional", "description": "", "option": "-H", "value": "\"Content-Type: application/json\"", "selectable": false},
-                         {"type": "optional", "description": "BasicAuth credentials", "option": "-H", "value": "\"Authorization: Basic bWFydmVsOndvbmRlcndvbWFu\"", "selectable": false},
-                         {"type": "optional", "description": "HTTP Method", "option": "-X", "value": "POST", "selectable": false},
-                         {"type": "optional", "description": "Evaluator's input parameters", "option": "-d", "value": "'{\"metadata_service_endpoint\":\"http://digital.csic.es/dspace-oai/request\",\"metadata_service_type\":\"oai_pmh\",\"object_identifier\":\"http://hdl.handle.net/10261/157765\",\"test_debug\":true,\"use_datacite\":true}'", "selectable": false},
-                         {"type": "positional", "description": "Evaluator's endpoint", "value": "http://localhost:1071/fuji/api/v1/evaluate", "selectable": false}]
+                         {"type": "optional", "format": "string", "description": "Object Identifier", "option": "-OID", "value": "http://hdl.handle.net/10261/157765", "selectable": true},
+                         {"type": "optional", "format": "string", "description": "F-UJI endpoint", "option": "--tool_endpoint", "value": "http://localhost:1071/fuji/api/v1/evaluate", "selectable": true},
+                         {"type": "optional", "format": "string", "description": "Metadata Service Type", "option": "-T", "value": "oai_pmh", "selectable": true},
+                         {"type": "optional", "format": "string", "description": "Metadata Service Endpoint", "option": "-E", "value": "http://digital.csic.es/dspace-oai/request", "selectable": true}],
+            "reporting": {
+                    "validator": "F-UJI",
+                    "threshold": 0,
+                    "requirement_level": "REQUIRED"
+            }
             }
         },
         "license": {
