@@ -533,31 +533,6 @@
             "tools": {
                 "Semantic Versioning": ["get_git_tags.py"]
             }
-        },
-        "SvcQC.Dep": {
-            "type": "service",
-            "description": {
-                "msg": "Perform the service deployment in an automated fashion following Infrastructure as Code (IaC) templates",
-                "improves": "immutable infrastructure deployment and maintenance",
-                "docs": "https://eosc-synergy.github.io/service-qa-baseline/#dep"
-            },
-            "tools": {
-                "Kubernetes": [
-                    "kubectl (via kustomize)",
-                    "kubectl (via configuration files)"
-                ]
-            }
-        },
-        "SvcQC.Fun": {
-            "type": "service",
-            "description": {
-                "msg": "Ensure compliance with the functional requirements to meet your users’ expectations",
-                "improves": "end-user satisfaction, usability",
-                "docs": "https://eosc-synergy.github.io/service-qa-baseline/#fun"
-            },
-            "tools": {
-                "Python": ["tox"]
-            }
         }
     }
 }
