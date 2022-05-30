@@ -412,6 +412,36 @@
                 ]
             }
         },
+        "Infrastructure Manager": {
+            "im_client": {
+                "version": "1.5.11",
+                "docs": "https://imdocs.readthedocs.io/",
+                "docker": {
+                    "image": "grycap/im-client:ec3",
+                    "reviewed": "2022-05-26"
+                },
+                "template": "im_client",
+                "args": [
+                    {
+                        "type": "positional", "description": "Path to deployment file (RADL or TOSCA)", "id": "im_config_files", "value": "", "format": "string", "selectable": true, "repeatable": false
+                    }
+                ]
+            },
+            "ec3_client": {
+                "version": "1.5.11",
+                "docs": "https://ec3.readthedocs.io/en/latest/",
+                "docker": {
+                    "image": "grycap/im-client:ec3",
+                    "reviewed": "2022-05-26"
+                },
+                "template": "ec3_client",
+                "args": [
+                    {
+                        "type": "positional", "description": "Path to deployment file (RADL or TOSCA)", "id": "im_config_files", "value": "", "format": "string", "selectable": true, "repeatable": false
+                    }
+                ]
+            }
+        },
         "default": {
             "commands": {
                 "docs": "https://indigo-dc.github.io/jenkins-pipeline-library/2.0.0/user/config_file.html#commands",
@@ -545,6 +575,10 @@
                 "Kubernetes": [
                     "kubectl (via kustomize)",
                     "kubectl (via configuration files)"
+                ],
+                "Infrastructure Manager": [
+                    "im_client",
+                    "ec3_client"
                 ]
             }
         },
