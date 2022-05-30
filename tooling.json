@@ -424,6 +424,9 @@
                 "args": [
                     {
                         "type": "positional", "description": "Path to deployment file (RADL or TOSCA)", "id": "im_config_files", "value": "", "format": "string", "selectable": true, "repeatable": false
+                    },
+                    {
+                        "type": "positional", "description": "OpenStack infrastructure to use for the deployment", "value": ["incd"], "format": "array", "selectable": true, "repeatable": false
                     }
                 ]
             },
