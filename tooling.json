@@ -418,7 +418,9 @@
                 "docs": "https://imdocs.readthedocs.io/",
                 "docker": {
                     "image": "grycap/im-client:ec3",
-                    "reviewed": "2022-05-26"
+                    "reviewed": "2022-05-26",
+                    "oneshot": false,
+                    "entrypoint": "[/bin/sleep, infinity]"
                 },
                 "template": "im_client",
                 "args": [
