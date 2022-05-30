@@ -420,7 +420,8 @@
                     "image": "grycap/im-client:ec3",
                     "reviewed": "2022-05-26",
                     "oneshot": false,
-                    "entrypoint": "[/bin/sleep, infinity]"
+                    "entrypoint": "[/bin/sleep, infinity]",
+                    "environment": ["OPENSTACK_USER", "OPENSTACK_PASS", "IM_USER", "IM_PASS"]
                 },
                 "template": "im_client",
                 "args": [
