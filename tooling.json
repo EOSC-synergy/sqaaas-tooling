@@ -429,7 +429,7 @@
                         "type": "positional", "description": "Path to deployment file (RADL or TOSCA)", "id": "im_config_file", "value": "", "format": "string", "selectable": true, "repeatable": false
                     },
                     {
-                        "type": "positional", "description": "OpenStack infrastructure to use for the deployment", "value": ["incd"], "format": "array", "selectable": true, "repeatable": false
+                        "type": "positional", "description": "OpenStack infrastructure to use for the deployment", "id": "openstack_site_id", "value": ["incd"], "format": "array", "selectable": true, "repeatable": false
                     }
                 ]
             },
