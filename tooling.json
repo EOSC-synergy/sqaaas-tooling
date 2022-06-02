@@ -442,7 +442,11 @@
                     {
                         "type": "positional", "description": "OpenStack infrastructure to use for the deployment", "id": "openstack_site_id", "value": ["incd"], "format": "array", "selectable": true, "repeatable": false
                     }
-                ]
+                ],
+                "reporting": {
+                    "validator": "boolean",
+                    "requirement_level": "REQUIRED"
+                }
             },
             "ec3_client": {
                 "version": "1.5.11",
