@@ -503,6 +503,9 @@
                 "Markdown": ["markdownlint"],
                 "reStructuredText": ["restructuredtext-lint"],
                 "Contribution-enabling Files": ["find_doc_files.py"]
+            },
+            "tools_qaa_specific": {
+                "scm": ["git"]
             }
         },
         "QC.FAIR": {
@@ -601,9 +604,6 @@
                     "im_client",
                     "ec3_client"
                 ]
-            },
-            "tools_qaa_specific": {
-                "scm": ["git"]
             }
         },
         "SvcQC.Fun": {
