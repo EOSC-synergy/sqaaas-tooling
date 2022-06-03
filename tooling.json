@@ -586,6 +586,9 @@
                     "im_client",
                     "ec3_client"
                 ]
+            },
+            "tools_qaa_specific": {
+                "scm": ["git"]
             }
         },
         "SvcQC.Fun": {
