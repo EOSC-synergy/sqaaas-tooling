@@ -167,21 +167,32 @@
             }
             },
             "F-UJI": {
-                "version": "1.3.8",
                 "docs": "https://github.com/pangaea-data-publisher/fuji/blob/master/README.md",
                 "docker": {
-                    "image": "steinsteiny/fuji:v1.3.8.full",
+                    "image": "steinsteiny/fuji:latest",
                     "oneshot": false,
-                    "reviewed": "2021-07-20"
+                    "reviewed": "2022-06-02"
                 },
-                "executable": "curl",
+                "executable": "fuji.py",
                 "args": [
-                         {"type": "optional", "description": "Facilitate content negotiation.", "option": "-H", "value": "'Accept: application/json'", "selectable": false},
-                         {"type": "optional", "description": "", "option": "-H", "value": "\"Content-Type: application/json\"", "selectable": false},
-                         {"type": "optional", "description": "BasicAuth credentials", "option": "-H", "value": "\"Authorization: Basic bWFydmVsOndvbmRlcndvbWFu\"", "selectable": false},
-                         {"type": "optional", "description": "HTTP Method", "option": "-X", "value": "POST", "selectable": false},
-                         {"type": "optional", "description": "Evaluator's input parameters", "option": "-d", "value": "'{\"metadata_service_endpoint\":\"http://digital.csic.es/dspace-oai/request\",\"metadata_service_type\":\"oai_pmh\",\"object_identifier\":\"http://hdl.handle.net/10261/157765\",\"test_debug\":true,\"use_datacite\":true}'", "selectable": false},
-                         {"type": "positional", "description": "Evaluator's endpoint", "value": "http://localhost:1071/fuji/api/v1/evaluate", "selectable": false}]
+                    {
+                        "type": "optional", "format": "string", "description": "Object Identifier", "option": "-OID", "value": "http://hdl.handle.net/10261/157765", "selectable": true
+                    },
+                    {
+                        "type": "optional", "format": "string", "description": "F-UJI endpoint", "option": "--tool_endpoint", "value": "http://localhost:1071/fuji/api/v1/evaluate", "selectable": true
+                    },
+                    {
+                        "type": "optional", "format": "array",  "description": "The type of the Metadata Service:", "option": "-T", "value": ["oai_pmh", "sparql", "ogc_csw"], "selectable": true, "repeatable": false
+                    },
+                    {
+                        "type": "optional", "format": "string", "description": "Metadata Service Endpoint", "option": "-E", "value": "http://digital.csic.es/dspace-oai/request", "selectable": true
+                    }
+                ],
+            "reporting": {
+                    "validator": "F-UJI",
+                    "threshold": 0,
+                    "requirement_level": "REQUIRED"
+                }
             }
         },
         "license": {
@@ -431,7 +442,11 @@
                     {
                         "type": "positional", "description": "OpenStack infrastructure to use for the deployment", "id": "openstack_site_id", "value": ["incd"], "format": "array", "selectable": true, "repeatable": false
                     }
-                ]
+                ],
+                "reporting": {
+                    "validator": "boolean",
+                    "requirement_level": "REQUIRED"
+                }
             },
             "ec3_client": {
                 "version": "1.5.11",
