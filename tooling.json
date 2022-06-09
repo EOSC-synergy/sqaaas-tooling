@@ -19,7 +19,7 @@
                 "reporting": {
                     "validator": "boolean",
                     "requirement_level": "REQUIRED",
-                    "subcriterion": "QC.Acc01"
+                    "subcriterion": ["QC.Acc01", "QC.Doc01.1"]
                 }
             }
         },
