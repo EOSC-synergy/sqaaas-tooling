@@ -444,7 +444,8 @@
                     }
                 ],
                 "reporting": {
-                    "validator": "boolean",
+                    "validator": "jenkins_exit_status",
+                    "subcriterion": "SvcQC.Dep01",
                     "requirement_level": "REQUIRED"
                 }
             },
