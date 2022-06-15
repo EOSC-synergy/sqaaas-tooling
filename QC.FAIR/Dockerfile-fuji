@@ -1,0 +1,5 @@
+FROM steinsteiny/fuji:v1.4.9-noauth
+
+COPY fuji.py /usr/bin /usr/src/app
+RUN chmod +x /usr/src/app/fuji.py
+RUN chmod +x /usr/bin/fuji.py
