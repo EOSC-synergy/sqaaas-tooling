@@ -510,7 +510,7 @@
             }
         },
         "QC.FAIR": {
-            "type": "fair",
+            "type": "software",
             "description": {
                 "msg": "FAIRness level of Digital Objects.",
                 "improves": "findability, accessibility, interoperability, reusability",
