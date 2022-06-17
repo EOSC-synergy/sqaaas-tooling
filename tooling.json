@@ -167,7 +167,7 @@
             }
             },
             "F-UJI": {
-                "docs": "https://github.com/pangaea-data-publisher/fuji/blob/master/README.md",
+                "docs": "QC.FAIR/fuji.py",
                 "docker": {
                     "dockerfile": "QC.FAIR/Dockerfile-fuji",
                     "oneshot": false,
