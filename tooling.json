@@ -597,13 +597,8 @@
                 "docs": "https://eosc-synergy.github.io/service-qa-baseline/#dep"
             },
             "tools": {
-                "Kubernetes": [
-                    "kubectl (via kustomize)",
-                    "kubectl (via configuration files)"
-                ],
                 "Infrastructure Manager": [
-                    "im_client",
-                    "ec3_client"
+                    "im_client"
                 ]
             }
         },
