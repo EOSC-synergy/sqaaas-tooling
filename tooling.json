@@ -458,10 +458,39 @@
                 },
                 "template": "ec3_client",
                 "args": [
-                    {
-                        "type": "positional", "description": "Path to deployment file (RADL or TOSCA)", "id": "im_config_files", "value": "", "format": "string", "selectable": true, "repeatable": false
-                    }
-                ]
+                	{
+                	    "type": "positional",
+                	    "description": "Path to EC3 templates in the local repository",
+                	    "id": "ec3_templates_repo_dir",
+                	    "value":  "./",
+                	    "format": "string",
+                	    "selectable": true,
+                	    "repeatable": true
+                	},
+                	{
+                	    "type": "positional",
+                	    "description": "EC3 template names used to deploy the cluster (without '.radl' extension)",
+                	    "id": "ec3_templates",
+                	    "value": "",
+                	    "format": "string",
+                	    "selectable": true,
+                	    "repeatable": true
+                	},
+                	{
+                	    "type": "positional",
+                	    "description": "OpenStack infrastructure to use for the deployment",
+                	    "id": "openstack_site_id",
+                	    "value": ["ifca"],
+                	    "format": "array",
+                	    "selectable": true,
+                	    "repeatable": false
+                	}
+                ],
+                "reporting": {
+                    "validator": "jenkins_exit_status",
+                    "subcriterion": "SvcQC.Dep01",
+                    "requirement_level": "REQUIRED"
+                }
             }
         },
         "default": {
@@ -597,10 +626,6 @@
                 "docs": "https://eosc-synergy.github.io/service-qa-baseline/#dep"
             },
             "tools": {
-                "Kubernetes": [
-                    "kubectl (via kustomize)",
-                    "kubectl (via configuration files)"
-                ],
                 "Infrastructure Manager": [
                     "im_client",
                     "ec3_client"
