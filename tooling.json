@@ -464,7 +464,7 @@
                 	    "id": "ec3_templates_repo_dir",
                 	    "value":  "./",
                 	    "format": "string",
-                	    "selectable": true,
+                	    "selectable": false,
                 	    "repeatable": true
                 	},
                 	{
