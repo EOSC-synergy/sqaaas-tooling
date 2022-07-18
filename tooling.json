@@ -450,11 +450,14 @@
                 }
             },
             "ec3_client": {
-                "version": "1.5.11",
+                "version": "2.2.1",
                 "docs": "https://ec3.readthedocs.io/en/latest/",
                 "docker": {
                     "image": "grycap/im-client:ec3",
-                    "reviewed": "2022-05-26"
+                    "reviewed": "2022-05-26",
+                    "oneshot": false,
+                    "entrypoint": ["/bin/sleep", "infinity"],
+                    "environment": ["OPENSTACK_USER", "OPENSTACK_PASS", "IM_USER", "IM_PASS"]
                 },
                 "template": "ec3_client",
                 "args": [
