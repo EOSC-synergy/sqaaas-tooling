@@ -427,6 +427,7 @@
             "im_client": {
                 "version": "1.5.11",
                 "docs": "https://imdocs.readthedocs.io/",
+                "executable" : "im_client.py",
                 "docker": {
                     "image": "grycap/im-client:ec3",
                     "reviewed": "2022-05-26",
