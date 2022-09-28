@@ -2,6 +2,7 @@
     "tools": {
         "scm": {
             "git": {
+                "version": "2.34.1",
                 "docs": "https://git-scm.com/",
                 "docker": {
                     "image": "bitnami/git:2.34.1",
@@ -18,12 +19,13 @@
                 "reporting": {
                     "validator": "boolean",
                     "requirement_level": "REQUIRED",
-                    "subcriterion": "QC.Acc01"
+                    "subcriterion": ["QC.Acc01", "QC.Doc01.1"]
                 }
             }
         },
         "Dockerfile": {
             "hadolint": {
+                "version": "v2.8.0-0-g398770f-dirty",
                 "docs": "https://github.com/hadolint/hadolint",
                 "docker": {
                     "image": "hadolint/hadolint:2.8.0-alpine",
@@ -39,6 +41,7 @@
         },
         "Java": {
             "checkstyle": {
+                "version": "8.43",
                 "docs": "https://github.com/checkstyle/checkstyle",
                 "docker": {
                     "image": "davrodgon/checkstyle@sha256:2ed1d4efd817afde40b219057935139818ee6b88105e75010bde53cd65786bf2",
@@ -51,6 +54,7 @@
         },
         "JSON": {
             "jsonlint": {
+                "version": "1.6.3",
                 "docs": "https://github.com/zaach/jsonlint",
                 "docker": {
                     "dockerfile": "QC.Sty/jsonlint/Dockerfile",
@@ -64,6 +68,7 @@
         },
         "Python": {
             "bandit": {
+                "version": "1.7.4",
                 "docs": "https://bandit.readthedocs.io/",
                 "docker": {
                     "dockerfile": "QC.Sec/bandit/Dockerfile",
@@ -77,10 +82,10 @@
                         "type": "optional", "description": "only show output in the case of an error", "option": "--quiet", "value": "", "format": "string", "selectable": false, "repeatable": false
                     },
                     {
-                        "type": "optional", "description": "report only issues of a given confidence level or higher", "option": "--confidence-level", "value": ["all", "low", "medium", "high"], "format": "array", "selectable": true, "repeatable": false
+                        "type": "optional", "description": "report only issues of a given confidence level or higher", "option": "--confidence-level", "value": ["high", "all", "low", "medium"], "format": "array", "selectable": true, "repeatable": false
                     },
                     {
-                        "type": "optional", "description": "report only issues of a given severity level or higher", "option": "--severity-level",  "value": ["all", "low", "medium", "high"], "format": "array", "selectable": true, "repeatable": false
+                        "type": "optional", "description": "report only issues of a given severity level or higher", "option": "--severity-level",  "value": ["high", "all", "low", "medium"], "format": "array", "selectable": true, "repeatable": false
                     },
                     {
                         "type": "optional", "description": "find and process files in subdirectories", "option": "--recursive", "format": "string", "selectable": false, "repeatable": false
@@ -95,6 +100,7 @@
                 }
             },
             "flake8": {
+                "version": "4.0.1 (mccabe: 0.6.1, pycodestyle: 2.8.0, pyflakes: 2.4.0)",
                 "docs": "https://flake8.pycqa.org/",
                 "docker": {
                     "image": "pipelinecomponents/flake8:0.9.0",
@@ -111,6 +117,7 @@
                 }
             },
             "pycodestyle": {
+                "version": "2.8.0",
                 "docs": "https://pycodestyle.pycqa.org/",
                 "docker": {
                     "dockerfile": "QC.Sty/pycodestyle/Dockerfile",
@@ -122,6 +129,7 @@
             },
             "tox": {
                 "jepl_support": true,
+                "version": "3.14.0",
                 "docs": "https://tox.readthedocs.io/",
                 "docker": {
                     "image": "painless/tox@sha256:4f31b329507f9ab658e3c36c5252ad063cabe3d978d6836e0ba322ccb79af060",
@@ -140,6 +148,7 @@
         "fair": {
             "fair-eva": {
                 "executable" : "fair-eva.py",
+                "version": "latest",
                 "docs": "QC.FAIR/fair-eva.py",
                 "docker": {
                     "dockerfile": "QC.FAIR/Dockerfile",
@@ -154,7 +163,7 @@
             "reporting": {
                     "validator": "fair-eva",
                     "threshold": 0,
-                    "requirement_level": "REQUIRED"
+                    "requirement_level": "OPTIONAL"
             }
             },
             "F-UJI": {
@@ -162,20 +171,33 @@
                 "docker": {
                     "image": "steinsteiny/fuji:v1.3.8.full",
                     "oneshot": false,
-                    "reviewed": "2021-07-20"
+                    "reviewed": "2022-06-02"
                 },
-                "executable": "curl",
+                "executable": "fuji.py",
                 "args": [
-                         {"type": "optional", "description": "Facilitate content negotiation.", "option": "-H", "value": "'Accept: application/json'", "selectable": false},
-                         {"type": "optional", "description": "", "option": "-H", "value": "\"Content-Type: application/json\"", "selectable": false},
-                         {"type": "optional", "description": "BasicAuth credentials", "option": "-H", "value": "\"Authorization: Basic bWFydmVsOndvbmRlcndvbWFu\"", "selectable": false},
-                         {"type": "optional", "description": "HTTP Method", "option": "-X", "value": "POST", "selectable": false},
-                         {"type": "optional", "description": "Evaluator's input parameters", "option": "-d", "value": "'{\"metadata_service_endpoint\":\"http://digital.csic.es/dspace-oai/request\",\"metadata_service_type\":\"oai_pmh\",\"object_identifier\":\"http://hdl.handle.net/10261/157765\",\"test_debug\":true,\"use_datacite\":true}'", "selectable": false},
-                         {"type": "positional", "description": "Evaluator's endpoint", "value": "http://localhost:1071/fuji/api/v1/evaluate", "selectable": false}]
+                    {
+                        "type": "optional", "format": "string", "description": "Object Identifier", "option": "-OID", "value": "http://hdl.handle.net/10261/157765", "selectable": true
+                    },
+                    {
+                        "type": "optional", "format": "string", "description": "F-UJI endpoint", "option": "--tool_endpoint", "value": "http://localhost:1071/fuji/api/v1/evaluate", "selectable": true
+                    },
+                    {
+                        "type": "optional", "format": "array",  "description": "The type of the Metadata Service:", "option": "-T", "value": ["oai_pmh", "sparql", "ogc_csw"], "selectable": true, "repeatable": false
+                    },
+                    {
+                        "type": "optional", "format": "string", "description": "Metadata Service Endpoint", "option": "-E", "value": "http://digital.csic.es/dspace-oai/request", "selectable": true
+                    }
+                ],
+            "reporting": {
+                    "validator": "fuji",
+                    "threshold": 0,
+                    "requirement_level": "REQUIRED"
+                }
             }
         },
         "license": {
             "licensee": {
+                "version": "9.15.1",
                 "docs": "https://github.com/licensee/licensee",
                 "docker": {
                     "dockerfile": "QC.Lic/licensee/Dockerfile",
@@ -200,6 +222,7 @@
                 }
             },
             "checkLicense": {
+                "version": "latest",
                 "docs": "https://github.com/EOSC-synergy/sqa-composer-templates/tree/main/QC.Lic",
                 "docker": {
                     "dockerfile": "Qc.Lic/Dockerfile",
@@ -210,6 +233,7 @@
         },
         "Citation File Format": {
             "cff-converter-python": {
+                "version": "2.0.0",
                 "docs": "https://github.com/citation-file-format/cff-converter-python",
                 "docker": {
                     "dockerfile": "QC.Met/cff-converter-python/Dockerfile",
@@ -230,6 +254,7 @@
         },
         "CodeMeta": {
             "checkCitable": {
+                "version": "latest",
                 "docs": "https://github.com/EOSC-synergy/sqa-composer-templates/tree/main/QC.Met",
                 "docker": {
                     "dockerfile": "Qc.Met/checkCitable/Dockerfile",
@@ -238,6 +263,7 @@
                 }
             },
             "validate_codemeta": {
+                "version": "latest",
                 "docs": "",
                 "docker": {
                     "image": "alpine:3.15.0",
@@ -258,6 +284,7 @@
         },
         "Markdown": {
             "markdownlint": {
+                "version": "0.11.0",
                 "docs": "https://github.com/markdownlint/markdownlint",
                 "docker": {
                     "dockerfile": "QC.Doc/markdownlint/Dockerfile",
@@ -274,12 +301,15 @@
                 ],
                 "reporting": {
                     "validator": "markdownlint",
-                    "requirement_level": "RECOMMENDED"
+                    "requirement_level": "RECOMMENDED",
+                    "doc_file_type": "Markdown",
+                    "doc_file_standard": "markdownlint"
                 }
             }
         },
         "reStructuredText": {
             "restructuredtext-lint": {
+                "version": "1.3.2",
                 "docs": "https://github.com/twolfson/restructuredtext-lint",
                 "docker": {
                     "dockerfile": "QC.Doc/restructuredtext-lint/Dockerfile",
@@ -302,14 +332,16 @@
                     }
                 ],
                 "reporting": {
-                    "validator": "json_not_empty",
+                    "validator": "markdownlint",
                     "requirement_level": "RECOMMENDED",
-                    "subcriterion": "QC.Doc02.X"
+                    "doc_file_type": "reStructuredText",
+                    "doc_file_standard": "restructuredtext-lint"
                 }
             }
         },
         "Contribution-enabling Files": {
             "find_doc_files.py": {
+                "version": "latest",
                 "docs": "QC.Doc/find_doc_files.py",
                 "docker": {
                     "dockerfile": "QC.Doc/Dockerfile",
@@ -317,8 +349,8 @@
                 },
                 "args": [
                     {
-                        "type": "optional", "description": "Type of file to look for in the code repository", "option": "--file-type", "value": [
-                            "README", "CODE_OF_CONDUCT", "CONTRIBUTING"
+                        "type": "optional", "description": "Type of file to look for in the code repository", "option": "--file_type", "value": [
+                            "all", "README", "CODE_OF_CONDUCT", "CONTRIBUTING"
                         ],  "format": "array", "selectable": true, "repeatable": false
                     },
                     {
@@ -335,8 +367,23 @@
                 }
             }
         },
+        "Semantic Versioning": {
+            "get_git_tags.py": {
+                "version": "latest",
+                "docs": "QC.Ver/get_git_tags.py",
+                "docker": {
+                    "dockerfile": "QC.Ver/Dockerfile",
+                    "reviewed": "2022-05-10"
+                },
+                "reporting": {
+                    "validator": "is_semver",
+                    "requirement_level": "REQUIRED"
+                }
+            }
+        },
         "Kubernetes": {
             "kubectl (via kustomize)": {
+                "version": "1.23.6",
                 "docs": "https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/",
                 "docker": {
                     "image": "bitnami/kubectl:1.23",
@@ -345,14 +392,21 @@
                 "template": "kubectl_kustomize",
                 "args": [
                     {
-                        "type": "positional", "description": "Kustomization directory", "id": "k8s_config_files", "value": "", "format": "string", "selectable": true, "repeatable": false,
-                        "type": "optional", "description": "[from kubectl-rollout-status] The length of time to wait before ending watch, zero means never. Any other values should contain a corresponding time unit (e.g. 1s, 2m, 3h)",  "id": "k8s_rollout_status_timeout", "option": "--timeout", "value": "0s",  "format": "string", "selectable": true, "repeatable": false,
-                        "type": "optional", "description": "Jenkins credential ID with the value of KUBECONFIG environment variable", "option": "--kubeconfig-jenkins-credential-id", "value": "kubernetes-cluster",  "format": "string", "selectable": true, "repeatable": false,
+                        "type": "positional", "description": "Kustomization directory", "id": "k8s_config_files", "value": "", "format": "string", "selectable": true, "repeatable": false
+                    },
+                    {
+                        "type": "optional", "description": "[from kubectl-rollout-status] The length of time to wait before ending watch, zero means never. Any other values should contain a corresponding time unit (e.g. 1s, 2m, 3h)",  "id": "k8s_rollout_status_timeout", "option": "--timeout", "value": "0s",  "format": "string", "selectable": true, "repeatable": false
+                    },
+                    {
+                        "type": "optional", "description": "Jenkins credential ID with the value of KUBECONFIG environment variable", "option": "--kubeconfig-jenkins-credential-id", "value": "kubernetes-cluster",  "format": "string", "selectable": true, "repeatable": false
+                    },
+                    {
                         "type": "optional", "description": "KUBECONFIG environment variable name", "option": "--kubeconfig-jenkins-credential-variable", "value": "KUBECONFIG",  "format": "string", "selectable": false, "repeatable": false
                     }
                 ]
             },
             "kubectl (via configuration files)": {
+                "version": "1.23.6",
                 "docs": "https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/",
                 "docker": {
                     "image": "bitnami/kubectl:1.23",
@@ -367,6 +421,79 @@
                         "type": "optional", "description": "KUBECONFIG environment variable name", "option": "--kubeconfig-jenkins-credential-variable", "value": "KUBECONFIG",  "format": "string", "selectable": false, "repeatable": false
                     }
                 ]
+            }
+        },
+        "Infrastructure Manager": {
+            "im_client": {
+                "version": "1.5.11",
+                "docs": "https://imdocs.readthedocs.io/",
+                "docker": {
+                    "image": "grycap/im-client:ec3",
+                    "reviewed": "2022-05-26",
+                    "oneshot": false,
+                    "entrypoint": ["/bin/sleep", "infinity"],
+                    "environment": ["OPENSTACK_USER", "OPENSTACK_PASS", "IM_USER", "IM_PASS"]
+                },
+                "template": "im_client",
+                "args": [
+                    {
+                        "type": "positional", "description": "Path to deployment file (RADL or TOSCA)", "id": "im_config_file", "value": "", "format": "string", "selectable": true, "repeatable": false
+                    },
+                    {
+                        "type": "positional", "description": "OpenStack infrastructure to use for the deployment", "id": "openstack_site_id", "value": ["incd"], "format": "array", "selectable": true, "repeatable": false
+                    }
+                ],
+                "reporting": {
+                    "validator": "jenkins_exit_status",
+                    "subcriterion": "SvcQC.Dep01",
+                    "requirement_level": "REQUIRED"
+                }
+            },
+            "ec3_client": {
+                "version": "2.2.1",
+                "docs": "https://ec3.readthedocs.io/en/latest/",
+                "docker": {
+                    "image": "grycap/im-client:ec3",
+                    "reviewed": "2022-05-26",
+                    "oneshot": false,
+                    "entrypoint": ["/bin/sleep", "infinity"],
+                    "environment": ["OPENSTACK_USER", "OPENSTACK_PASS", "IM_USER", "IM_PASS"]
+                },
+                "template": "ec3_client",
+                "args": [
+                	{
+                	    "type": "positional",
+                	    "description": "Path to EC3 templates in the local repository",
+                	    "id": "ec3_templates_repo_dir",
+                	    "value":  "./",
+                	    "format": "string",
+                	    "selectable": true,
+                	    "repeatable": false
+                	},
+                	{
+                	    "type": "positional",
+                	    "description": "EC3 template names used to deploy the cluster (without '.radl' extension)",
+                	    "id": "ec3_templates",
+                	    "value": "",
+                	    "format": "string",
+                	    "selectable": true,
+                	    "repeatable": true
+                	},
+                	{
+                	    "type": "positional",
+                	    "description": "OpenStack infrastructure to use for the deployment",
+                	    "id": "openstack_site_id",
+                	    "value": ["ifca"],
+                	    "format": "array",
+                	    "selectable": true,
+                	    "repeatable": false
+                	}
+                ],
+                "reporting": {
+                    "validator": "jenkins_exit_status",
+                    "subcriterion": "SvcQC.Dep01",
+                    "requirement_level": "REQUIRED"
+                }
             }
         },
         "default": {
@@ -387,6 +514,7 @@
     },
     "criteria": {
         "QC.Acc": {
+            "type": "software",
             "description": {
                 "msg": "Code publicly available and managed by a version control system",
                 "improves": "collaboration, reproducibility",
@@ -397,6 +525,7 @@
             }
         },
         "QC.Doc": {
+            "type": "software",
             "description": {
                 "msg": "Treat documentation as code by using markup languages to automatically build and place it in online repositories",
                 "improves": "outreach capacity, documentation maintenance",
@@ -407,9 +536,13 @@
                 "Markdown": ["markdownlint"],
                 "reStructuredText": ["restructuredtext-lint"],
                 "Contribution-enabling Files": ["find_doc_files.py"]
+            },
+            "tools_qaa_specific": {
+                "scm": ["git"]
             }
         },
         "QC.FAIR": {
+            "type": "fair",
             "description": {
                 "msg": "FAIRness level of Digital Objects.",
                 "improves": "findability, accessibility, interoperability, reusability",
@@ -419,17 +552,8 @@
                 "fair": ["fair-eva", "F-UJI"]
             }
         },
-        "QC.Fun": {
-            "description": {
-                "msg": "Ensure compliance with the functional requirements to meet your users’ expectations",
-                "improves": "end-user satisfaction, usability",
-                "docs": "https://indigo-dc.github.io/sqa-baseline/#functional-testing-qc.fun"
-            },
-            "tools": {
-                "Python": ["tox"]
-            }
-        },
         "QC.Lic": {
+            "type": "software",
             "description": {
                 "msg": "Usage of an open license to distribute your code",
                 "improves": "external contributions, reusability",
@@ -440,6 +564,7 @@
             }
         },
         "QC.Met": {
+            "type": "software",
             "description": {
                 "msg": "Make source code citable",
                 "improves": "findability",
@@ -451,6 +576,7 @@
             }
         },
         "QC.Sec": {
+            "type": "software",
             "description": {
                 "msg": "Secure your software by finding (statically) common issues associated to the programming language in use and look for disclosed security vulnerabilities",
                 "improves": "security issues detection",
@@ -461,6 +587,7 @@
             }
         },
         "QC.Sty": {
+            "type": "software",
             "description": {
                 "msg": "Use code style standards to guide your code writing so you let others understand it",
                 "improves": "readability, reusability",
@@ -473,6 +600,7 @@
             }
         },
         "QC.Uni": {
+            "type": "software",
             "description": {
                 "msg": "Test the behaviour of segments or units within your code (e.g. conditionals, loops, functions)",
                 "improves": "code design, early bug detection",
@@ -482,17 +610,40 @@
                 "Python": ["tox"]
             }
         },
+        "QC.Ver": {
+            "type": "software",
+            "description": {
+                "msg": "Software releases follow Semantic Versioning specification",
+                "improves": "dependency management",
+                "docs": "https://indigo-dc.github.io/sqa-baseline/#semantic-versioning-qc.ver"
+            },
+            "tools": {
+                "Semantic Versioning": ["get_git_tags.py"]
+            }
+        },
         "SvcQC.Dep": {
+            "type": "service",
             "description": {
                 "msg": "Perform the service deployment in an automated fashion following Infrastructure as Code (IaC) templates",
                 "improves": "immutable infrastructure deployment and maintenance",
                 "docs": "https://eosc-synergy.github.io/service-qa-baseline/#dep"
             },
             "tools": {
-                "Kubernetes": [
-                    "kubectl (via kustomize)",
-                    "kubectl (via configuration files)"
+                "Infrastructure Manager": [
+                    "im_client",
+                    "ec3_client"
                 ]
+            }
+        },
+        "SvcQC.Fun": {
+            "type": "service",
+            "description": {
+                "msg": "Ensure compliance with the functional requirements to meet your users’ expectations",
+                "improves": "end-user satisfaction, usability",
+                "docs": "https://eosc-synergy.github.io/service-qa-baseline/#fun"
+            },
+            "tools": {
+                "Python": ["tox"]
             }
         }
     }
