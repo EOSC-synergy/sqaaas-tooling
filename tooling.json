@@ -132,6 +132,22 @@
                     "requirement_level": "REQUIRED"
                 }
             },
+            "pylint": {
+                "version": "2.15.3",
+                "docs": "http://www.pylint.org/",
+                "docker": {
+                    "dockerfile": "QC.Sty/pylint/Dockerfile",
+                    "reviewed": "2022-10-03"
+                },
+                "args": [{
+                    "type": "positional", "description": "Path to Python project or file/s", "value": ".", "format": "string", "selectable": true, "repeatable": true
+                }],
+                "reporting": {
+                    "validator": "jenkins_exit_status",
+                    "subcriterion": "QC.Sty01",
+                    "requirement_level": "REQUIRED"
+                }
+            },
             "tox": {
                 "jepl_support": true,
                 "version": "3.14.0",
@@ -570,7 +586,7 @@
             "tools": {
                 "Dockerfile": ["hadolint"],
                 "JSON": ["jsonlint"],
-                "Python": ["tox", "flake8", "pycodestyle"]
+                "Python": ["tox", "flake8", "pycodestyle", "pylint"]
             }
         },
         "QC.Uni": {
