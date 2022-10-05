@@ -39,6 +39,32 @@
                 }]
             }
         },
+        "Golang": {
+            "gosec": {
+                "version": "2.13.1",
+                "docs": "https://github.com/securego/gosec/",
+                "docker": {
+                    "dockerfile": "QC.Sec/gosec/Dockerfile",
+                    "reviewed": "2022-03-05"
+                },
+                "args": [
+                    {
+                        "type": "optional", "description": "set output format", "option": "-fmt", "value": ["json", "yaml", "csv", "junit-xml", "html", "sonarqube", "golint", "sarif", "text"], "format": "array", "selectable": true, "repeatable": false
+                    },
+                    {
+                        "type": "optional", "description": "filter out the issues with a lower severity than the given value", "option": "-severity", "value": ["high", "medium", "low"], "format": "array", "selectable": true, "repeatable": false
+                    },
+                    {
+                        "type": "positional", "description": "source file(s) or directory(s) to be tested", "value": "./...", "format": "string", "selectable": true, "repeatable": true
+                    }
+                ],
+                "reporting": {
+                    "validator": "json_not_empty",
+		    "subcriterion": "QC.Sec02",
+                    "requirement_level": "REQUIRED"
+                }
+            }
+	},
         "Java": {
             "checkstyle": {
                 "version": "8.43",
@@ -583,7 +609,8 @@
                 "docs": "https://indigo-dc.github.io/sqa-baseline/#security-qc.sec"
             },
             "tools": {
-                "Python": ["tox", "bandit"]
+                "Python": ["tox", "bandit"],
+                "Golang": ["gosec"]
             }
         },
         "QC.Sty": {
