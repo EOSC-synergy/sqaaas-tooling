@@ -44,7 +44,7 @@
                 "version": "2022.1.3",
                 "docs": "https://staticcheck.iio",
                 "docker": {
-                    "dockerfile": "QC.Sec/staticcheck/Dockerfile",
+                    "dockerfile": "QC.Sty/staticcheck/Dockerfile",
                     "reviewed": "2022-10-06"
                 },
                 "args": [
