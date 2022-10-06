@@ -40,6 +40,28 @@
             }
         },
         "Golang": {
+            "staticcheck": {
+                "version": "2022.1.3",
+                "docs": "https://staticcheck.iio",
+                "docker": {
+                    "dockerfile": "QC.Sec/staticcheck/Dockerfile",
+                    "reviewed": "2022-10-06"
+                },
+                "args": [
+                    {
+                        "type": "optional", "description": "set output format", "option": "-f", "value": ["json", "text", "stylish"], "format": "array", "selectable": true, "repeatable": false
+                    },
+                    {
+                        "type": "positional", "description": "source file(s) or directory(s) to be tested", "value": "./...", "format": "string", "selectable": true, "repeatable": true
+                    }
+                ],
+                "reporting": {
+                    "validator": "jenkins_exit_status",
+		    "subcriterion": "QC.Sty01",
+		    "tool_name": "staticcheck",
+                    "requirement_level": "REQUIRED"
+                }
+            },
             "gosec": {
                 "version": "2.13.1",
                 "docs": "https://github.com/securego/gosec/",
@@ -627,7 +649,8 @@
             "tools": {
                 "Dockerfile": ["hadolint"],
                 "JSON": ["jsonlint"],
-                "Python": ["tox", "flake8", "pycodestyle"]
+                "Python": ["tox", "flake8", "pycodestyle"],
+                "Golang": ["staticcheck"]
             }
         },
         "QC.Uni": {
