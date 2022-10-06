@@ -56,6 +56,9 @@
                     },
                     {
                         "type": "positional", "description": "source file(s) or directory(s) to be tested", "value": "./...", "format": "string", "selectable": true, "repeatable": true
+                    },
+                    {
+                        "type": "optional", "description": "only show output when errors are found", "option": "-quiet", "value": "", "format": "string", "selectable": false, "repeatable": false
                     }
                 ],
                 "reporting": {
