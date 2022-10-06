@@ -18,10 +18,7 @@ def get_input_args():
     return parser.parse_args()
 
 
-def main():
-    args = get_input_args()
-
-    repo = git.Repo(args.repo_path)
+def get_tag_in_last_commit(repo):
     try:
         tags = repo.git.describe('--exact-match', 'HEAD')
         tag_list = tags.split('\n')
@@ -30,5 +27,16 @@ def main():
 
     return tag_list
 
+
+def get_tags(repo):
+    return [tag.name for tag in repo.tags]
+
+
+def main():
+    args = get_input_args()
+
+    repo = git.Repo(args.repo_path)
+    
+    return get_tags(repo)
 
 print(main())
