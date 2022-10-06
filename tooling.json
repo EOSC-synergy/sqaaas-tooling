@@ -55,10 +55,10 @@
                         "type": "optional", "description": "filter out the issues with a lower severity than the given value", "option": "-severity", "value": ["high", "medium", "low"], "format": "array", "selectable": true, "repeatable": false
                     },
                     {
-                        "type": "positional", "description": "source file(s) or directory(s) to be tested", "value": "./...", "format": "string", "selectable": true, "repeatable": true
+                        "type": "optional", "description": "only show output when errors are found", "option": "-quiet", "value": "", "format": "string", "selectable": false, "repeatable": false
                     },
                     {
-                        "type": "optional", "description": "only show output when errors are found", "option": "-quiet", "value": "", "format": "string", "selectable": false, "repeatable": false
+                        "type": "positional", "description": "source file(s) or directory(s) to be tested", "value": "./...", "format": "string", "selectable": true, "repeatable": true
                     }
                 ],
                 "reporting": {
