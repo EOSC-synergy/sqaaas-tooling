@@ -92,7 +92,6 @@
                 ],
                 "reporting": {
                     "validator": "gosec",
-		    "tool_name": "gosec",
                     "requirement_level": "REQUIRED"
                 }
             }
@@ -159,7 +158,6 @@
                 ],
                 "reporting": {
                     "validator": "bandit",
-		    "tool_name": "bandit",
                     "requirement_level": "REQUIRED"
                 }
             },
