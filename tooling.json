@@ -112,6 +112,7 @@
         },
         "JSON": {
             "jsonlint": {
+		"executable": "jsonlint-cli",
                 "version": "1.6.3",
                 "docs": "https://github.com/zaach/jsonlint",
                 "docker": {
@@ -119,7 +120,7 @@
                     "reviewed": "2021-11-23"
                 },
                 "args": [{
-                    "type": "positional", "description": "Path to JSON file", "value": "", "format": "string", "selectable": true, "repeatable": false
+                    "type": "positional", "description": "Path to JSON file", "value": "\"**/*.json\"", "format": "string", "selectable": true, "repeatable": false
                 }],
                 "reporting": {
                     "validator": "jenkins_exit_status",
