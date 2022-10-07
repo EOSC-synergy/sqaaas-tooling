@@ -113,8 +113,13 @@
                 },
                 "args": [{
                     "type": "positional", "description": "Path to JSON file", "value": "", "format": "string", "selectable": true, "repeatable": false
-                }]
-
+                }],
+                "reporting": {
+                    "validator": "jenkins_exit_status",
+		    "subcriterion": "QC.Sty01",
+		    "tool_name": "jsonlint",
+                    "requirement_level": "REQUIRED"
+                }
             }
         },
         "Python": {
