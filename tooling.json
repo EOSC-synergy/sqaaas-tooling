@@ -39,7 +39,7 @@
                 }]
             }
         },
-        "Golang": {
+        "Go": {
             "staticcheck": {
                 "version": "2022.1.3",
                 "docs": "https://staticcheck.iio",
@@ -636,7 +636,7 @@
             },
             "tools": {
                 "Python": ["tox", "bandit"],
-                "Golang": ["gosec"]
+                "Go": ["gosec"]
             }
         },
         "QC.Sty": {
@@ -650,7 +650,7 @@
                 "Dockerfile": ["hadolint"],
                 "JSON": ["jsonlint"],
                 "Python": ["tox", "flake8", "pycodestyle"],
-                "Golang": ["staticcheck"]
+                "Go": ["staticcheck"]
             }
         },
         "QC.Uni": {
