@@ -64,6 +64,7 @@
                 "reporting": {
                     "validator": "jenkins_exit_status",
 		    "subcriterion": "QC.Sty01",
+		    "lang_name": "Go",
 		    "tool_name": "staticcheck",
                     "requirement_level": "REQUIRED"
                 }
