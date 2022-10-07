@@ -682,7 +682,8 @@
                 "Dockerfile": ["hadolint"],
                 "JSON": ["jsonlint"],
                 "Python": ["tox", "flake8", "pycodestyle"],
-                "Go": ["staticcheck"]
+                "Go": ["staticcheck"],
+                "Ruby": ["rubocop"]
             }
         },
         "QC.Uni": {
