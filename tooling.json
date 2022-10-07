@@ -97,6 +97,25 @@
                 }
             }
 	},
+        "Ruby": {
+            "rubocop": {
+                "version": "1.36.0",
+                "docs": "https://docs.rubocop.org/",
+                "docker": {
+                    "dockerfile": "QC.Sty/rubocop/Dockerfile",
+                    "reviewed": "2022-10-07"
+                },
+                "args": [
+                ],
+                "reporting": {
+                    "validator": "jenkins_exit_status",
+		    "subcriterion": "QC.Sty01",
+		    "lang_name": "Ruby",
+		    "tool_name": "rubocop",
+                    "requirement_level": "REQUIRED"
+                }
+            }
+	},
         "Java": {
             "checkstyle": {
                 "version": "8.43",
