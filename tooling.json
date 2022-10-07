@@ -36,7 +36,13 @@
                 },
                 {
                     "type": "optional", "description": "Ignore rules (see https://github.com/hadolint/hadolint#rules)", "option": "--ignore", "value": "", "format": "string", "selectable": true, "repeatable": true
-                }]
+                }],
+                "reporting": {
+                    "validator": "jenkins_exit_status",
+		    "subcriterion": "QC.Sty01",
+		    "tool_name": "hadolint",
+                    "requirement_level": "REQUIRED"
+                }
             }
         },
         "Go": {
