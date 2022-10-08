@@ -116,6 +116,28 @@
                 }
             }
 	},
+        "JavaScript": {
+            "eslint": {
+                "version": "1.36.0",
+                "docs": "https://docs.rubocop.org/",
+                "docker": {
+                    "image": "pipelinecomponents/eslint:0.51.0",
+			"reviewed": "2022-10-07"
+                },
+                "args": [
+                    {
+                        "type": "positional", "description": "source file(s) or directory(s) to be tested", "value": ".", "format": "string", "selectable": true, "repeatable": true
+                    }
+                ],
+                "reporting": {
+                    "validator": "jenkins_exit_status",
+		    "subcriterion": "QC.Sty01",
+		    "lang_name": "JavaScript",
+		    "tool_name": "eslint",
+                    "requirement_level": "REQUIRED"
+                }
+            }
+	},
         "Java": {
             "checkstyle": {
                 "version": "8.43",
@@ -683,7 +705,8 @@
                 "JSON": ["jsonlint"],
                 "Python": ["tox", "flake8", "pycodestyle"],
                 "Go": ["staticcheck"],
-                "Ruby": ["rubocop"]
+                "Ruby": ["rubocop"],
+                "JavaScript": ["eslint"]
             }
         },
         "QC.Uni": {
