@@ -118,11 +118,11 @@
 	},
         "JavaScript": {
             "eslint": {
-                "version": "1.36.0",
-                "docs": "https://docs.rubocop.org/",
+                "version": "8.23.1",
+                "docs": "https://eslint.org/",
                 "docker": {
-                    "image": "pipelinecomponents/eslint:0.51.0",
-			"reviewed": "2022-10-07"
+                    "dockerfile": "QC.Sty/eslint/Dockerfile",
+		    "reviewed": "2022-10-07"
                 },
                 "args": [
                     {
