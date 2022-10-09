@@ -114,6 +114,26 @@
 		    "tool_name": "rubocop",
                     "requirement_level": "REQUIRED"
                 }
+            },
+            "brakeman": {
+                "version": "1.36.0",
+                "docs": "https://brakemanscanner.org//",
+                "docker": {
+                    "dockerfile": "QC.Sty/brakeman/Dockerfile",
+                    "reviewed": "2022-10-10"
+                },
+                "args": [
+                    {
+                        "type": "positional", "description": "source file(s) or directory(s) to be tested", "value": ".", "format": "string", "selectable": true, "repeatable": true
+                    }
+                ],
+                "reporting": {
+                    "validator": "jenkins_exit_status",
+		    "subcriterion": "QC.Sec02",
+		    "lang_name": "Ruby",
+		    "tool_name": "brakeman",
+                    "requirement_level": "REQUIRED"
+                }
             }
 	},
         "JavaScript": {
