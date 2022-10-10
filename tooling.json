@@ -751,7 +751,7 @@
                 "Python": ["tox", "flake8", "pycodestyle"],
                 "Go": ["staticcheck"],
                 "Ruby": ["rubocop"],
-                "JavaScript": ["eslint"]
+                "JavaScript": ["stylelint"]
             }
         },
         "QC.Uni": {
