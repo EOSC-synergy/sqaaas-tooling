@@ -159,14 +159,12 @@
             "stylelint": {
                 "version": "14.13.0",
                 "docs": "https://stylelint.io/",
+		"executable": "npx",
                 "docker": {
                     "dockerfile": "QC.Sty/stylelint/Dockerfile",
 		    "reviewed": "2022-10-11"
                 },
                 "args": [
-                    {
-                        "type": "positional", "description": "Node's npx command", "value": "npx", "format": "string", "selectable": false, "repeatable": false
-                    },
                     {
                         "type": "positional", "description": "plugin", "value": "stylelint", "format": "string", "selectable": false, "repeatable": false
                     },
