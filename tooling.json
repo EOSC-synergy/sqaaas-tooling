@@ -185,13 +185,21 @@
             "checkstyle": {
                 "version": "8.43",
                 "docs": "https://github.com/checkstyle/checkstyle",
+		"executable": "mvn",
                 "docker": {
-                    "image": "davrodgon/checkstyle@sha256:2ed1d4efd817afde40b219057935139818ee6b88105e75010bde53cd65786bf2",
+                    "image": "maven",
                     "reviewed": "1970-01-01"
                 },
                 "args": [{
-                    "type": "positional", "description": "source file(s) or directory(ies) to be analyzed", "value": ".", "format": "string", "selectable": true, "repeatable": true
-                }]
+                    "type": "positional", "description": "Maven goal", "value": "checktyle:check", "format": "string", "selectable": true, "repeatable": true
+                }],
+                "reporting": {
+                    "validator": "jenkins_exit_status",
+		    "subcriterion": "QC.Sty01",
+		    "lang_name": "Java",
+		    "tool_name": "checkstyle",
+                    "requirement_level": "REQUIRED"
+                }
             }
         },
         "JSON": {
@@ -749,7 +757,8 @@
                 "Python": ["tox", "flake8", "pycodestyle"],
                 "Go": ["staticcheck"],
                 "Ruby": ["rubocop"],
-                "JavaScript": ["stylelint"]
+                "JavaScript": ["stylelint"],
+                "Java": ["checkstyle"]
             }
         },
         "QC.Uni": {
