@@ -153,7 +153,32 @@
                     "validator": "jenkins_exit_status",
 		    "subcriterion": "QC.Sty01",
 		    "lang_name": "JavaScript",
-		    "tool_name": "eslint",
+		    "tool_name": "eslint"
+                }
+            },
+            "stylelint": {
+                "version": "8.23.1",
+                "docs": "https://stylelint.io/",
+                "docker": {
+                    "dockerfile": "QC.Sty/stylelint/Dockerfile",
+		    "reviewed": "2022-10-11"
+                },
+                "args": [
+                    {
+                        "type": "positional", "description": "Node's npx command", "value": "npx", "format": "string", "selectable": false, "repeatable": false
+                    },
+                    {
+                        "type": "positional", "description": "plugin", "value": "stylelint", "format": "string", "selectable": false, "repeatable": false
+                    },
+                    {
+                        "type": "positional", "description": "source file(s) or directory(s) to be tested", "value": "**/*.vue", "format": "string", "selectable": true, "repeatable": true
+                    }
+                ],
+                "reporting": {
+                    "validator": "jenkins_exit_status",
+		    "subcriterion": "QC.Sty01",
+		    "lang_name": "JavaScript",
+		    "tool_name": "stylelint",
                     "requirement_level": "REQUIRED"
                 }
             }
