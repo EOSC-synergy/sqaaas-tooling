@@ -191,7 +191,7 @@
                     "reviewed": "1970-01-01"
                 },
                 "args": [{
-                    "type": "positional", "description": "Maven goal", "value": "checktyle:check", "format": "string", "selectable": true, "repeatable": true
+                    "type": "positional", "description": "Maven goal", "value": "checkstyle:check", "format": "string", "selectable": true, "repeatable": true
                 }],
                 "reporting": {
                     "validator": "jenkins_exit_status",
