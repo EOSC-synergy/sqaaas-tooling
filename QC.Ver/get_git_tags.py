@@ -29,7 +29,9 @@ def get_tag_in_last_commit(repo):
 
 
 def get_tags(repo):
-    return [tag.name for tag in repo.tags]
+    tags = sorted(repo.tags, key=lambda t: t.commit.committed_datetime)
+    tags.reverse()
+    return tags
 
 
 def main():
