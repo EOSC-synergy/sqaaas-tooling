@@ -529,7 +529,7 @@
                 "version": "latest",
                 "docs": "QC.Ver/get_git_tags.py",
                 "docker": {
-                    "image": "bitnami/git:2.34.1",
+                    "dockerfile": "QC.Ver/Dockerfile",
                     "reviewed": "2022-05-10"
                 },
                 "reporting": {
