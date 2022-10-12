@@ -31,9 +31,6 @@ def get_tag_in_last_commit(repo):
 def get_tags(repo):
     tag_list = [] 
     tags = repo.tags
-    # repo.git.config('--global', '--add', 'safe.directory', "'*'")
-    # repo.git.tag('--sort=-taggerdate')
-    # tags = sorted(repo.tags, key=lambda t: t.tag.tagged_date)
     if tags:
         tag_list = sorted(repo.tags, key=lambda t: t.commit.committed_datetime)
         tag_list.reverse()
