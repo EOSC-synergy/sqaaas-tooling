@@ -29,15 +29,20 @@ def get_tag_in_last_commit(repo):
 
 
 def get_tags(repo):
-    tags = sorted(repo.tags, key=lambda t: t.commit.committed_datetime)
-    tags.reverse()
+    tags = repo.tags
+    repo.git.config('--global', '--add', 'safe.directory', '.')
+    repo.git.tag('--sort=-taggerdate')
+    # tags = sorted(repo.tags, key=lambda t: t.tag.tagged_date)
+    # tags.reverse()
+    tags = [str(tag) for tag in tags]
+
     return tags
 
 
 def main():
     args = get_input_args()
 
-    repo = git.Repo(args.repo_path)
+    repo = git.Repo(args.repo_path, odbt=git.db.GitDB)
     
     return get_tags(repo)
 
