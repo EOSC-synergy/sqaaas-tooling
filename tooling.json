@@ -347,8 +347,7 @@
                 ],
             "reporting": {
                     "validator": "fuji",
-                    "threshold": 0,
-                    "requirement_level": "REQUIRED"
+                    "threshold": 0
                 }
             }
         },
