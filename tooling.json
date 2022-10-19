@@ -603,6 +603,8 @@
                 "reporting": {
                     "validator": "jenkins_exit_status",
                     "subcriterion": "SvcQC.Dep01",
+		    "lang_name": "Infrastructure Manager (IM)",
+		    "tool_name": "im_client.py",
                     "requirement_level": "REQUIRED"
                 }
             },
@@ -649,6 +651,8 @@
                 "reporting": {
                     "validator": "jenkins_exit_status",
                     "subcriterion": "SvcQC.Dep01",
+		    "lang_name": "Elastic Cloud Computing Cluster (EC3)",
+		    "tool_name": "ec3",
                     "requirement_level": "REQUIRED"
                 }
             }
