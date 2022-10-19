@@ -642,7 +642,7 @@
                 	    "type": "positional",
                 	    "description": "OpenStack infrastructure to use for the deployment",
                 	    "id": "openstack_site_id",
-                	    "value": ["ifca"],
+                	    "value": ["ifca", "incd"],
                 	    "format": "array",
                 	    "selectable": true,
                 	    "repeatable": false
