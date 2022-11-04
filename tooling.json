@@ -32,7 +32,7 @@
                     "reviewed": "2021-06-21"
                 },
                 "args": [{
-                    "type": "positional", "description": "Path to Dockerfile", "value": "Dockerfile", "format": "string", "selectable": true, "repeatable": false
+                    "type": "positional", "description": "Path to Dockerfile", "value": "*/Dockerfile*", "format": "string", "selectable": true, "repeatable": false
                 },
                 {
                     "type": "optional", "description": "Ignore rules (see https://github.com/hadolint/hadolint#rules)", "option": "--ignore", "value": "", "format": "string", "selectable": true, "repeatable": true
