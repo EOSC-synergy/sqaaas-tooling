@@ -169,6 +169,9 @@
                         "type": "positional", "description": "plugin", "value": "stylelint", "format": "string", "selectable": false, "repeatable": false
                     },
                     {
+                        "type": "optional", "description": "path to a specific configuration file", "option": "--config", "value": "~/.stylelintrc.json", "format": "string", "selectable": true, "repeatable": false
+                    },
+                    {
                         "type": "positional", "description": "source file(s) or directory(s) to be tested", "value": "**/*.{js,ts,css,vue}", "format": "string", "selectable": true, "repeatable": true
                     }
                 ],
