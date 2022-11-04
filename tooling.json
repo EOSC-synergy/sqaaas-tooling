@@ -175,7 +175,7 @@
                         "type": "optional", "description": "path to a specific configuration file", "option": "--config", "value": "/root/.stylelintrc.json", "format": "string", "selectable": true, "repeatable": false
                     },
                     {
-                        "type": "positional", "description": "source file(s) or directory(s) to be tested", "value": "**/*.{js,ts,css,vue}", "format": "string", "selectable": true, "repeatable": true
+                        "type": "positional", "description": "source file(s) or directory(s) to be tested", "value": "**/*.{js,ts,css,vue}", "value_has_commas": true, "format": "string", "selectable": true, "repeatable": true
                     }
                 ],
                 "reporting": {
