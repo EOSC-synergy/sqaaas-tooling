@@ -32,28 +32,185 @@
                     "reviewed": "2021-06-21"
                 },
                 "args": [{
-                    "type": "positional", "description": "Path to Dockerfile", "value": "Dockerfile", "format": "string", "selectable": true, "repeatable": false
+                    "type": "positional", "description": "Path to Dockerfile", "value": "*/Dockerfile*", "format": "string", "selectable": true, "repeatable": false
                 },
                 {
                     "type": "optional", "description": "Ignore rules (see https://github.com/hadolint/hadolint#rules)", "option": "--ignore", "value": "", "format": "string", "selectable": true, "repeatable": true
-                }]
+                }],
+                "reporting": {
+                    "validator": "jenkins_exit_status",
+		    "subcriterion": "QC.Sty01",
+		    "lang_name": "Dockerfile",
+		    "tool_name": "hadolint",
+                    "requirement_level": "REQUIRED"
+                }
             }
         },
+        "Go": {
+            "staticcheck": {
+                "version": "2022.1.3",
+                "docs": "https://staticcheck.iio",
+                "docker": {
+                    "dockerfile": "QC.Sty/staticcheck/Dockerfile",
+                    "reviewed": "2022-10-06"
+                },
+                "args": [
+                    {
+                        "type": "optional", "description": "set output format", "option": "-f", "value": ["json", "text", "stylish"], "format": "array", "selectable": true, "repeatable": false
+                    },
+                    {
+                        "type": "positional", "description": "source file(s) or directory(s) to be tested", "value": "./...", "format": "string", "selectable": true, "repeatable": true
+                    }
+                ],
+                "reporting": {
+                    "validator": "jenkins_exit_status",
+		    "subcriterion": "QC.Sty01",
+		    "lang_name": "Go",
+		    "tool_name": "staticcheck",
+                    "requirement_level": "REQUIRED"
+                }
+            },
+            "gosec": {
+                "version": "2.13.1",
+                "docs": "https://github.com/securego/gosec/",
+                "docker": {
+                    "dockerfile": "QC.Sec/gosec/Dockerfile",
+                    "reviewed": "2022-03-05"
+                },
+                "args": [
+                    {
+                        "type": "optional", "description": "set output format", "option": "-fmt", "value": ["json", "yaml", "csv", "junit-xml", "html", "sonarqube", "golint", "sarif", "text"], "format": "array", "selectable": true, "repeatable": false
+                    },
+                    {
+                        "type": "optional", "description": "filter out the issues with a lower severity than the given value", "option": "-severity", "value": ["high", "medium", "low"], "format": "array", "selectable": true, "repeatable": false
+                    },
+                    {
+                        "type": "optional", "description": "only show output when errors are found", "option": "-quiet", "value": "", "format": "string", "selectable": false, "repeatable": false
+                    },
+                    {
+                        "type": "positional", "description": "source file(s) or directory(s) to be tested", "value": "./...", "format": "string", "selectable": true, "repeatable": true
+                    }
+                ],
+                "reporting": {
+                    "validator": "gosec",
+                    "requirement_level": "REQUIRED"
+                }
+            }
+	},
+        "Ruby": {
+            "rubocop": {
+                "version": "1.36.0",
+                "docs": "https://docs.rubocop.org/",
+                "docker": {
+                    "dockerfile": "QC.Sty/rubocop/Dockerfile",
+                    "reviewed": "2022-10-07"
+                },
+                "args": [
+                ],
+                "reporting": {
+                    "validator": "jenkins_exit_status",
+		    "subcriterion": "QC.Sty01",
+		    "lang_name": "Ruby",
+		    "tool_name": "rubocop",
+                    "requirement_level": "REQUIRED"
+                }
+            },
+            "brakeman": {
+                "version": "1.36.0",
+                "docs": "https://brakemanscanner.org//",
+                "docker": {
+                    "dockerfile": "QC.Sty/brakeman/Dockerfile",
+                    "reviewed": "2022-10-10"
+                },
+                "args": [
+                    {
+                        "type": "positional", "description": "source file(s) or directory(s) to be tested", "value": ".", "format": "string", "selectable": true, "repeatable": true
+                    }
+                ],
+                "reporting": {
+                    "validator": "jenkins_exit_status",
+		    "subcriterion": "QC.Sec02",
+		    "lang_name": "Ruby",
+		    "tool_name": "brakeman",
+                    "requirement_level": "REQUIRED"
+                }
+            }
+	},
+        "JavaScript": {
+            "eslint": {
+                "version": "8.23.1",
+                "docs": "https://eslint.org/",
+                "docker": {
+                    "dockerfile": "QC.Sty/eslint/Dockerfile",
+		    "reviewed": "2022-10-07"
+                },
+                "args": [
+                    {
+                        "type": "positional", "description": "source file(s) or directory(s) to be tested", "value": ".", "format": "string", "selectable": true, "repeatable": true
+                    }
+                ],
+                "reporting": {
+                    "validator": "jenkins_exit_status",
+		    "subcriterion": "QC.Sty01",
+		    "lang_name": "JavaScript",
+		    "tool_name": "eslint"
+                }
+            },
+            "stylelint": {
+                "version": "14.13.0",
+                "docs": "https://stylelint.io/",
+		"executable": "npx",
+                "docker": {
+                    "dockerfile": "QC.Sty/stylelint/Dockerfile",
+		    "reviewed": "2022-10-11"
+                },
+                "args": [
+                    {
+                        "type": "positional", "description": "plugin", "value": "stylelint", "format": "string", "selectable": false, "repeatable": false
+                    },
+                    {
+                        "type": "optional", "description": "absolute path to config base", "option": "--config-basedir", "value": ".", "format": "string", "selectable": true, "repeatable": false
+                    },
+                    {
+                        "type": "optional", "description": "path to a specific configuration file", "option": "--config", "value": "/root/.stylelintrc.json", "format": "string", "selectable": true, "repeatable": false
+                    },
+                    {
+                        "type": "positional", "description": "source file(s) or directory(s) to be tested", "value": "**/*.{js,ts,css,vue}", "value_has_commas": true, "format": "string", "selectable": true, "repeatable": true
+                    }
+                ],
+                "reporting": {
+                    "validator": "jenkins_exit_status",
+		    "subcriterion": "QC.Sty01",
+		    "lang_name": "JavaScript",
+		    "tool_name": "stylelint",
+                    "requirement_level": "REQUIRED"
+                }
+            }
+	},
         "Java": {
             "checkstyle": {
                 "version": "8.43",
                 "docs": "https://github.com/checkstyle/checkstyle",
+		"executable": "mvn",
                 "docker": {
-                    "image": "davrodgon/checkstyle@sha256:2ed1d4efd817afde40b219057935139818ee6b88105e75010bde53cd65786bf2",
+                    "image": "maven",
                     "reviewed": "1970-01-01"
                 },
                 "args": [{
-                    "type": "positional", "description": "source file(s) or directory(ies) to be analyzed", "value": ".", "format": "string", "selectable": true, "repeatable": true
-                }]
+                    "type": "positional", "description": "Maven goal", "value": "checkstyle:check", "format": "string", "selectable": true, "repeatable": true
+                }],
+                "reporting": {
+                    "validator": "jenkins_exit_status",
+		    "subcriterion": "QC.Sty01",
+		    "lang_name": "Java",
+		    "tool_name": "checkstyle",
+                    "requirement_level": "REQUIRED"
+                }
             }
         },
         "JSON": {
             "jsonlint": {
+		"executable": "jsonlint-cli",
                 "version": "1.6.3",
                 "docs": "https://github.com/zaach/jsonlint",
                 "docker": {
@@ -61,9 +218,15 @@
                     "reviewed": "2021-11-23"
                 },
                 "args": [{
-                    "type": "positional", "description": "Path to JSON file", "value": "", "format": "string", "selectable": true, "repeatable": false
-                }]
-
+                    "type": "positional", "description": "Path to JSON file", "value": "\"**/*.json\"", "format": "string", "selectable": true, "repeatable": false
+                }],
+                "reporting": {
+                    "validator": "jenkins_exit_status",
+		    "subcriterion": "QC.Sty01",
+		    "lang_name": "JSON",
+		    "tool_name": "jsonlint",
+                    "requirement_level": "REQUIRED"
+                }
             }
         },
         "Python": {
@@ -156,15 +319,16 @@
                     "reviewed": "2022-04-05"
                 },
                 "args": [
-                         {"type": "optional", "format": "string", "description": "Persistent Identifier", "option": "-ID", "value": "10261/157765", "selectable": true},
-                         {"type": "optional", "format": "string", "description": "FAIR EVA plugin", "option": "-R", "value": "oai-pmh", "selectable": true},
-                         {"type": "optional", "format": "string", "description": "OAI-PMH Endpoint", "option": "-B", "value": "http://digital.csic.es/dspace-oai/request", "selectable": true},
-                         {"type": "optional", "format": "string", "description": "FAIR EVA endpoint", "option": "--tool_endpoint", "value": "http://localhost:9090/v1.0/rda/rda_all", "selectable": true}],
-            "reporting": {
-                    "validator": "fair-eva",
+                         {"type": "optional", "format": "string", "description": "Persistent Identifier", "id": "persistent_identifier", "option": "-ID", "value": "10261/157765", "selectable": true},
+                         {"type": "optional", "format": "string", "description": "FAIR EVA plugin", "id": "metadata_protocol", "option": "-R", "value": "oai-pmh", "selectable": true},
+                         {"type": "optional", "format": "string", "description": "OAI-PMH Endpoint", "id": "metadata_endpoint", "option": "-B", "value": "http://digital.csic.es/dspace-oai/request", "selectable": true},
+                         {"type": "optional", "format": "string", "description": "FAIR EVA endpoint", "id": "evaluator_endpoint", "option": "--tool_endpoint", "value": "http://localhost:9090/v1.0/rda/rda_all", "selectable": true}
+		],
+            	"reporting": {
+		    "validator": "fairEva",
                     "threshold": 0,
-                    "requirement_level": "OPTIONAL"
-            }
+                    "requirement_level": "REQUIRED"
+            	}
             },
             "F-UJI": {
                 "docs": "https://github.com/pangaea-data-publisher/fuji/blob/master/README.md",
@@ -190,8 +354,7 @@
                 ],
             "reporting": {
                     "validator": "fuji",
-                    "threshold": 0,
-                    "requirement_level": "REQUIRED"
+                    "threshold": 0
                 }
             }
         },
@@ -446,6 +609,8 @@
                 "reporting": {
                     "validator": "jenkins_exit_status",
                     "subcriterion": "SvcQC.Dep01",
+		    "lang_name": "Infrastructure Manager (IM)",
+		    "tool_name": "im_client.py",
                     "requirement_level": "REQUIRED"
                 }
             },
@@ -483,7 +648,7 @@
                 	    "type": "positional",
                 	    "description": "OpenStack infrastructure to use for the deployment",
                 	    "id": "openstack_site_id",
-                	    "value": ["ifca"],
+                	    "value": ["ifca", "incd"],
                 	    "format": "array",
                 	    "selectable": true,
                 	    "repeatable": false
@@ -492,6 +657,8 @@
                 "reporting": {
                     "validator": "jenkins_exit_status",
                     "subcriterion": "SvcQC.Dep01",
+		    "lang_name": "Elastic Cloud Computing Cluster (EC3)",
+		    "tool_name": "ec3",
                     "requirement_level": "REQUIRED"
                 }
             }
@@ -583,7 +750,8 @@
                 "docs": "https://indigo-dc.github.io/sqa-baseline/#security-qc.sec"
             },
             "tools": {
-                "Python": ["tox", "bandit"]
+                "Python": ["tox", "bandit"],
+                "Go": ["gosec"]
             }
         },
         "QC.Sty": {
@@ -596,7 +764,11 @@
             "tools": {
                 "Dockerfile": ["hadolint"],
                 "JSON": ["jsonlint"],
-                "Python": ["tox", "flake8", "pycodestyle"]
+                "Python": ["tox", "flake8", "pycodestyle"],
+                "Go": ["staticcheck"],
+                "Ruby": ["rubocop"],
+                "JavaScript": ["stylelint"],
+                "Java": ["checkstyle"]
             }
         },
         "QC.Uni": {

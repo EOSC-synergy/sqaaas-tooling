@@ -1,2 +1,2 @@
 FROM node
-RUN npm install jsonlint -g
+RUN npm install jsonlint-cli -g

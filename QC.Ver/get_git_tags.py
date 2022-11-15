@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import argparse
 import git
@@ -29,13 +29,20 @@ def get_tag_in_last_commit(repo):
 
 
 def get_tags(repo):
-    return [tag.name for tag in repo.tags]
+    tag_list = [] 
+    tags = repo.tags
+    if tags:
+        tag_list = sorted(repo.tags, key=lambda t: t.commit.committed_datetime)
+        tag_list.reverse()
+        tag_list = [str(tag) for tag in tag_list]
+
+    return tag_list
 
 
 def main():
     args = get_input_args()
 
-    repo = git.Repo(args.repo_path)
+    repo = git.Repo(args.repo_path, odbt=git.db.GitDB)
     
     return get_tags(repo)
 
