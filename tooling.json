@@ -770,7 +770,6 @@
                 "Python": ["tox", "flake8", "pycodestyle"],
                 "Go": ["staticcheck"],
                 "Ruby": ["rubocop"],
-                "JavaScript": ["stylelint"],
                 "Java": ["checkstyle"]
             }
         },
