@@ -183,7 +183,7 @@
 		    "subcriterion": "QC.Sty01",
 		    "lang_name": "JavaScript",
 		    "tool_name": "stylelint",
-                    "requirement_level": "REQUIRED"
+                    "requirement_level": "RECOMMENDED"
                 }
             }
 	},
