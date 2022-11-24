@@ -375,6 +375,9 @@
                         ]
                     },
                     {
+                        "type": "optional", "format": "string", "description": "Confidence level", "option": "--confidence", "value": "60", "selectable": false, "repeatable": false
+                    },
+                    {
                         "type": "optional", "description": "JSON output", "option": "--json", "selectable": false
                     }
                 ],
