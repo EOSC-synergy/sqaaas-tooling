@@ -36,6 +36,9 @@
                 },
                 {
                     "type": "optional", "description": "Ignore rules (see https://github.com/hadolint/hadolint#rules)", "option": "--ignore", "value": "", "format": "string", "selectable": true, "repeatable": true
+                },
+                {
+                    "type": "optional", "description": "Exit with failure code only when rules with a severity equal to or above THRESHOLD are violated", "option": "--failure-threshold", "value": ["error", "warning", "info", "style"], "format": "array", "selectable": true, "repeatable": false
                 }],
                 "reporting": {
                     "validator": "jenkins_exit_status",
