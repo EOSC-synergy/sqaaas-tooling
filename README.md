@@ -1,6 +1,15 @@
 # sqaaas-tooling
 Tooling metadata for the tools supported by the SQAaaS platform
 
+<img src="https://github.com/EOSC-synergy/service-qa-baseline/blob/master/content/images/logo-SYNERGY.png" height="80">
+
+## Institutions owning the result
+<p float="left">
+    <img src="https://github.com/EOSC-synergy/service-qa-baseline/blob/master/content/images/logo-LIP.png" height="80">
+    <img src="https://github.com/EOSC-synergy/service-qa-baseline/blob/master/content/images/logo-csic.png" height="80">
+    <img src="https://github.com/EOSC-synergy/service-qa-baseline/blob/master/content/images/logo-UPV.png" height="80">
+</p>
+
 ## How a tool is dynamically loaded by the SQAaaS platform
 1) The [SQAaaS API](https://github.com/eosc-synergy/sqaaas-api-server) loads the content of the tool's metadata file (`tooling.json`), which is then offered upon requests to `/criteria` path (see [API's spec](https://eosc-synergy.github.io/sqaaas-api-spec/#operation/get_criteria))
 2) Any API client, such as the [SQAaaS web](https://github.com/eosc-synergy/sqaaas-web), can then use these metadata to compose CI/CD pipelines that include one or more of these tools in an automated fashion. 
