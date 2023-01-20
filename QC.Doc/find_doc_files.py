@@ -15,7 +15,7 @@ FILE_TYPES = [
 # Follows GitHub supported markup languages
 # -- https://github.com/github/markup/blob/master/README.md#markups
 AVAILABLE_EXTENSIONS = [
-    '', # allow no-extension
+    '',  # allow no-extension
     '.markdown', '.mdown', '.mkdn', '.md',
     '.textile',
     '.rdoc',
@@ -108,5 +108,6 @@ def main():
         out[file_type] = file_found_list
 
     return json.dumps(out)
+
 
 print(main())

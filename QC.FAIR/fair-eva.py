@@ -3,7 +3,6 @@
 import argparse
 import json
 import requests
-from pathlib import Path
 
 
 def get_input_args():
@@ -32,7 +31,10 @@ def get_input_args():
         '--tool_endpoint',
         metavar='ENDPOINT',
         type=str,
-        help='Enpoint to perform HTTP request. Example: http://localhost:9090/v1.0/rda/rda_all'
+        help=(
+            'Enpoint to perform HTTP request. Example: '
+            'http://localhost:9090/v1.0/rda/rda_all'
+        )
     )
 
     return parser.parse_args()
@@ -41,14 +43,15 @@ def get_input_args():
 def main():
     args = get_input_args()
     url = args.tool_endpoint
-    headers = {'Content-Type':'application/json'}
+    headers = {'Content-Type': 'application/json'}
     data = {
         "id": args.ID,
         "repo": args.R,
         "oai_base": args.B,
         "lang": "ES"
     }
-    r = requests.post(url,data=json.dumps(data), headers=headers)
+    r = requests.post(url, data=json.dumps(data), headers=headers)
     return json.dumps(r.json())
+
 
 print(main())

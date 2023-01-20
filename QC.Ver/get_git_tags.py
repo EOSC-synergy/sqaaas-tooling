@@ -22,14 +22,14 @@ def get_tag_in_last_commit(repo):
     try:
         tags = repo.git.describe('--exact-match', 'HEAD')
         tag_list = tags.split('\n')
-    except git.exc.GitCommandError as e:
+    except git.exc.GitCommandError:
         tag_list = []
 
     return tag_list
 
 
 def get_tags(repo):
-    tag_list = [] 
+    tag_list = []
     tags = repo.tags
     if tags:
         tag_list = sorted(repo.tags, key=lambda t: t.commit.committed_datetime)
@@ -43,7 +43,8 @@ def main():
     args = get_input_args()
 
     repo = git.Repo(args.repo_path, odbt=git.db.GitDB)
-    
+
     return get_tags(repo)
+
 
 print(main())
