@@ -275,6 +275,9 @@
                 "args": [
                     {
                         "type": "positional", "description": "Path to Python project or file/s", "value": ".", "format": "string", "selectable": true, "repeatable": true
+                    },
+                    {
+                        "type": "optional", "description": "Comma-separated list of files or directories to exclude", "option": "--exclude", "value": "", "format": "string", "selectable": true, "repeatable": true
                     }
                 ],
                 "reporting": {
