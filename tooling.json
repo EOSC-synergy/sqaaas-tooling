@@ -52,7 +52,7 @@
         "Go": {
             "staticcheck": {
                 "version": "2022.1.3",
-                "docs": "https://staticcheck.iio",
+                "docs": "https://staticcheck.io",
                 "docker": {
                     "dockerfile": "QC.Sty/staticcheck/Dockerfile",
                     "reviewed": "2022-10-06"
