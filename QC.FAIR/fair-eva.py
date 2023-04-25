@@ -64,10 +64,11 @@ def main():
     args = get_input_args()
     url = args.tool_endpoint
 
-    if not is_api_up(url):
+    healthcheck_url = 'http://localhost:9090/v1.0/rda'
+    if not is_api_up(healthcheck_url):
         print(
             'Maximum retries reached when attempting to connect '
-            'to FAIR_EVA API: %s' % url
+            'to FAIR_EVA API: %s' % healthcheck_url
         )
         sys.exit(-1)
 
