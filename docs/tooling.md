@@ -58,6 +58,7 @@ The `args` property enables the definition of the arguments involved in the tool
 | `format` | string (enum) | (for API clients) the value's data type. Useful for graphical interfaces, provides the means to render the form elements (inputs, text areas, dropdowns, ..). Choose between [`string`, `array`] | :white_check_mark: (for API clients) |
 | `selectable` | boolean | (for API clients) Whether the argument's value shall be customized by the user, or otherwise it is a fixed (non-modifiable) value | :white_check_mark: (for API clients) |
 | `repeatable` | boolean | (for API clients) Whether the same argument can be used several times | :white_check_mark: (for API clients) |
+| `explicit_paths` | boolean | (for API clients) Only applicable for the assessment, whether the `value` property shall be set with the explicit list of files detected in the repository  | :white_check_mark: (for API clients) |
 | `args` | object | Suitable when defining commands with more than one type of argument, it allows to define nested `args` properties | |
 
 #### Special `option` values
