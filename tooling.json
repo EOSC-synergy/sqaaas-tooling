@@ -358,7 +358,7 @@
                         "type": "optional", "format": "string", "description": "Metadata Service Endpoint", "option": "-E", "value": "http://digital.csic.es/dspace-oai/request", "selectable": true
                     }
                 ],
-            "reporting": {
+		"reporting": {
                     "validator": "fuji",
                     "threshold": 0
                 }
@@ -725,7 +725,7 @@
                 "docs": "https://indigo-dc.github.io/sqa-baseline/"
             },
             "tools": {
-                "fair": ["fair-eva", "F-UJI"]
+                "fair": ["fair-eva"]
             }
         },
         "QC.Lic": {
