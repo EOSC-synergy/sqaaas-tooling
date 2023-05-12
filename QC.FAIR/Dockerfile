@@ -3,7 +3,7 @@ FROM python:3
 MAINTAINER Fernando Aguilar "aguilarf@ifca.unican.es"
 
 RUN apt-get update -y && \
-    apt-get install -y curl python3-pip python3-dev git vim lsof
+    apt-get install -y curl python3-pip python3-dev python3-requests git vim lsof
 
 RUN ls
 RUN git clone https://github.com/EOSC-synergy/FAIR_eva.git
