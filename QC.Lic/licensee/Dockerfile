@@ -6,3 +6,4 @@ WORKDIR /usr/src/app
 RUN gem install octokit -v 4.25.1
 RUN gem install nokogiri -v 1.13.1
 RUN gem install licensee
+USER 1001
