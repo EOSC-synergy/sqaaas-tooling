@@ -256,7 +256,8 @@
                 ],
                 "reporting": {
                     "validator": "jenkins_exit_status",
-                    "requirement_level": "REQUIRED"
+                    "requirement_level": "REQUIRED",
+                    "subcriterion": "QC.Uni01"
                 }
             },
             "bandit": {
