@@ -248,10 +248,13 @@
                 },
                 "args": [
                     {
-                        "type": "optional", "description": "create JSON report", "option": "--json-report", "value": "", "format": "string", "selectable": false, "repeatable": false
+                        "id": "test_path", "type": "positional", "description": "path to the folder containing the test cases", "value": "tests", "format": "string", "selectable": true, "repeatable": true
                     },
                     {
-                        "type": "optional", "description": "pretty-print JSON with specified indentation level", "option": "--json-report-indent", "value": "4", "format": "string", "selectable": false, "repeatable": false
+                        "id": "json_report", "type": "optional", "description": "create JSON report", "option": "--json-report", "value": "", "format": "string", "selectable": false, "repeatable": false
+                    },
+                    {
+                        "id": "json_report_indent", "type": "optional", "description": "pretty-print JSON with specified indentation level", "option": "--json-report-indent", "value": "4", "format": "string", "selectable": false, "repeatable": false
                     }
                 ],
                 "reporting": {
