@@ -48,10 +48,7 @@ def is_port_open():
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     result = sock.connect_ex(('127.0.0.1',9090))
     if result == 0:
-       print("Port is open")
        is_port_open = True
-    else:
-       print("Port is not open")
     sock.close()
 
     return is_port_open
