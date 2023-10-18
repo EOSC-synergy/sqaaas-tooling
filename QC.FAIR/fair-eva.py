@@ -3,6 +3,7 @@
 import argparse
 import json
 import requests
+import socket
 import sys
 
 
@@ -42,47 +43,26 @@ def get_input_args():
     return parser.parse_args()
 
 
-def is_api_up(url):
-    s = requests.Session()
-    retries = requests.adapters.Retry(
-        total=5,
-        backoff_factor=0.4,
-        status_forcelist=[ 500, 502, 503, 504 ]
-    )
-    s.mount('http://', requests.adapters.HTTPAdapter(max_retries=retries))
-
-    response = None
-    try:
-        response = s.get(url)
-    except requests.exceptions.ConnectionError:
-        pass
-
-    return response
-
-
-def check_port_open():
-    import socket
+def is_port_open():
+    is_port_open = False
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     result = sock.connect_ex(('127.0.0.1',9090))
     if result == 0:
        print("Port is open")
+       is_port_open = True
     else:
        print("Port is not open")
     sock.close()
+
+    return is_port_open
 
 
 def main():
     args = get_input_args()
     url = args.tool_endpoint
 
-    check_port_open()
-
-    healthcheck_url = 'http://localhost:9090/v1.0/rda'
-    if not is_api_up(healthcheck_url):
-        print(
-            'Maximum retries reached when attempting to connect '
-            'to FAIR_EVA API: %s' % healthcheck_url
-        )
+    if not is_port_open():
+        print('FAIR-eva API not running: port 9090 is not open')
         sys.exit(-1)
 
     headers = {'Content-Type': 'application/json'}
