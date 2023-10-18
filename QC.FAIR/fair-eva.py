@@ -60,9 +60,22 @@ def is_api_up(url):
     return response
 
 
+def check_port_open():
+    import socket
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    result = sock.connect_ex(('127.0.0.1',9090))
+    if result == 0:
+       print("Port is open")
+    else:
+       print("Port is not open")
+    sock.close()
+
+
 def main():
     args = get_input_args()
     url = args.tool_endpoint
+
+    check_port_open()
 
     healthcheck_url = 'http://localhost:9090/v1.0/rda'
     if not is_api_up(healthcheck_url):
