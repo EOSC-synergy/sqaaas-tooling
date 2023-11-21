@@ -723,7 +723,7 @@
                 "executable": "",
                 "args": [
                     {
-                        "type": "positional", "description": "Commands", "value": "", "format": "string", "selectable": true, "repeatable": true
+                        "id": "commands", "type": "positional", "description": "Commands", "value": "", "format": "string", "selectable": true, "repeatable": true
                     }
                 ]
             }
