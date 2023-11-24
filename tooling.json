@@ -31,20 +31,22 @@
                     "image": "hadolint/hadolint:2.8.0-alpine",
                     "reviewed": "2021-06-21"
                 },
-                "args": [{
-                    "type": "positional", "description": "Path to Dockerfile", "value": "*Dockerfile*", "format": "string", "selectable": true, "repeatable": true, "explicit_paths": true
-                },
-                {
-                    "type": "optional", "description": "Ignore rules (see https://github.com/hadolint/hadolint#rules)", "option": "--ignore", "value": "", "format": "string", "selectable": true, "repeatable": true
-                },
-                {
-                    "type": "optional", "description": "Exit with failure code only when rules with a severity equal to or above THRESHOLD are violated", "option": "--failure-threshold", "value": ["error", "warning", "info", "style"], "format": "array", "selectable": true, "repeatable": false
-                }],
+                "args": [
+                    {
+                        "type": "positional", "description": "Path to Dockerfile", "value": "*Dockerfile*", "format": "string", "selectable": true, "repeatable": true, "explicit_paths": true
+                    },
+                    {
+                        "type": "optional", "description": "Ignore rules (see https://github.com/hadolint/hadolint#rules)", "option": "--ignore", "value": "", "format": "string", "selectable": true, "repeatable": true
+                    },
+                    {
+                        "type": "optional", "description": "Exit with failure code only when rules with a severity equal to or above THRESHOLD are violated", "option": "--failure-threshold", "value": ["error", "warning", "info", "style"], "format": "array", "selectable": true, "repeatable": false
+                    }
+                ],
                 "reporting": {
                     "validator": "jenkins_exit_status",
-		    "subcriterion": "QC.Sty01",
-		    "lang_name": "Dockerfile",
-		    "tool_name": "hadolint",
+                    "subcriterion": "QC.Sty01",
+                    "lang_name": "Dockerfile",
+                    "tool_name": "hadolint",
                     "requirement_level": "REQUIRED"
                 }
             }
@@ -67,9 +69,9 @@
                 ],
                 "reporting": {
                     "validator": "jenkins_exit_status",
-		    "subcriterion": "QC.Sty01",
-		    "lang_name": "Go",
-		    "tool_name": "staticcheck",
+                    "subcriterion": "QC.Sty01",
+                    "lang_name": "Go",
+                    "tool_name": "staticcheck",
                     "requirement_level": "REQUIRED"
                 }
             },
@@ -112,9 +114,9 @@
                 ],
                 "reporting": {
                     "validator": "jenkins_exit_status",
-		    "subcriterion": "QC.Sty01",
-		    "lang_name": "Ruby",
-		    "tool_name": "rubocop",
+                    "subcriterion": "QC.Sty01",
+                    "lang_name": "Ruby",
+                    "tool_name": "rubocop",
                     "requirement_level": "REQUIRED"
                 }
             },
@@ -132,9 +134,9 @@
                 ],
                 "reporting": {
                     "validator": "jenkins_exit_status",
-		    "subcriterion": "QC.Sec02",
-		    "lang_name": "Ruby",
-		    "tool_name": "brakeman",
+                    "subcriterion": "QC.Sec02",
+                    "lang_name": "Ruby",
+                    "tool_name": "brakeman",
                     "requirement_level": "REQUIRED"
                 }
             }
@@ -145,7 +147,7 @@
                 "docs": "https://eslint.org/",
                 "docker": {
                     "dockerfile": "QC.Sty/eslint/Dockerfile",
-		    "reviewed": "2022-10-07"
+                    "reviewed": "2022-10-07"
                 },
                 "args": [
                     {
@@ -154,9 +156,9 @@
                 ],
                 "reporting": {
                     "validator": "jenkins_exit_status",
-		    "subcriterion": "QC.Sty01",
-		    "lang_name": "JavaScript",
-		    "tool_name": "eslint"
+                    "subcriterion": "QC.Sty01",
+                    "lang_name": "JavaScript",
+                    "tool_name": "eslint"
                 }
             },
             "stylelint": {
@@ -165,7 +167,7 @@
 		"executable": "npx",
                 "docker": {
                     "dockerfile": "QC.Sty/stylelint/Dockerfile",
-		    "reviewed": "2022-10-11"
+                    "reviewed": "2022-10-11"
                 },
                 "args": [
                     {
@@ -183,51 +185,55 @@
                 ],
                 "reporting": {
                     "validator": "jenkins_exit_status",
-		    "subcriterion": "QC.Sty01",
-		    "lang_name": "JavaScript",
-		    "tool_name": "stylelint",
+                    "subcriterion": "QC.Sty01",
+                    "lang_name": "JavaScript",
+                    "tool_name": "stylelint",
                     "requirement_level": "RECOMMENDED"
                 }
             }
-	},
+        },
         "Java": {
             "checkstyle": {
                 "version": "8.43",
                 "docs": "https://github.com/checkstyle/checkstyle",
-		"executable": "mvn",
+                "executable": "mvn",
                 "docker": {
                     "image": "maven",
                     "reviewed": "1970-01-01"
                 },
-                "args": [{
-                    "type": "positional", "description": "Maven goal", "value": "checkstyle:check", "format": "string", "selectable": true, "repeatable": true
-                }],
+                "args": [
+                    {
+                        "type": "positional", "description": "Maven goal", "value": "checkstyle:check", "format": "string", "selectable": true, "repeatable": true
+                    }
+                ],
                 "reporting": {
                     "validator": "jenkins_exit_status",
-		    "subcriterion": "QC.Sty01",
-		    "lang_name": "Java",
-		    "tool_name": "checkstyle",
+                    "subcriterion": "QC.Sty01",
+                    "lang_name": "Java",
+                    "tool_name": "checkstyle",
                     "requirement_level": "REQUIRED"
                 }
             }
         },
         "JSON": {
             "jsonlint": {
-		"executable": "jsonlint-cli",
+                "executable": "jsonlint-cli",
                 "version": "1.6.3",
                 "docs": "https://github.com/zaach/jsonlint",
                 "docker": {
                     "dockerfile": "QC.Sty/jsonlint/Dockerfile",
                     "reviewed": "2021-11-23"
                 },
-                "args": [{
-                    "type": "positional", "description": "Path to JSON file", "value": "\"**/*.json\"", "format": "string", "selectable": true, "repeatable": false
-                }],
+                "args": [
+                    {
+                        "type": "positional", "description": "Path to JSON file", "value": "\"**/*.json\"", "format": "string", "selectable": true, "repeatable": false
+                    }
+                ],
                 "reporting": {
                     "validator": "jenkins_exit_status",
-		    "subcriterion": "QC.Sty01",
-		    "lang_name": "JSON",
-		    "tool_name": "jsonlint",
+                    "subcriterion": "QC.Sty01",
+                    "lang_name": "JSON",
+                    "tool_name": "jsonlint",
                     "requirement_level": "REQUIRED"
                 }
             }
@@ -292,9 +298,11 @@
                     "dockerfile": "QC.Sty/pycodestyle/Dockerfile",
                     "reviewed": "2021-11-23"
                 },
-                "args": [{
-                    "type": "positional", "description": "Path to Python project or file/s", "value": ".", "format": "string", "selectable": true, "repeatable": true
-                }]
+                "args": [
+                    {
+                        "type": "positional", "description": "Path to Python project or file/s", "value": ".", "format": "string", "selectable": true, "repeatable": true
+                    }
+                ]
             },
             "tox": {
                 "jepl_support": true,
@@ -304,12 +312,13 @@
                     "image": "painless/tox@sha256:4f31b329507f9ab658e3c36c5252ad063cabe3d978d6836e0ba322ccb79af060",
                     "reviewed": "1970-01-01"
                 },
-                "args": [{
-                    "type": "optional", "description": "Path to the tox.ini file", "option": "-c", "value": "tox.ini", "format": "string", "selectable": true
-                },
-                {
-                    "type": "optional", "description": "Test environment", "option": "-e", "value": "", "format": "string", "selectable": true, "repeatable": true
-                }
+                "args": [
+                    {
+                        "type": "optional", "description": "Path to the tox.ini file", "option": "-c", "value": "tox.ini", "format": "string", "selectable": true
+                    },
+                    {
+                        "type": "optional", "description": "Test environment", "option": "-e", "value": "", "format": "string", "selectable": true, "repeatable": true
+                    }
                 ]
 
             }
@@ -325,13 +334,21 @@
                     "reviewed": "2022-04-05"
                 },
                 "args": [
-                         {"type": "optional", "format": "string", "description": "Persistent Identifier", "id": "persistent_identifier", "option": "-ID", "value": "http://hdl.handle.net/10261/157765", "selectable": true},
-                         {"type": "optional", "format": "string", "description": "FAIR EVA plugin", "id": "metadata_protocol", "option": "-R", "value": "oai-pmh", "selectable": true},
-                         {"type": "optional", "format": "string", "description": "OAI-PMH Endpoint", "id": "metadata_endpoint", "option": "-B", "value": "http://digital.csic.es/dspace-oai/request", "selectable": true},
-                         {"type": "optional", "format": "string", "description": "FAIR EVA endpoint", "id": "evaluator_endpoint", "option": "--tool_endpoint", "value": "http://localhost:9090/v1.0/rda/rda_all", "selectable": false}
-		],
+                    {
+                        "type": "optional", "format": "string", "description": "Persistent Identifier", "id": "persistent_identifier", "option": "-ID", "value": "http://hdl.handle.net/10261/157765", "selectable": true
+                    },
+                    {
+                        "type": "optional", "format": "string", "description": "FAIR EVA plugin", "id": "metadata_protocol", "option": "-R", "value": "oai-pmh", "selectable": true
+                    },
+                    {
+                        "type": "optional", "format": "string", "description": "OAI-PMH Endpoint", "id": "metadata_endpoint", "option": "-B", "value": "http://digital.csic.es/dspace-oai/request", "selectable": true
+                    },
+                    {
+                        "type": "optional", "format": "string", "description": "FAIR EVA endpoint", "id": "evaluator_endpoint", "option": "--tool_endpoint", "value": "http://localhost:9090/v1.0/rda/rda_all", "selectable": false
+                    }
+                ],
             	"reporting": {
-		    "validator": "fairEva",
+                    "validator": "fairEva",
                     "threshold": 0,
                     "requirement_level": "REQUIRED"
             	}
@@ -618,8 +635,8 @@
                 "reporting": {
                     "validator": "jenkins_exit_status",
                     "subcriterion": "SvcQC.Dep01",
-		    "lang_name": "Infrastructure Manager (IM)",
-		    "tool_name": "im_client.py",
+                    "lang_name": "Infrastructure Manager (IM)",
+                    "tool_name": "im_client.py",
                     "requirement_level": "REQUIRED"
                 }
             },
@@ -666,8 +683,8 @@
                 "reporting": {
                     "validator": "jenkins_exit_status",
                     "subcriterion": "SvcQC.Dep01",
-		    "lang_name": "Elastic Cloud Computing Cluster (EC3)",
-		    "tool_name": "ec3",
+                    "lang_name": "Elastic Cloud Computing Cluster (EC3)",
+                    "tool_name": "ec3",
                     "requirement_level": "REQUIRED"
                 }
             }
