@@ -725,7 +725,12 @@
                     {
                         "id": "commands", "type": "positional", "description": "Commands", "value": "", "format": "string", "selectable": true, "repeatable": true
                     }
-                ]
+                ],
+                "reporting": {
+                    "validator": "jenkins_exit_status",
+                    "lang_name": "bash",
+                    "tool_name": "bash"
+                }
             }
         }
     },
