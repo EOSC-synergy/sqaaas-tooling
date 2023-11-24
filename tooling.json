@@ -728,6 +728,7 @@
                 ],
                 "reporting": {
                     "validator": "jenkins_exit_status",
+                    "subcriterion": "QC.Uni01",
                     "lang_name": "bash",
                     "tool_name": "bash"
                 }
