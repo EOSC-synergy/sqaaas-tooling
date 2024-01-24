@@ -59,12 +59,19 @@ def main():
     args = get_input_args()
     url = args.tool_endpoint
 
+    is_api_running = False
     for i in range(1,5):
         if not is_port_open():
             print('FAIR-eva API not running: port 9090 is not open')
-            # sys.exit(-1)
-        print('Sleeping for 5 seconds..')
-        time.sleep(5)
+            print('Sleeping for 5 seconds..')
+            time.sleep(5)
+        else:
+            print('FAIR-eva API running on port 9090')
+            is_api_running = True
+            break
+    if not is_api_running:
+        print('FAIR-eva API was not able to launch: exiting')
+        sys.exit(-1)
 
     headers = {'Content-Type': 'application/json'}
     data = {
