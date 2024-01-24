@@ -8,7 +8,7 @@ RUN chmod +x /usr/bin/fair-eva.py
 
 # Deploy FAIR-eva API
 WORKDIR /FAIR_eva
-RUN git clone https://github.com/EOSC-synergy/FAIR_eva.git -b fix/exec_path .
+RUN git clone https://github.com/EOSC-synergy/FAIR_eva.git .
 RUN pip3 install -r requirements.txt
 
 RUN cp config.ini.template config.ini
