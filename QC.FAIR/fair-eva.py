@@ -84,7 +84,7 @@ def main():
         "lang": "ES"
     }
     r = requests.post(url, data=json.dumps(data), headers=headers)
-    return r.json()
+    return json.dumps(r.json())
 
 
 print(main())
