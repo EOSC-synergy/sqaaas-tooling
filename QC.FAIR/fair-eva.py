@@ -2,6 +2,7 @@
 
 import argparse
 import json
+import logging
 import requests
 import socket
 import sys
@@ -62,15 +63,15 @@ def main():
     is_api_running = False
     for i in range(1,5):
         if is_port_open():
-            # print('FAIR-eva API running on port 9090')
+            logging.debug('FAIR-eva API running on port 9090')
             is_api_running = True
             break
         else:
-            # print('FAIR-eva API not running: port 9090 is not open')
-            # print('Sleeping for 5 seconds..')
+            logging.warning('FAIR-eva API not running: port 9090 is not open')
+            logging.debug('Sleeping for 5 seconds..')
             time.sleep(5)
     if not is_api_running:
-        print('FAIR-eva API was not able to launch: exiting')
+        logging.error('FAIR-eva API was not able to launch: exiting')
         sys.exit(-1)
 
     headers = {'Content-Type': 'application/json'}
