@@ -61,14 +61,14 @@ def main():
 
     is_api_running = False
     for i in range(1,5):
-        if not is_port_open():
-            # print('FAIR-eva API not running: port 9090 is not open')
-            # print('Sleeping for 5 seconds..')
-            time.sleep(5)
-        else:
+        if is_port_open():
             # print('FAIR-eva API running on port 9090')
             is_api_running = True
             break
+        else:
+            # print('FAIR-eva API not running: port 9090 is not open')
+            # print('Sleeping for 5 seconds..')
+            time.sleep(5)
     if not is_api_running:
         print('FAIR-eva API was not able to launch: exiting')
         sys.exit(-1)
