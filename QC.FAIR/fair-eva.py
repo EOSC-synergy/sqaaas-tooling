@@ -57,7 +57,7 @@ def is_port_open():
 
 
 def main():
-    logging.basicConfig(level=logging.DEBUG)
+    logging.basicConfig(level=logging.INFO)
 
     args = get_input_args()
     url = args.tool_endpoint
@@ -69,7 +69,7 @@ def main():
             is_api_running = True
             break
         else:
-            logging.warning('FAIR-eva API not running: port 9090 not open')
+            logging.debug('FAIR-eva API not running: port 9090 not open')
             logging.debug('Sleeping for 5 seconds..')
             time.sleep(5)
     if not is_api_running:
