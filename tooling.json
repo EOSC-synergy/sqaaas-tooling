@@ -326,7 +326,11 @@
                     {
                         "type": "positional", "description": "Path to Python project or file/s", "value": ".", "format": "string", "selectable": true, "repeatable": true
                     }
-                ]
+                ],
+                "reporting": {
+                    "validator": "jenkins_exit_status",
+                    "requirement_level": "REQUIRED"
+                }
             },
             "tox": {
                 "jepl_support": true,
