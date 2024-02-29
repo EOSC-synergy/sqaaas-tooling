@@ -7,6 +7,8 @@ import requests
 import socket
 import sys
 import time
+from flask_babel import Babel, gettext, lazy_gettext as _l
+
 
 
 def get_input_args():
@@ -31,6 +33,15 @@ def get_input_args():
         type=str,
         help='OAI-PMH_ENDPOINT'
         )
+        
+        
+    parser.add_argument(
+        '--s',
+        metavar=None,
+        type=bool,
+        help='fullscores'
+        )
+            
     parser.add_argument(
         '--tool_endpoint',
         metavar='ENDPOINT',
@@ -55,6 +66,41 @@ def is_port_open():
 
     return is_port_open
 
+def calcpoints(result,print_fullscores=False):
+    keys=['findable', 'accessible' , 'interoperable', 'reusable','total']
+    values=[0,0,0,0,0]
+    result_points = 0
+    weight_of_tests = 0
+    points= dict(zip(keys,values))
+
+    for key in keys[:-1]:
+        g_weight = 0
+        g_points = 0
+        for kk in result[key]:
+            result[key][kk]["indicator"] = gettext(
+                "%s.indicator" % result[key][kk]["name"]
+            )
+
+            if print_fullscores !=None:
+                 print('In '+str(kk)+' your item has ' +str(result[key][kk]["points"])+ ' points' )
+            result[key][kk]["name_smart"] = gettext("%s" % result[key][kk]["name"])
+            
+            weight = result[key][kk]["score"]["weight"]
+            weight_of_tests += weight
+            g_weight += weight
+            result_points += result[key][kk]["points"] * weight
+            g_points += result[key][kk]["points"] * weight
+            
+        points[key]=round((g_points / g_weight), 3)
+    points['total']=  round((result_points / weight_of_tests), 2)
+    printpoints(points)
+    return(points)
+    
+    
+def printpoints(points,):
+    for key in points.keys():
+      print('In '+str(key)+' your item has ' +str(points[key])+ ' points' )
+ 
 
 def main():
     logging.basicConfig(level=logging.INFO)
@@ -83,8 +129,14 @@ def main():
         "oai_base": args.B,
         "lang": "ES"
     }
+
     r = requests.post(url, data=json.dumps(data), headers=headers)
-    return json.dumps(r.json())
+    result=json.loads(r.text)
+    
+    calcpoints(result[args.ID],print_fullscores=args.s)
+
+    
 
 
-print(main())
+
+main()
