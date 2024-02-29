@@ -1,9 +1,11 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 import argparse
 import json
 import requests
+import socket
 import sys
+import time
 
 
 def get_input_args():
@@ -42,34 +44,33 @@ def get_input_args():
     return parser.parse_args()
 
 
-def is_api_up(url):
-    s = requests.Session()
-    retries = requests.adapters.Retry(
-        total=5,
-        backoff_factor=0.4,
-        status_forcelist=[ 500, 502, 503, 504 ]
-    )
-    s.mount('http://', requests.adapters.HTTPAdapter(max_retries=retries))
+def is_port_open():
+    is_port_open = False
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    result = sock.connect_ex(('127.0.0.1',9090))
+    if result == 0:
+       is_port_open = True
+    sock.close()
 
-    response = None
-    try:
-        response = s.get(url)
-    except requests.exceptions.ConnectionError:
-        pass
-
-    return response
+    return is_port_open
 
 
 def main():
     args = get_input_args()
     url = args.tool_endpoint
 
-    healthcheck_url = 'http://localhost:9090/v1.0/rda'
-    if not is_api_up(healthcheck_url):
-        print(
-            'Maximum retries reached when attempting to connect '
-            'to FAIR_EVA API: %s' % healthcheck_url
-        )
+    is_api_running = False
+    for i in range(1,5):
+        if not is_port_open():
+            # print('FAIR-eva API not running: port 9090 is not open')
+            # print('Sleeping for 5 seconds..')
+            time.sleep(5)
+        else:
+            # print('FAIR-eva API running on port 9090')
+            is_api_running = True
+            break
+    if not is_api_running:
+        print('FAIR-eva API was not able to launch: exiting')
         sys.exit(-1)
 
     headers = {'Content-Type': 'application/json'}
