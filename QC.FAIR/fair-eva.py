@@ -10,6 +10,7 @@ import time
 from flask_babel import Babel, gettext, lazy_gettext as _l
 
 
+
 def get_input_args():
     parser = argparse.ArgumentParser(description=(
         'Prepare requests for FAIR assessment tool'
@@ -107,7 +108,6 @@ def main():
     args = get_input_args()
     url = args.tool_endpoint
 
-
     is_api_running = False
     for i in range(1,5):
         if is_port_open():
@@ -136,6 +136,7 @@ def main():
     calcpoints(result[args.ID],print_fullscores=args.s)
 
     
+
 
 
 main()

@@ -2,8 +2,7 @@
 #
 version: "3.8"
 services:
-  QC.Lic: 
+  QC.Lic:
     build: .
     image: qc.lic
     container_name: qc.lic
-

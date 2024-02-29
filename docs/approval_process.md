@@ -1,4 +1,4 @@
-# Approval process for new tools 
+# Approval process for new tools
 As commented several times throughout the present documentation, the SQAaaS platform is compliant with the following criteria:
 - [A set of Common Software Quality Assurance Baseline Criteria for Research Projects](https://indigo-dc.github.io/sqa-baseline/)
 - [A set of Common Service Quality Assurance Baseline Criteria for Research Projects](https://eosc-synergy.github.io/service-qa-baseline/)
