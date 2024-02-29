@@ -2,8 +2,7 @@
 #
 version: "3.8"
 services:
-  QC.Acc: 
+  QC.Acc:
     build: .
     image: qc.acc
     container_name: qc.acc
-
