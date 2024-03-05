@@ -353,22 +353,25 @@
                 "version": "latest",
                 "docs": "QC.FAIR/fair-eva.py",
                 "docker": {
-                    "image": "eoscsynergy/sqaaas-fair_eva:2.0.0-alpha5",
+                    "image": "eoscsynergy/sqaaas-fair_eva:epos-prototype-alpha4",
                     "oneshot": false,
                     "reviewed": "2022-04-05"
                 },
                 "args": [
                     {
-                        "type": "optional", "format": "string", "description": "Persistent Identifier", "id": "persistent_identifier", "option": "-ID", "value": "http://hdl.handle.net/10261/157765", "selectable": true
+                        "type": "optional", "format": "string", "description": "Identifier of the (meta)data", "id": "persistent_identifier", "option": "--id", "value": "http://hdl.handle.net/10261/157765", "selectable": true
                     },
                     {
-                        "type": "optional", "format": "string", "description": "FAIR EVA plugin", "id": "metadata_protocol", "option": "-R", "value": "oai-pmh", "selectable": true
+                        "type": "optional", "format": "string", "description": "FAIR EVA plugin name", "id": "metadata_protocol", "option": "--plugin", "value": "oai-pmh", "selectable": true
                     },
                     {
-                        "type": "optional", "format": "string", "description": "OAI-PMH Endpoint", "id": "metadata_endpoint", "option": "-B", "value": "http://digital.csic.es/dspace-oai/request", "selectable": true
+                        "type": "optional", "format": "string", "description": "(meta)data repository endpoint", "id": "metadata_endpoint", "option": "--repository", "value": "http://digital.csic.es/dspace-oai/request", "selectable": true
                     },
                     {
-                        "type": "optional", "format": "string", "description": "FAIR EVA endpoint", "id": "evaluator_endpoint", "option": "--tool_endpoint", "value": "http://localhost:9090/v1.0/rda/rda_all", "selectable": false
+                        "type": "optional", "format": "string", "description": "FAIR EVA endpoint", "id": "evaluator_endpoint", "option": "--api-endpoint", "value": "http://localhost:9090/v1.0/rda/rda_all", "selectable": false
+                    },
+                    {
+                        "type": "optional", "format": "string", "description": "Provides JSON output", "option": "--json", "value": "", "selectable": false
                     }
                 ],
             	"reporting": {
