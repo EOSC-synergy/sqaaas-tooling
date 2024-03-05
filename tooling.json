@@ -369,6 +369,9 @@
                     },
                     {
                         "type": "optional", "format": "string", "description": "FAIR EVA endpoint", "id": "evaluator_endpoint", "option": "--api-endpoint", "value": "http://localhost:9090/v1.0/rda/rda_all", "selectable": false
+                    },
+                    {
+                        "type": "optional", "format": "string", "description": "Provides JSON output", "option": "--json", "value": "", "selectable": false
                     }
                 ],
             	"reporting": {
