@@ -341,7 +341,7 @@
                         "type": "optional", "description": "Path to the tox.ini file", "option": "-c", "value": "tox.ini", "format": "string", "selectable": true
                     },
                     {
-                        "type": "optional", "description": "Test environment", "option": "-e", "value": "", "format": "string", "selectable": true, "repeatable": true
+                        "id": "tox_env", "type": "optional", "description": "Test environment", "option": "-e", "value": "", "format": "string", "selectable": true, "repeatable": true
                     }
                 ],
                 "reporting": {
