@@ -248,7 +248,7 @@
                 },
                 "args": [
                     {
-                        "id": "test_path", "type": "positional", "description": "path to the folder containing the test cases", "value": "tests", "format": "string", "selectable": true, "repeatable": true
+                        "id": "test_path", "type": "positional", "description": "path to the folder containing the test cases", "value": "", "format": "string", "selectable": true, "repeatable": true
                     },
                     {
                         "id": "json_report", "type": "optional", "description": "create JSON report", "option": "--json-report", "value": "", "format": "string", "selectable": false, "repeatable": false
