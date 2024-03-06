@@ -343,7 +343,11 @@
                     {
                         "type": "optional", "description": "Test environment", "option": "-e", "value": "", "format": "string", "selectable": true, "repeatable": true
                     }
-                ]
+                ],
+                "reporting": {
+                    "validator": "jenkins_exit_status",
+                    "requirement_level": "REQUIRED"
+                }
 
             }
         },
