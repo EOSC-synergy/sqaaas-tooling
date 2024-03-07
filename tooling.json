@@ -345,8 +345,7 @@
                     }
                 ],
                 "reporting": {
-                    "validator": "jenkins_exit_status",
-                    "requirement_level": "REQUIRED"
+                    "validator": "jenkins_exit_status"
                 }
 
             }
