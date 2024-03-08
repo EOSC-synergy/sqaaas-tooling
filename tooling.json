@@ -345,7 +345,10 @@
                     }
                 ],
                 "reporting": {
-                    "validator": "jenkins_exit_status"
+                    "validator": "jenkins_exit_status",
+                    "subcriterion": ["QC.Uni01", "QC.Sec02", "QC.Sty01"],
+                    "lang_name": "Python",
+                    "tool_name": "tox"
                 }
 
             }
