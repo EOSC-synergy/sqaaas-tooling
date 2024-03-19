@@ -23,7 +23,7 @@
                 }
             }
         },
-        "Dockerfile": {
+        "C++": {
             "oclint": {
                 "version": "20.11",
                 "docs": "https://oclint.org/",
