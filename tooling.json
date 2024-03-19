@@ -33,7 +33,7 @@
                 },
                 "args": [
                     {
-                        "type": "positional", "description": "File/s to lint", "value": "", "selectable": false, "repeatable": true
+                        "type": "positional", "description": "File/s to lint", "value": "", "selectable": false, "repeatable": true, "explicit_paths": true
                     },
                     {
                         "type": "positional", "description": "Compiler flags", "value": "-- -c", "selectable": false, "repeatable": true
