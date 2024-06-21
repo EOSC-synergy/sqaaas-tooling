@@ -13,7 +13,7 @@
                         "type": "positional", "description": "Pick out and massage parameters", "value": "rev-parse", "selectable": false
                     },
                     {
-                        "type": "optional", "description": "Current working directory is inside the repository's work directory?", "option": "--is-inside-work-tree", "selectable": false
+                        "type": "optional", "description": "Current working directory is inside the repository's work directory?", "option": "--is-inside-work-tree", "value": "", "selectable": false
                     }
                 ],
                 "reporting": {
@@ -309,7 +309,7 @@
                         "type": "optional", "description": "report only issues of a given severity level or higher", "option": "--severity-level",  "value": ["high", "all", "low", "medium"], "format": "array", "selectable": true, "repeatable": false
                     },
                     {
-                        "type": "optional", "description": "find and process files in subdirectories", "option": "--recursive", "format": "string", "selectable": false, "repeatable": false
+                        "type": "optional", "description": "find and process files in subdirectories", "option": "--recursive", "value": "", "format": "string", "selectable": false, "repeatable": false
                     },
                     {
                         "type": "positional", "description": "source file(s) or directory(s) to be tested", "value": ".", "format": "string", "selectable": true, "repeatable": true
@@ -459,7 +459,7 @@
                         "type": "optional", "format": "string", "description": "Confidence level", "option": "--confidence", "value": "60", "selectable": false, "repeatable": false
                     },
                     {
-                        "type": "optional", "description": "JSON output", "option": "--json", "selectable": false
+                        "type": "optional", "description": "JSON output", "option": "--json", "value": "", "selectable": false
                     }
                 ],
                 "reporting": {
@@ -489,7 +489,7 @@
                 "executable": "cffconvert",
                 "args": [
                     {
-                        "type": "optional", "description": "Validate the CITATION.cff file", "option": "--validate", "selectable": false
+                        "type": "optional", "description": "Validate the CITATION.cff file", "option": "--validate", "value": "", "selectable": false
                     }
                 ],
                 "reporting": {
@@ -540,7 +540,7 @@
                 "executable": "mdl",
                 "args": [
                     {
-                        "type": "optional", "description": "JSON output", "option": "--json", "selectable": false
+                        "type": "optional", "description": "JSON output", "option": "--json", "value": "", "selectable": false
                     },
                     {
                         "type": "positional", "description": "Project's root path", "value": ".", "selectable": true, "format": "string"
