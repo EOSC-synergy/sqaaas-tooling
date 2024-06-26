@@ -50,18 +50,18 @@
         },
 	"C": {
 		"goblint" : {
-			"version": "2.3.0"
-			"docs": "https://goblint.readthedocs.io/en/"
+			"version": "2.3.0",
+			"docs": "https://goblint.readthedocs.io/en/",
 			"docker":{
-				"image": "ghcr.io/goblint/analyzer:2.3.0"
+				"image": "ghcr.io/goblint/analyzer:2.3.0",
 				"reviewed": "2023-09-24"
 			         }
-			}
+			},
 		        "args" :[
                                 {
-                                 "type": "positional", "description": "File/s to lint", "value": "", "selectable": false, , "explicit_paths": true
-                                },
-			]
+                                 "type": "positional", "description": "File/s to lint", "value": "", "selectable": false,  "explicit_paths": true
+                                }
+			],
 		        "reporting": {
                                   "validator": "boolean",
                                   "subcriterion": "QC.sec",
@@ -69,8 +69,8 @@
                                   "tool_name": "goblint",
                                   "requirement_level": "RECOMENDED"
                 }
-		
-	}
+
+	},
         "Dockerfile": {
             "hadolint": {
                 "version": "v2.8.0-0-g398770f-dirty",
