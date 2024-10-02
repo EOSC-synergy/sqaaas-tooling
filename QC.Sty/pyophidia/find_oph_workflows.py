@@ -50,7 +50,7 @@ def main():
     args=get_input_args()
     candid=find(".json",args.path)
     res=evaluate_workflow(candid)
-    return res
+    return json.dumps(res)
    
 print(main()) 
 
