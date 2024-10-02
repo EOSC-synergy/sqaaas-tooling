@@ -23,6 +23,31 @@
                 }
             }
         },
+        "Ophidia": {
+            "PyOphidia": {
+                "docs": "https://pyophidia.readthedocs.io/en/latest/",
+            },
+            "docker": {
+                "dockerfile": "QC.Sty/Ophidia/Dockerfile",
+                "reviewed": "2024-10-02",
+            },
+            "args": [
+                {
+                    "type": "positional",
+                    "description": "path",
+                    "value": ".",
+                    "selectable": false,
+                    "explicit_paths": true,
+                }
+            ],
+            "reporting": {
+                "validator": "",
+                "subcriterion": "QC.Sty",
+                "lang_name": "Ophidia",
+                "tool_name": "PyOphidia",
+                "requirement_level": "RECOMENDED",
+            },
+        },
         "Dockerfile": {
             "hadolint": {
                 "version": "v2.8.0-0-g398770f-dirty",
