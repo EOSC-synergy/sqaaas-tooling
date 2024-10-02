@@ -6,7 +6,6 @@ import argparse
 def find(pattern, path):
     result = []
     for root, dirs, files in os.walk(path):
-        print(files)
         for name in files:
             if  pattern in name :
                 result.append(os.path.join(root, name))
@@ -33,7 +32,7 @@ def evaluate_workflow(candidates):
         
         data=json.load(f) 
         res, msg = ophclient.wisvalid(data)
-        print(res, msg)
+
     
         if res:
            passed = True
