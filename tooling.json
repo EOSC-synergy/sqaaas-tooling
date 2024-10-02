@@ -25,11 +25,11 @@
         },
         "Ophidia": {
             "PyOphidia": {
-                "docs": "https://pyophidia.readthedocs.io/en/latest/",
+                "docs": "https://pyophidia.readthedocs.io/en/latest/"
             },
             "docker": {
                 "dockerfile": "QC.Sty/Ophidia/Dockerfile",
-                "reviewed": "2024-10-02",
+                "reviewed": "2024-10-02"
             },
             "args": [
                 {
@@ -37,7 +37,7 @@
                     "description": "path",
                     "value": ".",
                     "selectable": false,
-                    "explicit_paths": true,
+                    "explicit_paths": true
                 }
             ],
             "reporting": {
