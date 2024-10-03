@@ -41,7 +41,7 @@
                 }
             ],
             "reporting": {
-                "validator": "",
+                "validator": "Ophidia",
                 "subcriterion": "QC.Sty",
                 "lang_name": "Ophidia",
                 "tool_name": "PyOphidia",
