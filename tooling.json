@@ -47,7 +47,9 @@
                    "tool_name": "PyOphidia",
                    "requirement_level": "RECOMMENDED"
                              }
+                         }
         },
+        
         "Dockerfile": {
             "hadolint": {
                 "version": "v2.8.0-0-g398770f-dirty",
