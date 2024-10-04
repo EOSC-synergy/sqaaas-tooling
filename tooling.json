@@ -45,7 +45,7 @@
                    "subcriterion": "QC.Sty",
                    "lang_name": "Ophidia",
                    "tool_name": "PyOphidia",
-                   "requirement_level": "RECOMENDED"
+                   "requirement_level": "RECOMMENDED"
                              }
         },
         "Dockerfile": {
