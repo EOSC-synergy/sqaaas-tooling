@@ -441,10 +441,10 @@
         },
         "license": {
             "licensee": {
-                "version": "9.15.1",
+                "version": "9.17.0",
                 "docs": "https://github.com/licensee/licensee",
                 "docker": {
-                    "dockerfile": "QC.Lic/licensee/Dockerfile",
+                    "image": "eoscsynergy/sqaaas-licensee:9.17.0",
                     "reviewed": "2021-06-28"
                 },
                 "args": [
