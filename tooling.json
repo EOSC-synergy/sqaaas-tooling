@@ -13,7 +13,7 @@
                         "type": "positional", "description": "Pick out and massage parameters", "value": "rev-parse", "selectable": false
                     },
                     {
-                        "type": "optional", "description": "Current working directory is inside the repository's work directory?", "option": "--is-inside-work-tree", "selectable": false
+                        "type": "optional", "description": "Current working directory is inside the repository's work directory?", "option": "--is-inside-work-tree", "value": "", "selectable": false
                     }
                 ],
                 "reporting": {
@@ -23,6 +23,7 @@
                 }
             }
         },
+
         "Workflow_manager": {
             "PyOphidia": {
                 "docs": "https://pyophidia.readthedocs.io/en/latest/"
@@ -50,6 +51,32 @@
                          }
         },
         
+        "C++": {
+            "oclint": {
+                "version": "20.11",
+                "docs": "https://oclint.org/",
+                "docker": {
+                    "image": "drakorgaur/oclint:3077181575",
+                    "reviewed": "2024-03-18"
+                },
+                "args": [
+                    {
+                        "type": "positional", "description": "File/s to lint", "value": "", "selectable": false, "repeatable": true, "explicit_paths": true
+                    },
+                    {
+                        "type": "positional", "description": "Compiler flags", "value": "-- -c", "selectable": false, "repeatable": true
+                    }
+                ],
+                "reporting": {
+                    "validator": "jenkins_exit_status",
+                    "subcriterion": "QC.Sty01",
+                    "lang_name": "C++",
+                    "tool_name": "oclint",
+                    "requirement_level": "REQUIRED"
+                }
+            }
+        },
+
         "Dockerfile": {
             "hadolint": {
                 "version": "v2.8.0-0-g398770f-dirty",
@@ -311,7 +338,7 @@
                         "type": "optional", "description": "report only issues of a given severity level or higher", "option": "--severity-level",  "value": ["high", "all", "low", "medium"], "format": "array", "selectable": true, "repeatable": false
                     },
                     {
-                        "type": "optional", "description": "find and process files in subdirectories", "option": "--recursive", "format": "string", "selectable": false, "repeatable": false
+                        "type": "optional", "description": "find and process files in subdirectories", "option": "--recursive", "value": "", "format": "string", "selectable": false, "repeatable": false
                     },
                     {
                         "type": "positional", "description": "source file(s) or directory(s) to be tested", "value": ".", "format": "string", "selectable": true, "repeatable": true
@@ -461,7 +488,7 @@
                         "type": "optional", "format": "string", "description": "Confidence level", "option": "--confidence", "value": "60", "selectable": false, "repeatable": false
                     },
                     {
-                        "type": "optional", "description": "JSON output", "option": "--json", "selectable": false
+                        "type": "optional", "description": "JSON output", "option": "--json", "value": "", "selectable": false
                     }
                 ],
                 "reporting": {
@@ -491,7 +518,7 @@
                 "executable": "cffconvert",
                 "args": [
                     {
-                        "type": "optional", "description": "Validate the CITATION.cff file", "option": "--validate", "selectable": false
+                        "type": "optional", "description": "Validate the CITATION.cff file", "option": "--validate", "value": "", "selectable": false
                     }
                 ],
                 "reporting": {
@@ -542,7 +569,7 @@
                 "executable": "mdl",
                 "args": [
                     {
-                        "type": "optional", "description": "JSON output", "option": "--json", "selectable": false
+                        "type": "optional", "description": "JSON output", "option": "--json", "value": "", "selectable": false
                     },
                     {
                         "type": "positional", "description": "Project's root path", "value": ".", "selectable": true, "format": "string"
@@ -753,7 +780,7 @@
             "commands": {
                 "docs": "https://indigo-dc.github.io/jenkins-pipeline-library/2.0.0/user/config_file.html#commands",
                 "docker": {
-                    "image": "eoscsynergy/sqaaas-micromamba:1.5.3-1",
+                    "image": "alpine:3.20.0",
                     "reviewed": "1970-01-01"
                 },
                 "executable": "",
@@ -854,6 +881,7 @@
                 "docs": "https://indigo-dc.github.io/sqa-baseline/#code-style-qc.sty"
             },
             "tools": {
+                "C++": ["oclint"],
                 "Dockerfile": ["hadolint"],
                 "JSON": ["jsonlint"],
                 "Python": ["tox", "flake8", "pycodestyle"],
