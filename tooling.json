@@ -23,7 +23,7 @@
                 }
             }
         },
-        "Workflow_Validator": {
+        "Workflow_manager": {
             "PyOphidia": {
                 "docs": "https://pyophidia.readthedocs.io/en/latest/"
             ,
@@ -857,7 +857,8 @@
                 "Python": ["tox", "flake8", "pycodestyle"],
                 "Go": ["staticcheck"],
                 "Ruby": ["rubocop"],
-                "Java": ["checkstyle"]
+                "Java": ["checkstyle"],
+                "Workflow_manager": ["PyOphidia"]
             }
         },
         "QC.Uni": {
