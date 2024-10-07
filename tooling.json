@@ -34,11 +34,12 @@
                  },
                 "args": [
                  {
-                    "type": "positional",
+                    "type": "optional",
                     "description": "Path to the folder where the workflows are located",
                     "value": ".",
                     "selectable": false,
-                    "explicit_paths": true
+                    "explicit_paths": true,
+		    "option":"--path"
                  }
                         ],
                 "reporting": {
