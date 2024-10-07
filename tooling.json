@@ -35,7 +35,7 @@
                 "args": [
                  {
                     "type": "positional",
-                    "description": "path",
+                    "description": "Path to the folder where the workflows are located",
                     "value": ".",
                     "selectable": false,
                     "explicit_paths": true
