@@ -2,6 +2,8 @@ from PyOphidia import client
 import os
 import json
 import argparse
+import urllib
+import requests
 
 
 def find(pattern, path):
@@ -21,13 +23,18 @@ def get_input_args():
     return parser.parse_args()
 
 
-def evaluate_workflow(candidates):
+def evaluate_workflow_path(candidates):
     ophclient = client.Client(
         username="oph-user", password="oph-passwd", local_mode=True
     )
-    passed = 0
+    passed = False
     passed_list = []
     failed_list = []
+    results = {
+        "result": passed,
+        "passed_list": passed_list,
+        "failed_list": failed_list,
+    }
     for jsons in candidates:
         f = open(str(jsons), "r")
 
@@ -48,11 +55,37 @@ def evaluate_workflow(candidates):
     return results
 
 
+def download(url):
+
+    response = urllib.request.urlopen(url)
+    text = str(response.read())
+    try:
+
+        data = json.loads(text)
+    except:
+        # This is because its neccesary when downloading from github raw
+        exp = bytes(text, "utf-8").decode("unicode_escape")
+
+        data = json.loads(exp[2:-1])
+
+    with open("downloaded_workflow.json", "w") as dwork:
+        json.dump(data, dwork)
+    pathfile = ["downloaded_workflow.json"]
+    return pathfile
+
+
 def main():
 
     args = get_input_args()
-    candid = find(".json", args.path)
-    res = evaluate_workflow(candid)
+    is_url = urllib.parse.urlparse(args.path)
+
+    if is_url.scheme == "https" or is_url.scheme == "http":
+
+        candid = download(args.path)
+    else:
+        candid = find(".json", args.path)
+
+    res = evaluate_workflow_path(candid)
     return json.dumps(res)
 
 
