@@ -23,6 +23,31 @@
                 }
             }
         },
+        "C++": {
+            "oclint": {
+                "version": "20.11",
+                "docs": "https://oclint.org/",
+                "docker": {
+                    "image": "drakorgaur/oclint:3077181575",
+                    "reviewed": "2024-03-18"
+                },
+                "args": [
+                    {
+                        "type": "positional", "description": "File/s to lint", "value": "", "selectable": false, "repeatable": true, "explicit_paths": true
+                    },
+                    {
+                        "type": "positional", "description": "Compiler flags", "value": "-- -c", "selectable": false, "repeatable": true
+                    }
+                ],
+                "reporting": {
+                    "validator": "jenkins_exit_status",
+                    "subcriterion": "QC.Sty01",
+                    "lang_name": "C++",
+                    "tool_name": "oclint",
+                    "requirement_level": "REQUIRED"
+                }
+            }
+        },
         "Dockerfile": {
             "hadolint": {
                 "version": "v2.8.0-0-g398770f-dirty",
@@ -827,6 +852,7 @@
                 "docs": "https://indigo-dc.github.io/sqa-baseline/#code-style-qc.sty"
             },
             "tools": {
+                "C++": ["oclint"],
                 "Dockerfile": ["hadolint"],
                 "JSON": ["jsonlint"],
                 "Python": ["tox", "flake8", "pycodestyle"],
