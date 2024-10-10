@@ -23,6 +23,35 @@
                 }
             }
         },
+
+        "Workflow_manager": {
+            "PyOphidia": {
+                "docs": "https://pyophidia.readthedocs.io/en/latest/"
+            ,
+                "docker": {
+                        "dockerfile": "QC.Sty/Ophidia/Dockerfile",
+                        "reviewed": "2024-10-02"
+                 },
+                "args": [
+                 {
+                    "type": "optional",
+                    "description": "Path to the folder where the workflows are located",
+                    "value": ".",
+                    "selectable": false,
+                    "explicit_paths": true,
+		    "option":"--path"
+                 }
+                        ],
+                "reporting": {
+                   "validator": "Ophidia",
+                   "subcriterion": "QC.Sty",
+                   "lang_name": "Ophidia",
+                   "tool_name": "PyOphidia",
+                   "requirement_level": "RECOMMENDED"
+                             }
+                         }
+        },
+
         "C++": {
             "oclint": {
                 "version": "20.11",
@@ -48,6 +77,7 @@
                 }
             }
         },
+
         "Dockerfile": {
             "hadolint": {
                 "version": "v2.8.0-0-g398770f-dirty",
@@ -858,7 +888,8 @@
                 "Python": ["tox", "flake8", "pycodestyle"],
                 "Go": ["staticcheck"],
                 "Ruby": ["rubocop"],
-                "Java": ["checkstyle"]
+                "Java": ["checkstyle"],
+                "Workflow_manager": ["PyOphidia"]
             }
         },
         "QC.Uni": {
