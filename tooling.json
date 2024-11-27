@@ -48,6 +48,29 @@
                 }
             }
         },
+	"C": {
+		"goblint" : {
+			"version": "2.3.0",
+			"docs": "https://goblint.readthedocs.io/en/",
+			"docker":{
+				"image": "ghcr.io/goblint/analyzer:2.3.0",
+				"reviewed": "2023-09-24"
+			         }
+			},
+		        "args" :[
+                                {
+                                 "type": "positional", "description": "File/s to lint", "value": "", "selectable": false,  "explicit_paths": true
+                                }
+			],
+		        "reporting": {
+                                  "validator": "boolean",
+                                  "subcriterion": "QC.sec",
+                                  "lang_name": "C",
+                                  "tool_name": "goblint",
+                                  "requirement_level": "RECOMENDED"
+                }
+
+	},
         "Dockerfile": {
             "hadolint": {
                 "version": "v2.8.0-0-g398770f-dirty",
@@ -72,7 +95,7 @@
                     "subcriterion": "QC.Sty01",
                     "lang_name": "Dockerfile",
                     "tool_name": "hadolint",
-                    "requirement_level": "REQUIRED"
+                    "requirement": "REQUIRED"
                 }
             }
         },
@@ -97,7 +120,7 @@
                     "subcriterion": "QC.Sty01",
                     "lang_name": "Go",
                     "tool_name": "staticcheck",
-                    "requirement_level": "REQUIRED"
+                    "requirement": "REQUIRED"
                 }
             },
             "gosec": {
@@ -123,7 +146,7 @@
                 ],
                 "reporting": {
                     "validator": "gosec",
-                    "requirement_level": "REQUIRED"
+                    "requirement": "REQUIRED"
                 }
             }
 	},
@@ -142,7 +165,7 @@
                     "subcriterion": "QC.Sty01",
                     "lang_name": "Ruby",
                     "tool_name": "rubocop",
-                    "requirement_level": "REQUIRED"
+                    "requirement": "REQUIRED"
                 }
             },
             "brakeman": {
@@ -162,7 +185,7 @@
                     "subcriterion": "QC.Sec02",
                     "lang_name": "Ruby",
                     "tool_name": "brakeman",
-                    "requirement_level": "REQUIRED"
+                    "requirement": "REQUIRED"
                 }
             }
 	},
@@ -213,7 +236,7 @@
                     "subcriterion": "QC.Sty01",
                     "lang_name": "JavaScript",
                     "tool_name": "stylelint",
-                    "requirement_level": "RECOMMENDED"
+                    "requirement": "RECOMMENDED"
                 }
             }
         },
