@@ -1,4 +1,4 @@
-FROM ubuntu/python:3.12-24.04_stable
+FROM python:3
 
 #RUN pip install os
 RUN pip install json
