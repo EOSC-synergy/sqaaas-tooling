@@ -1,4 +1,4 @@
-FROM python:3-slim
+FROM python:3
 
 RUN pip install os json argparse urllib requests
 RUN pip install json
