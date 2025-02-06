@@ -8,7 +8,7 @@ FROM python:3
 #RUN pip install pyophidia
 
 COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+#RUN pip install --no-cache-dir -r requirements.txt
 
 COPY find_oph_workflows.py /usr/bin
 
