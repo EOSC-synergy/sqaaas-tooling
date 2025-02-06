@@ -8,8 +8,8 @@ FROM python:3
 #RUN pip install pyophidia
 
 COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
-
+#RUN pip install  -r requirements.txt
+RUN pip install pycodestyle
 COPY find_oph_workflows.py /usr/bin
 
 RUN chmod +x /usr/bin/find_oph_workflows.py
