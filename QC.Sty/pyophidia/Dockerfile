@@ -1,4 +1,4 @@
-FROM python:3
+FROM ubuntu/python:3.12-24.04_stable
 
 RUN pip install json
 RUN pip install argparse
