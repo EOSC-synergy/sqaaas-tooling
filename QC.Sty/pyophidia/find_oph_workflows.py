@@ -1,9 +1,7 @@
 from PyOphidia import client
-import os
 import json
 import argparse
 import urllib
-import requests
 
 
 def find(pattern, path):
