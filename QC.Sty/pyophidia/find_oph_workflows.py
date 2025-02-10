@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 from Pyophidia import client
 #import Pyophidia
 import json
