@@ -1,4 +1,5 @@
-from PyOphidia import client
+from Pyophidia import client
+#import 
 import json
 import argparse
 import urllib
