@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from Pyophidia import client
+from PyOphidia import client
 #import Pyophidia
 import json
 import argparse
