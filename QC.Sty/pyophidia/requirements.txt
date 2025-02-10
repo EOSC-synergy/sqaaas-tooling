@@ -1,2 +1,2 @@
 argparse
-PyOphidia==2.0.0
+PyOphidia @git+https://github.com/OphidiaBigData/PyOphidia@release
