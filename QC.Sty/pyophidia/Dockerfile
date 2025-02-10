@@ -1,5 +1,4 @@
-FROM ubuntu/python:3.12-24.04_stable
-
+FROM python:3.10
 
 COPY requirements.txt ./
 RUN pip install -r requirements.txt
