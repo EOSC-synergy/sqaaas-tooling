@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from Pyophidia import client
 #import Pyophidia
 import json
