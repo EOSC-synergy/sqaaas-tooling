@@ -2,7 +2,7 @@ from PyOphidia import client
 import json
 import argparse
 import urllib
-
+import os
 
 def find(pattern, path):
     result = []
