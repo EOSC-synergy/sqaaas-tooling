@@ -1,5 +1,6 @@
-#from Pyophidia import client
-import Pyophidia
+#!/usr/bin/python3
+from Pyophidia import client
+#import Pyophidia
 import json
 import argparse
 import urllib
