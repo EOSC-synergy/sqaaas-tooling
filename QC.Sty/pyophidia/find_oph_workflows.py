@@ -1,11 +1,10 @@
 #!/usr/bin/env python
-#from PyOphidia import client
+from pyophidia import client
 #import Pyophidia
 import json
 import argparse
 import urllib
 import os
-from pyophidia import client
 
 def find(pattern, path):
     result = []
