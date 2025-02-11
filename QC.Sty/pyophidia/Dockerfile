@@ -6,3 +6,6 @@ RUN pip install -r requirements.txt
 COPY find_oph_workflows.py /usr/bin
 
 RUN chmod +x /usr/bin/find_oph_workflows.py
+
+
+RUN pip freeze
