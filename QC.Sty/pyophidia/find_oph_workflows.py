@@ -5,7 +5,8 @@ import json
 import argparse
 import urllib
 import os
-from PyOphidia import client
+from pyophidia import client
+
 def find(pattern, path):
     result = []
     for root, dirs, files in os.walk(path):
