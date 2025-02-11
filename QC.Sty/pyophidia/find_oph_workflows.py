@@ -1,11 +1,11 @@
 #!/usr/bin/env python
-from PyOphidia import client
+#from PyOphidia import client
 #import Pyophidia
 import json
 import argparse
 import urllib
 import os
-
+from PyOphidia import client
 def find(pattern, path):
     result = []
     for root, dirs, files in os.walk(path):
