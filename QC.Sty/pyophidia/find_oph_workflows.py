@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 from pyophidia import client
-#import Pyophidia
 import json
 import argparse
 import urllib
