@@ -29,10 +29,12 @@ def evaluate_workflow_path(candidates):
     passed = False
     passed_list = []
     failed_list = []
+    reasons_list = []
     results = {
         "result": passed,
         "passed_list": passed_list,
         "failed_list": failed_list,
+        "reasons_list":reasons_list,
     }
     for jsons in candidates:
         try:
@@ -45,17 +47,19 @@ def evaluate_workflow_path(candidates):
                 res, msg = ophclient.wisvalid(data)
             except:
                 res= False
-            
+                msg= 'Not readable workflow'
         if res:
             passed = True
             passed_list.append(jsons)
         else:
             failed_list.append(jsons)
-
+            reasons_list.append(msg)
+        
         results = {
-            "result": passed,
-            "passed_list": passed_list,
-            "failed_list": failed_list,
+        "result": passed,
+        "passed_list": passed_list,
+        "failed_list": failed_list,
+        "reasons_list":reasons_list,
         }
     return results
 
