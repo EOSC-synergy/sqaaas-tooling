@@ -42,8 +42,12 @@ def evaluate_workflow_path(candidates):
            data = json.load(f)
            res, msg = ophclient.wisvalid(data)
         except:
-            res= False
-
+            try:
+                data=json.loads(f)
+                res, msg = ophclient.wisvalid(data)
+            except:
+                res= False
+            
         if res:
             passed = True
             passed_list.append(jsons)
