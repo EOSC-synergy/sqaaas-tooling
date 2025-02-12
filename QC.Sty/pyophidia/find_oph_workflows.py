@@ -35,11 +35,14 @@ def evaluate_workflow_path(candidates):
         "failed_list": failed_list,
     }
     for jsons in candidates:
-        f = open(str(jsons), "r")
-        print('testing',jsons)
-        print(f.readlines())
-        data = json.load(f)
-        res, msg = ophclient.wisvalid(data)
+        try:
+           f = open(str(jsons), "r")
+           print('testing',jsons)
+           print(f.readlines())
+           data = json.load(f)
+           res, msg = ophclient.wisvalid(data)
+        except:
+            res= False
 
         if res:
             passed = True
