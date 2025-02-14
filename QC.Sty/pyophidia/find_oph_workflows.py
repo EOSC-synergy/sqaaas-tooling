@@ -54,7 +54,7 @@ def evaluate_workflow_path(candidates):
         else:
             failed_list.append(jsons)
             reasons_list.append(msg)
-        
+
         results = {
         "result": passed,
         "passed_list": passed_list,
