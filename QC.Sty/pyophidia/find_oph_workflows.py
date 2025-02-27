@@ -39,6 +39,7 @@ def evaluate_workflow_path(candidates):
     for jsons in candidates:
         try:
            f = open(str(jsons), "r")
+           print(f.readlines())
            data = json.load(f)
            res, msg = ophclient.wisvalid(data)
         except:
