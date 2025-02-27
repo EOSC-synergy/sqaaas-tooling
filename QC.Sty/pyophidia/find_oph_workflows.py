@@ -42,15 +42,15 @@ def evaluate_workflow_path(candidates):
            data = json.load(f)
            print('read but not evaluated')
            print(data.keys())
-           res, msg = ophclient.wisvalid(data)
+           res, msg = ophclient.wisvalid2(data)
            print('read as a dict,and result')
         except:
-            #try:
+            try:
                 
                 data=dict(f.read())
                 print('2nds ways')
-                res, msg = ophclient.wisvalid(data)
-            #except:
+                res, msg = ophclient.wisvalid2(data)
+            except:
                 print('fail 2 read')
                 res= False
                 msg= 'Not readable workflow'
