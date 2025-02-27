@@ -45,12 +45,12 @@ def evaluate_workflow_path(candidates):
            res, msg = ophclient.wisvalid(data)
            print('read as a dict,and result')
         except:
-            try:
+            #try:
                 
                 data=dict(f.read())
                 print('2nds ways')
                 res, msg = ophclient.wisvalid(data)
-            except:
+            #except:
                 print('fail 2 read')
                 res= False
                 msg= 'Not readable workflow'
