@@ -5,6 +5,7 @@ import argparse
 import urllib
 import os
 
+
 def find(pattern, path):
     result = []
     for root, dirs, files in os.walk(path):
@@ -34,26 +35,24 @@ def evaluate_workflow_path(candidates):
         "result": passed,
         "passed_list": passed_list,
         "failed_list": failed_list,
-        "reasons_list":reasons_list,
+        "reasons_list": reasons_list,
     }
     for jsons in candidates:
         try:
-           f = open(str(jsons), "r")
-           data = json.load(f)
-           print('read but not evaluated')
-           print(data.keys())
-           res, msg = ophclient.wisvalid2(data)
-           print('read as a dict,and result')
+            f = open(str(jsons), "r")
+            data = json.load(f)
+
+            res, msg = ophclient.wisvalid2(data)
         except:
             try:
-                
-                data=dict(f.read())
-                print('2nds ways')
+
+                data = dict(f.read())
+
                 res, msg = ophclient.wisvalid2(data)
             except:
-                print('fail 2 read')
-                res= False
-                msg= 'Not readable workflow'
+
+                res = False
+                msg = "Not readable workflow"
         if res:
             passed = True
             passed_list.append(jsons)
@@ -62,10 +61,10 @@ def evaluate_workflow_path(candidates):
             reasons_list.append(msg)
 
         results = {
-        "result": passed,
-        "passed_list": passed_list,
-        "failed_list": failed_list,
-        "reasons_list":reasons_list,
+            "result": passed,
+            "passed_list": passed_list,
+            "failed_list": failed_list,
+            "reasons_list": reasons_list,
         }
     return results
 
