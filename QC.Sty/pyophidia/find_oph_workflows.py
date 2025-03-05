@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from pyophidia import client
+from pyophidia import Experiment
 import json
 import argparse
 import urllib
@@ -24,9 +24,11 @@ def get_input_args():
 
 
 def evaluate_workflow_path(candidates):
-    ophclient = client.Client(
-        username="oph-user", password="oph-passwd", local_mode=True
+    # Create the experiment that will validate
+    ophexperiment = Experiment(
+        name="validation", author="user", abstract="validation test"
     )
+    # Create results lists and default values
     passed = False
     passed_list = []
     failed_list = []
@@ -37,22 +39,14 @@ def evaluate_workflow_path(candidates):
         "failed_list": failed_list,
         "reasons_list": reasons_list,
     }
+    # Validate all files
     for jsons in candidates:
         try:
-            f = open(str(jsons), "r")
-            data = json.load(f)
 
-            res, msg = ophclient.wisvalid2(data)
+            res, msg = ophexperiment.validate(jsons)
         except:
-            try:
-
-                data = dict(f.read())
-
-                res, msg = ophclient.wisvalid2(data)
-            except:
-
-                res = False
-                msg = "Not readable workflow"
+            res = False
+            msg = "Not readable workflow"
         if res:
             passed = True
             passed_list.append(jsons)
@@ -89,16 +83,18 @@ def download(url):
 
 
 def main():
-
+    # get input arguments
     args = get_input_args()
-    is_url = urllib.parse.urlparse(args.path)
 
+    is_url = urllib.parse.urlparse(args.path)
+    # see if there is a need to download files
     if is_url.scheme == "https" or is_url.scheme == "http":
 
         candid = download(args.path)
     else:
+        # find all the json files in path
         candid = find(".json", args.path)
-
+    # evaluate  files
     res = evaluate_workflow_path(candid)
     return json.dumps(res)
 
