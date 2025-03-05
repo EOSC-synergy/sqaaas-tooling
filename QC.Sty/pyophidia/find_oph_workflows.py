@@ -18,7 +18,11 @@ def find(pattern, path):
 def get_input_args():
     parser = argparse.ArgumentParser(description=("Find Ophidia workflows"))
     parser.add_argument(
-        "--path", metavar="PATH", type=str, help="path to look for in the repository"
+        "--path",
+        metavar="PATH",
+        type=str,
+        help="path to look for in the repository",
+        default=".",
     )
     return parser.parse_args()
 
