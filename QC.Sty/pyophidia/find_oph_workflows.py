@@ -33,6 +33,9 @@ def evaluate_workflow_path(candidates):
         name="validation", author="user", abstract="validation test"
     )
     # Create results lists and default values
+    args=[]
+    args.append('1')
+    args.append('historical')
     passed = False
     passed_list = []
     failed_list = []
@@ -47,7 +50,7 @@ def evaluate_workflow_path(candidates):
     for jsons in candidates:
         try:
 
-            res, msg = ophexperiment.validate(jsons)
+            res, msg = ophexperiment.validate(jsons,*args)
         except:
             res = False
             msg = "Not readable workflow"
