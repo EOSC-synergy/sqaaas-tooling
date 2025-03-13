@@ -4,9 +4,10 @@ import json
 import argparse
 import urllib
 import os
+import ast
 
 
-def find(pattern, path):
+def find(pattern, path,):
     result = []
     for root, dirs, files in os.walk(path):
         for name in files:
@@ -18,24 +19,25 @@ def find(pattern, path):
 def get_input_args():
     parser = argparse.ArgumentParser(description=("Find Ophidia workflows"))
     parser.add_argument(
-        "--path",
-        metavar="PATH",
-        type=str,
-        help="path to look for in the repository",
-        default=".",
+        "--path", metavar="PATH", type=str, help="path to look for in the repository", default='.'
+    )
+    parser.add_argument(
+        "--args", metavar="ARGS", type=str, help='dict formed by the list of args using filename as a key for each list Example {"filename":["1","historic"]} ', default='{"filename":["1","historic"]}'
     )
     return parser.parse_args()
 
 
-def evaluate_workflow_path(candidates):
+def evaluate_workflow_path(candidates,arguments={"filename":["1","historic"]}):
     # Create the experiment that will validate
     ophexperiment = Experiment(
         name="validation", author="user", abstract="validation test"
     )
     # Create results lists and default values
-    args=[]
-    args.append('1')
-    args.append('historical')
+    #args=[]
+    #args.append('1')
+    #args.append('historical')
+    print(arguments)
+    arguments=ast.literal_eval(arguments)
     passed = False
     passed_list = []
     failed_list = []
@@ -48,12 +50,22 @@ def evaluate_workflow_path(candidates):
     }
     # Validate all files
     for jsons in candidates:
+        filename=os.path.basename(jsons)
+        print(os.path.basename(jsons))
         try:
-
-            res, msg = ophexperiment.validate(jsons,*args)
+            argument=arguments[filename]
+            print(filename)
+            print('conseguido')
+        except:
+            argument=['1','historic']
+        try:
+            
+            res, msg = ophexperiment.validate(jsons,*argument)
+            
         except:
             res = False
             msg = "Not readable workflow"
+            
         if res:
             passed = True
             passed_list.append(jsons)
@@ -102,7 +114,7 @@ def main():
         # find all the json files in path
         candid = find(".json", args.path)
     # evaluate  files
-    res = evaluate_workflow_path(candid)
+    res = evaluate_workflow_path(candid,args.args)
     return json.dumps(res)
 
 

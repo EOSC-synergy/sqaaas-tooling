@@ -40,6 +40,12 @@
                     "selectable": false,
                     "explicit_paths": true,
 		    "option":"--path"
+                 },
+		 {
+                    "type": "optional",
+                    "description": "Arguments neccesary for workflow validation",
+                    "value": "{"filename":["1","historic"]}",
+                    "option":"--args"
                  }
                         ],
                 "reporting": {
