@@ -22,7 +22,7 @@ def get_input_args():
         "--path", metavar="PATH", type=str, help="path to look for in the repository", default='.'
     )
     parser.add_argument(
-        "--args", metavar="ARGS", action='append', help='dict formed by the list of args using filename as a key for each list Example {"filename":["1","historic"]} ', default='{"filename":["1","historic"]}'
+        "--args_path", metavar="ARGS_PATH", type=str, help='path to json containing  dict formed by the list of args using filename as a key for each list Example {"filename":["1","historic"]} ',
     )
     return parser.parse_args()
 
@@ -38,8 +38,9 @@ def evaluate_workflow_path(candidates,arguments={"filename":["1","historic"]}):
     #args.append('historical')
     print(arguments)
     print(type(arguments))
-    
-    arguments={str(arguments[0]):[arguments[1],arguments[2]]}
+    with open (arguments ,'r') as arg_file:
+         arguments=json.load(arg_file)
+    #arguments={str(arguments[0]):[arguments[1],arguments[2]]}
     passed = False
     passed_list = []
     failed_list = []
