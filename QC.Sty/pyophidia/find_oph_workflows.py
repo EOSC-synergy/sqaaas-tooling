@@ -38,6 +38,7 @@ def evaluate_workflow_path(candidates,arguments={"filename":["1","historic"]}):
     #args.append('historical')
     print(arguments)
     print(type(arguments))
+    print(dict(arguments))
     arguments=ast.literal_eval(arguments)
     passed = False
     passed_list = []
