@@ -39,7 +39,7 @@ def evaluate_workflow_path(candidates,arguments={"filename":["1","historic"]}):
     print(arguments)
     print(type(arguments))
     
-    arguments=dict(str(arguments[0]=[arguments[1],arguments[2]])
+    arguments={str(arguments[0]):[arguments[1],arguments[2]])}
     passed = False
     passed_list = []
     failed_list = []
