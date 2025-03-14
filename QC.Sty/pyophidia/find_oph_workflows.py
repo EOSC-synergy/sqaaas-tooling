@@ -22,7 +22,7 @@ def get_input_args():
         "--path", metavar="PATH", type=str, help="path to look for in the repository", default='.'
     )
     parser.add_argument(
-        "--args", metavar="ARGS", type=list, help='dict formed by the list of args using filename as a key for each list Example {"filename":["1","historic"]} ', default='{"filename":["1","historic"]}'
+        "--args", metavar="ARGS", type=str, help='dict formed by the list of args using filename as a key for each list Example {"filename":["1","historic"]} ', default='{"filename":["1","historic"]}'
     )
     return parser.parse_args()
 
