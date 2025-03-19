@@ -57,6 +57,8 @@ def evaluate_workflow_path(candidates,arguments={"filename":["1","historic"]}):
         print(os.path.basename(jsons))
         try:
             print('test')
+            print (arguments.keys())
+            print (arguments)
             argument=arguments[filename]
             print(filename)
             print('conseguido')
