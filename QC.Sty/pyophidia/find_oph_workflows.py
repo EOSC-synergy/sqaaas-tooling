@@ -63,7 +63,7 @@ def evaluate_workflow_path(candidates,arguments={"filename":["1","historic"]}):
             argument=['1','historic']
         try:
             
-            res, msg = ophexperiment.validate(jsons,argument)
+            res, msg = ophexperiment.validate(jsons,*argument)
             
         except:
             res = False
