@@ -36,8 +36,7 @@ def evaluate_workflow_path(candidates,arguments={"filename":["1","historic"]}):
     #args=[]
     #args.append('1')
     #args.append('historical')
-    print(arguments)
-    print(type(arguments))
+    
     with open (arguments ,'r') as arg_file:
          arguments=json.load(arg_file)
     #arguments={str(arguments[0]):[arguments[1],arguments[2]]}
@@ -54,14 +53,10 @@ def evaluate_workflow_path(candidates,arguments={"filename":["1","historic"]}):
     # Validate all files
     for jsons in candidates:
         filename=os.path.basename(jsons)
-        print(os.path.basename(jsons))
         try:
-            print('test')
-            print (arguments.keys())
-            print (arguments)
+            
             argument=arguments[filename]
-            print(filename)
-            print('conseguido')
+            
         except:
             argument=['1','historic']
         try:
@@ -120,7 +115,7 @@ def main():
         # find all the json files in path
         candid = find(".json", args.path)
     # evaluate  files
-    print(args.args_path)
+    
     res = evaluate_workflow_path(candid,args.args_path)
     return json.dumps(res)
 
