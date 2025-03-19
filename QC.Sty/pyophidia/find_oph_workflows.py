@@ -117,6 +117,7 @@ def main():
         # find all the json files in path
         candid = find(".json", args.path)
     # evaluate  files
+    print(args.args_path)
     res = evaluate_workflow_path(candid,*args.args_path)
     return json.dumps(res)
 
