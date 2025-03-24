@@ -894,8 +894,7 @@
                 "Python": ["tox", "flake8", "pycodestyle"],
                 "Go": ["staticcheck"],
                 "Ruby": ["rubocop"],
-                "Java": ["checkstyle"],
-                "Workflow_manager": ["PyOphidia"]
+                "Java": ["checkstyle"]
             }
         },
         "QC.Uni": {
