@@ -33,16 +33,21 @@
                         "reviewed": "2024-10-02"
                  },
                 "args": [
-                        {
-                            "type": "optional", "description": "Path to the folder where the workflows are located", "value": ".", "option": "--path", "selectable": true, "explicit_paths":true
-                        },{
+                 {
+                    "type": "optional",
+                    "description": "Path to the folder where the workflows are located",
+                    "value": ".",
+                    "selectable": false,
+                    "explicit_paths": true,
+		    "option":"--path"
+                 },
+		 {
                     "type": "optional",
                     "description": "Arguments neccesary for workflow validation",
-                    "value": "arguments.json",
+                    "value": "{'filename':['1','historic']}",
                     "option":"--args"
-                 },
-                        
-                    ],
+                 }
+                        ],
                 "reporting": {
                    "validator": "Ophidia",
                    "subcriterion": "QC.Sty",
