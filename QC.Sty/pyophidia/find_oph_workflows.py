@@ -46,7 +46,7 @@ def evaluate_workflow_path(candidates, arguments={"filename": ["1", "historic"]}
     # args=[]
     # args.append('1')
     # args.append('historical')
-
+    
     with open(arguments, "r") as arg_file:
         arguments = json.load(arg_file)
     # arguments={str(arguments[0]):[arguments[1],arguments[2]]}
@@ -125,8 +125,10 @@ def main():
         # find all the json files in path
         candid = find(".json", args.path)
     # evaluate  files
-
-    res = evaluate_workflow_path(candid, args.args_path)
+    if arsg.args.path:
+        res = evaluate_workflow_path(candid, args.args_path)
+    else:
+        res = evaluate_workflow_path(candid,)
     return json.dumps(res)
 
 
