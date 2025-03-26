@@ -47,7 +47,7 @@ def evaluate_workflow_path(candidates, arguments={"filename": ["1", "historic"]}
     # args.append('1')
     # args.append('historical')
     print (arguments)
-    if arguments != {"filename": ["1", "historic"]}
+    if arguments != {"filename": ["1", "historic"]}:
        with open(arguments, "r") as arg_file:
          arguments = json.load(arg_file)
     # arguments={str(arguments[0]):[arguments[1],arguments[2]]}
