@@ -44,8 +44,8 @@
 		 {
                     "type": "optional",
                     "description": "Arguments neccesary for workflow validation",
-                    "value": "{'filename':['1','historic']}",
-                    "option":"--args"
+                    "value": "arguments.json",
+                    "option":"--args_path"
                  }
                         ],
                 "reporting": {
