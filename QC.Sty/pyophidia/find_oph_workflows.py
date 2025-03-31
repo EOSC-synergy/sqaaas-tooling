@@ -43,14 +43,11 @@ def evaluate_workflow_path(candidates, arguments={"filename": ["1", "historic"]}
         name="validation", author="user", abstract="validation test"
     )
     # Create results lists and default values
-    # args=[]
-    # args.append('1')
-    # args.append('historical')
-    print (arguments)
+
     if arguments != {"filename": ["1", "historic"]}:
-       with open(arguments, "r") as arg_file:
-         arguments = json.load(arg_file)
-    # arguments={str(arguments[0]):[arguments[1],arguments[2]]}
+        with open(arguments, "r") as arg_file:
+            arguments = json.load(arg_file)
+
     passed = False
     passed_list = []
     failed_list = []
@@ -127,10 +124,12 @@ def main():
         candid = find(".json", args.path)
     # evaluate  files
     if args.args_path:
-        print(args.args_path)
         res = evaluate_workflow_path(candid, args.args_path)
     else:
-        res = evaluate_workflow_path(candid,)
+        res = evaluate_workflow_path(
+            candid,
+        )
+
     return json.dumps(res)
 
 
