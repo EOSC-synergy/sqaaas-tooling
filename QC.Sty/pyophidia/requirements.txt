@@ -1,0 +1,2 @@
+argparse
+PyOphidia @git+https://github.com/OphidiaBigData/PyOphidia@release

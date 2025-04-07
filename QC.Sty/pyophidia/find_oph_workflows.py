@@ -1,12 +1,16 @@
-from PyOphidia import client
-import os
+#!/usr/bin/env python
+from pyophidia import Experiment
 import json
 import argparse
 import urllib
-import requests
+import os
+import ast
 
 
-def find(pattern, path):
+def find(
+    pattern,
+    path,
+):
     result = []
     for root, dirs, files in os.walk(path):
         for name in files:
@@ -18,39 +22,71 @@ def find(pattern, path):
 def get_input_args():
     parser = argparse.ArgumentParser(description=("Find Ophidia workflows"))
     parser.add_argument(
-        "--path", metavar="PATH", type=str, help="path to look for in the repository"
+        "--path",
+        metavar="PATH",
+        type=str,
+        help="path to look for in the repository",
+        default=".",
+    )
+    parser.add_argument(
+        "--args_path",
+        metavar="ARGS_PATH",
+        type=str,
+        help='path to json containing  dict formed by the list of args using filename as a key for each list Example {"filename":["1","historic"]} ',
     )
     return parser.parse_args()
 
 
-def evaluate_workflow_path(candidates):
-    ophclient = client.Client(
-        username="oph-user", password="oph-passwd", local_mode=True
+def evaluate_workflow_path(candidates, arguments={"filename": ["1", "historic"]}):
+    # Create the experiment that will validate
+    ophexperiment = Experiment(
+        name="validation", author="user", abstract="validation test"
     )
+    # Create results lists and default values
+
+    if arguments != {"filename": ["1", "historic"]}:
+        with open(arguments, "r") as arg_file:
+            arguments = json.load(arg_file)
+
     passed = False
     passed_list = []
     failed_list = []
+    reasons_list = []
     results = {
         "result": passed,
         "passed_list": passed_list,
         "failed_list": failed_list,
+        "reasons_list": reasons_list,
     }
+    # Validate all files
     for jsons in candidates:
-        f = open(str(jsons), "r")
+        filename = os.path.basename(jsons)
+        try:
 
-        data = json.load(f)
-        res, msg = ophclient.wisvalid(data)
+            argument = arguments[filename]
+
+        except:
+            argument = ["1", "historic"]
+        try:
+
+            res, msg = ophexperiment.validate(jsons, *argument)
+
+        except:
+            res = False
+            msg = "Not readable workflow"
 
         if res:
             passed = True
             passed_list.append(jsons)
         else:
             failed_list.append(jsons)
+            reasons_list.append(msg)
 
         results = {
             "result": passed,
             "passed_list": passed_list,
             "failed_list": failed_list,
+            "reasons_list": reasons_list,
         }
     return results
 
@@ -75,17 +111,25 @@ def download(url):
 
 
 def main():
-
+    # get input arguments
     args = get_input_args()
-    is_url = urllib.parse.urlparse(args.path)
 
+    is_url = urllib.parse.urlparse(args.path)
+    # see if there is a need to download files
     if is_url.scheme == "https" or is_url.scheme == "http":
 
         candid = download(args.path)
     else:
+        # find all the json files in path
         candid = find(".json", args.path)
+    # evaluate  files
+    if args.args_path:
+        res = evaluate_workflow_path(candid, args.args_path)
+    else:
+        res = evaluate_workflow_path(
+            candid,
+        )
 
-    res = evaluate_workflow_path(candid)
     return json.dumps(res)
 
 

@@ -4,7 +4,7 @@ LABEL authors="Pablo Orviz <orviz@ifca.unican.es>, Fernando Aguilar <aguilarf@if
 
 # Deploy FAIR-eva API
 WORKDIR /FAIR_eva
-RUN git clone https://github.com/EOSC-synergy/FAIR_eva.git -b 2.0.0 .
+RUN git clone https://github.com/EOSC-synergy/FAIR_eva.git -b 3.0.3 .
 RUN pip3 install -r requirements.txt
 
 # FAIR-eva client

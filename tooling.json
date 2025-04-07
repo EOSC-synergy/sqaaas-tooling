@@ -26,8 +26,8 @@
 
         "Workflow_manager": {
             "PyOphidia": {
-                "docs": "https://pyophidia.readthedocs.io/en/latest/"
-            ,
+                "docs": "https://pyophidia.readthedocs.io/en/latest/",
+                "executable" : "find_oph_workflows.py",
                 "docker": {
                         "dockerfile": "QC.Sty/Ophidia/Dockerfile",
                         "reviewed": "2024-10-02"
@@ -40,6 +40,12 @@
                     "selectable": false,
                     "explicit_paths": true,
 		    "option":"--path"
+                 },
+		 {
+                    "type": "optional",
+                    "description": "Arguments neccesary for workflow validation",
+                    "value": "arguments.json",
+                    "option":"--args_path"
                  }
                         ],
                 "reporting": {
@@ -414,9 +420,9 @@
                 "version": "latest",
                 "docs": "QC.FAIR/fair-eva.py",
                 "docker": {
-                    "image": "eoscsynergy/sqaaas-fair_eva:2.0.0",
+                    "image": "eoscsynergy/sqaaas-fair_eva:3.0.3",
                     "oneshot": false,
-                    "reviewed": "2022-04-05"
+                    "reviewed": "2024-12-10"
                 },
                 "args": [
                     {
@@ -888,8 +894,7 @@
                 "Python": ["tox", "flake8", "pycodestyle"],
                 "Go": ["staticcheck"],
                 "Ruby": ["rubocop"],
-                "Java": ["checkstyle"],
-                "Workflow_manager": ["PyOphidia"]
+                "Java": ["checkstyle"]
             }
         },
         "QC.Uni": {
