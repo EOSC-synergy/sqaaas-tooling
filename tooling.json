@@ -825,7 +825,7 @@
             "description": {
                 "msg": "Make source code citable",
                 "improves": "findability",
-                "docs": "https://indigo-dc.github.io/sqa-baseline/#code-accessibility-qc.acc"
+                "docs": "https://indigo-dc.github.io/sqa-baseline/#code-metadata-qc.met"
             },
             "tools": {
                 "CodeMeta": ["checkCitable", "validate_codemeta"],
