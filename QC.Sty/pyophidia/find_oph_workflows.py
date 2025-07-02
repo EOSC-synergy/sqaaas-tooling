@@ -133,4 +133,4 @@ def main():
     return json.dumps(res)
 
 
-print(main())
+main()
