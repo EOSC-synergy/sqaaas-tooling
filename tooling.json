@@ -25,7 +25,7 @@
         },
 
         "Workflow_manager": {
-            "PyOphidia": {
+            "find_oph_workflows.py": {
                 "docs": "https://pyophidia.readthedocs.io/en/latest/",
                 "executable" : "find_oph_workflows.py",
                 "docker": {
