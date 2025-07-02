@@ -52,7 +52,7 @@
                    "validator": "Ophidia",
                    "subcriterion": "QC.Sty",
                    "lang_name": "Ophidia",
-                   "tool_name": "PyOphidia",
+                   "tool_name": "find_oph_workflows.py",
                    "requirement_level": "RECOMMENDED"
                              }
                          }
