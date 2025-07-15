@@ -113,6 +113,7 @@ def cwl_converter(path):
     subprocess.run(["ls"])
     os.system("pip freeze")
     os.system("pip show pyophidia")
+    os.system("ln -s /usr/local/lib/python3.10/site-packages/pyophidia/utils/tasks/ tasks")
     ophexperiment = Experiment(
         name="validation", author="user", abstract="validation test"
     )
