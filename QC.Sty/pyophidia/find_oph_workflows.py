@@ -5,7 +5,7 @@ import argparse
 import urllib
 import os
 import ast
-
+import subprocess
 
 def find(
     pattern,
@@ -110,6 +110,7 @@ def download(url):
     return pathfile
 
 def cwl_converter(path):
+    subprocess.run(["pip show pyophidia"])
     ophexperiment = Experiment(
         name="validation", author="user", abstract="validation test"
     )
