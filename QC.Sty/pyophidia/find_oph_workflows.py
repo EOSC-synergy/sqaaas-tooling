@@ -121,7 +121,8 @@ def cwl_converter(path):
     json_paths=[]
     for cwl_workflow in cwl_paths:
           print(cwl_workflow)
-          os.system("ln -s /usr/local/lib/python3.10/site-packages/pyophidia/utils/tasks/ tasks")
+          print("ln -s /usr/local/lib/python3.10/site-packages/pyophidia/utils/tasks/ "+os.path.dirname(cwl_workflow)+"tasks")
+          os.system("ln -s /usr/local/lib/python3.10/site-packages/pyophidia/utils/tasks/ "+os.path.dirname(cwl_workflow)+"tasks")
           work=ophexperiment.load_cwl(cwl_workflow,"--nthreads 5")
           #print('le worki ',work)
           with open(cwl_workflow+".json","w") as new_json:
