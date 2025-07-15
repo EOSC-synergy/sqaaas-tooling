@@ -111,9 +111,9 @@ def download(url):
 
 def cwl_converter(path):
     subprocess.run(["ls"])
-    os.system("pip freeze")
-    os.system("pip show pyophidia")
-    os.system("ln -s /usr/local/lib/python3.10/site-packages/pyophidia/utils/tasks/ tasks")
+    #os.system("pip freeze")
+    #os.system("pip show pyophidia")
+    #os.system("ln -s /usr/local/lib/python3.10/site-packages/pyophidia/utils/tasks/ tasks")
     ophexperiment = Experiment(
         name="validation", author="user", abstract="validation test"
     )
@@ -121,6 +121,7 @@ def cwl_converter(path):
     json_paths=[]
     for cwl_workflow in cwl_paths:
           print(cwl_workflow)
+          os.system("ln -s /usr/local/lib/python3.10/site-packages/pyophidia/utils/tasks/ tasks")
           work=ophexperiment.load_cwl(cwl_workflow,"--nthreads 5")
           #print('le worki ',work)
           with open(cwl_workflow+".json","w") as new_json:
