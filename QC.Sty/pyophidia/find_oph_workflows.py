@@ -112,6 +112,7 @@ def download(url):
 def cwl_converter(path):
     subprocess.run(["ls"])
     os.system("pip freeze")
+    os.system("pip show pyophidia")
     ophexperiment = Experiment(
         name="validation", author="user", abstract="validation test"
     )
