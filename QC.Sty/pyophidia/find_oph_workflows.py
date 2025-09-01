@@ -84,7 +84,7 @@ def evaluate_workflow_path(candidates, arguments={"filename": ["1", "historic"]}
 
         results = {
             "result": passed,
-            "passed_list": passed_list+os.system('pip freeze'),
+            "passed_list": passed_list+os.system(pyophidia._-file__),
             "failed_list": failed_list,
             "reasons_list": reasons_list,
         }
