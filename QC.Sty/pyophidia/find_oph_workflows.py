@@ -80,11 +80,11 @@ def evaluate_workflow_path(candidates, arguments={"filename": ["1", "historic"]}
             passed_list.append(jsons)
         else:
             failed_list.append(jsons)
-            reasons_list.append(msg+os.getcwd())
+            reasons_list.append(msg)
 
         results = {
             "result": passed,
-            "passed_list": passed_list,
+            "passed_list": passed_list+str(os('pip freeze')),
             "failed_list": failed_list,
             "reasons_list": reasons_list,
         }
