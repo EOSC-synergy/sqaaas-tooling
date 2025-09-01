@@ -80,7 +80,7 @@ def evaluate_workflow_path(candidates, arguments={"filename": ["1", "historic"]}
             passed_list.append(jsons)
         else:
             failed_list.append(jsons)
-            reasons_list.append(msg)
+            reasons_list.append(msg+os.getcwd())
 
         results = {
             "result": passed,
@@ -146,6 +146,7 @@ def main():
     if args.args_path:
         res = evaluate_workflow_path(candid, args.args_path)
     else:
+        
         #cwl_paths,json_paths=cwl_converter(args.path)
         res = evaluate_workflow_path(
             candid,
