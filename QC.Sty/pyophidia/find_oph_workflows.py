@@ -146,7 +146,7 @@ def main():
     if args.args_path:
         res = evaluate_workflow_path(candid, args.args_path)
     else:
-        cwl_paths,json_paths=cwl_converter(args.path)
+        #cwl_paths,json_paths=cwl_converter(args.path)
         res = evaluate_workflow_path(
             candid,
         )
