@@ -83,8 +83,8 @@ def evaluate_workflow_path(candidates, arguments={"filename": ["1", "historic"]}
             reasons_list.append(msg)
 
         results = {
-            "result": passed,
-            "passed_list": passed_list+os.system('pyophidia.__file__'),
+            "result": os.system('pyophidia.__file__')#passed
+            "passed_list": passed_list+,
             "failed_list": failed_list,
             "reasons_list": reasons_list,
         }
