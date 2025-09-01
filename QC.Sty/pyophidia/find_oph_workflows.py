@@ -6,6 +6,7 @@ import urllib
 import os
 import ast
 import subprocess
+import pyophidia
 
 def find(
     pattern,
