@@ -1,17 +1,12 @@
-
 from pyophidia import Experiment
 import json
 import argparse
 import urllib
 import os
 import ast
-<<<<<<< HEAD
-import subprocess
 import pyophidia
-=======
 
->>>>>>> e73918c14936ff2ca71151745676577b23900a40
-
+#function to find files
 def find(
     pattern,
     path,
@@ -41,18 +36,18 @@ def get_input_args():
     )
     return parser.parse_args()
 
-
+#function to evaluate list of paths to workflow files
 def evaluate_workflow_path(candidates, arguments={"filename": ["1", "historic"]}):
     # Create the experiment that will validate
     ophexperiment = Experiment(
         name="validation", author="user", abstract="validation test"
     )
-    # Create results lists and default values
+
 
     if arguments != {"filename": ["1", "historic"]}:
         with open(arguments, "r") as arg_file:
             arguments = json.load(arg_file)
-
+    # Create results lists and default values
     passed = False
     passed_list = []
     failed_list = []
@@ -64,31 +59,69 @@ def evaluate_workflow_path(candidates, arguments={"filename": ["1", "historic"]}
         "reasons_list": reasons_list,
     }
     # Validate all files
-    for jsons in candidates:
-        filename = os.path.basename(jsons)
+    for workflow in candidates:
+        res=False
+        msg=''
+          
+        filename = os.path.basename(workflow)
+        extension = os.path.splitext(filename)[1]
+        direc= os.path.dirname(workflow)
+        
+        #exclude 
+        if 'lib' in direc or 'utils'in direc :
+            continue
+        
         try:
 
             argument = arguments[filename]
 
         except:
             argument = ["1", "historic"]
-        try:
+        if extension == '.cwl':
+          
+          
+          
+           
+          if not (os.path.islink(direc+'/tasks')):
+            os.system('ln -s /home/palomo/PyOphidia/pyophidia/utils/tasks '+direc)  
+          try:
+              work=ophexperiment.load_cwl(workflow,"--nthreads 1 --lon_file lon_file.nc --container wind --lat_range 0:70 --space_range 0:70|100:320 --number_of_files 1 --query_on_files *_201*.nc --output_variable1 msl --output_variable2 vo_850")
+              
+              res=work.check(display=False)
+              
+          except:
+            
+            res=False
+            msg="Error while evaluating"
+               
+              
+          
+          
+          if not res and msg=='':
+            
+            msg=('.cwl file  did not pass the structure test')
+        else:
+            
+            #if not (os.path.islink(direc+'/tasks')):
+                #os.system('ln -s /home/palomo/PyOphidia/pyophidia/utils/tasks '+direc)
+          
+            try:
 
-            res, msg = ophexperiment.validate(jsons, *argument)
-
-        except:
-            res = False
-            msg = "Not readable workflow"
-
+              res, msg = ophexperiment.validate(workflow, *argument)
+              
+            except:
+              res = False
+              msg = "Not readable workflow"
+       
         if res:
             passed = True
-            passed_list.append(jsons)
+            passed_list.append(workflow)
         else:
-            failed_list.append(jsons)
+            failed_list.append(workflow)
             reasons_list.append(msg)
 
         results = {
-            "result": pyophidia.__file__,#passed
+            "result": passed,
             "passed_list": passed_list,
             "failed_list": failed_list,
             "reasons_list": reasons_list,
@@ -114,23 +147,7 @@ def download(url):
     pathfile = ["downloaded_workflow.json"]
     return pathfile
 
-def cwl_converter(path):
-    ophexperiment = Experiment(
-        name="validation", author="user", abstract="validation test"
-    )
-    cwl_paths=find(".cwl", path)
-    json_paths=[]
-    for cwl_workflow in cwl_paths:
-          print(cwl_workflow)
-          print("ln -s /usr/local/lib/python3.10/site-packages/pyophidia/utils/tasks/  "+os.path.dirname(cwl_workflow)+"tasks")
-          os.system("ln -s /usr/local/lib/python3.10/site-packages/pyophidia/utils/tasks/ "+str(os.path.dirname(cwl_workflow)))#+"tasks/")
-          print(os.system('ls intertwin/vorticity/ '))
-          work=ophexperiment.load_cwl(cwl_workflow,"--nthreads 5")
-          print('the work ',work)
-          with open(cwl_workflow+".json","w") as new_json:
-               json.dump(work,new_json)
-          json_paths.append(cwl_workflow+".json")    
-    return(cwl_paths,json_paths)
+
 
 def main():
     # get input arguments
@@ -143,29 +160,19 @@ def main():
         candid = download(args.path)
     else:
         # find all the json files in path
-        candid = find(".json", args.path)
+        candid_json = find(".json", args.path)
+        candid_cwl= find(".cwl", args.path)
+        candid = candid_json + candid_cwl
+        
     # evaluate  files
     if args.args_path:
         res = evaluate_workflow_path(candid, args.args_path)
     else:
-<<<<<<< HEAD
-        
-        cwl_paths,json_paths=cwl_converter(args.path)
-        if json_paths:
-            candid=candid+json_paths
-        res = evaluate_workflow_path(
-=======
-         
-         cwl_paths,json_paths=cwl_converter(args.path)
-         if json_paths:
-            candid=candid+json_paths
             
-         res = evaluate_workflow_path(
->>>>>>> e73918c14936ff2ca71151745676577b23900a40
+        res = evaluate_workflow_path(
             candid,
-         )
+        )
          
-
     return json.dumps(res)
 
 
