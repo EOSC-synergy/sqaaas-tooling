@@ -9,6 +9,6 @@ RUN chmod +x /usr/bin/find_oph_workflows.py
 RUN git clone https://github.com/OphidiaBigData/PyOphidia -b release
 RUN cd PyOphidia
 
-RUN sudo python -m pip install ".[convert,cwl,prov,display]"
+RUN sudo python -m pip install ". [convert,cwl,prov,display]"
 RUN cd ..
 
