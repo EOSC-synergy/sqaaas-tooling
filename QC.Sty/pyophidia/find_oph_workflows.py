@@ -1,12 +1,16 @@
-#!/usr/bin/env python
+
 from pyophidia import Experiment
 import json
 import argparse
 import urllib
 import os
 import ast
+<<<<<<< HEAD
 import subprocess
 import pyophidia
+=======
+
+>>>>>>> e73918c14936ff2ca71151745676577b23900a40
 
 def find(
     pattern,
@@ -111,10 +115,6 @@ def download(url):
     return pathfile
 
 def cwl_converter(path):
-    #subprocess.run(["ls"])
-    #os.system("pip freeze")
-    #os.system("pip show pyophidia")
-    #os.system("ln -s /usr/local/lib/python3.10/site-packages/pyophidia/utils/tasks/ tasks")
     ophexperiment = Experiment(
         name="validation", author="user", abstract="validation test"
     )
@@ -126,7 +126,7 @@ def cwl_converter(path):
           os.system("ln -s /usr/local/lib/python3.10/site-packages/pyophidia/utils/tasks/ "+str(os.path.dirname(cwl_workflow)))#+"tasks/")
           print(os.system('ls intertwin/vorticity/ '))
           work=ophexperiment.load_cwl(cwl_workflow,"--nthreads 5")
-          #print('le worki ',work)
+          print('the work ',work)
           with open(cwl_workflow+".json","w") as new_json:
                json.dump(work,new_json)
           json_paths.append(cwl_workflow+".json")    
@@ -148,13 +148,23 @@ def main():
     if args.args_path:
         res = evaluate_workflow_path(candid, args.args_path)
     else:
+<<<<<<< HEAD
         
         cwl_paths,json_paths=cwl_converter(args.path)
         if json_paths:
             candid=candid+json_paths
         res = evaluate_workflow_path(
+=======
+         
+         cwl_paths,json_paths=cwl_converter(args.path)
+         if json_paths:
+            candid=candid+json_paths
+            
+         res = evaluate_workflow_path(
+>>>>>>> e73918c14936ff2ca71151745676577b23900a40
             candid,
-        )
+         )
+         
 
     return json.dumps(res)
 
