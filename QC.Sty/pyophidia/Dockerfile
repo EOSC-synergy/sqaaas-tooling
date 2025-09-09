@@ -22,6 +22,6 @@ RUN ls opt/bin/
 RUN pwd
 ENV PATH="PyOphidia/opt/bin:$PATH"
 
-RUN python3 -m pip install ".[convert,cwl,prov,display]"-break-system-packages
+RUN python3 -m pip install ".[convert,cwl,prov,display]" --break-system-packages
 RUN cd ..
 
