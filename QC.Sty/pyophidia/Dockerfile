@@ -13,8 +13,8 @@ RUN apt-get -y install pip
 RUN apt-get -y install python3.12-venv
 
 RUN git clone https://github.com/OphidiaBigData/PyOphidia -b release
-RUN cd PyOphidia
-
+#RUN cd PyOphidia
+WORKDIR PyOphidia
 RUN python3 -m venv opt
 RUN ls opt/bin/
 #RUN source opt/bin/
