@@ -10,7 +10,7 @@ RUN apt-get -y update
 RUN apt-get -y install git
 RUN apt-get -y install python3
 RUN apt-get -y install pip
-RUN apt install python3.12-venv
+RUN apt-get install python3.12-venv
 
 RUN git clone https://github.com/OphidiaBigData/PyOphidia -b release
 RUN cd PyOphidia
