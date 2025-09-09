@@ -1,4 +1,4 @@
-FROM Ubuntu:latest
+FROM ubuntu:latest
 
 COPY requirements.txt ./
 COPY find_oph_workflows.py /usr/bin
