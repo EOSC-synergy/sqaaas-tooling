@@ -22,6 +22,6 @@ RUN . bin/
 RUN pwd
 RUN ls
 
-RUN python3 -m pip install ".[convert,cwl,prov,display]" --break-system-packages
+RUN sudo python3 -m pip install ".[convert,cwl,prov,display]" 
 RUN cd ..
 
