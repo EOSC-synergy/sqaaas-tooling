@@ -14,7 +14,8 @@ RUN git clone https://github.com/OphidiaBigData/PyOphidia -b release
 RUN cd PyOphidia
 
 RUN python3 -m venv opt/bin
-RUN source ./bin/activate
+RUN ls opt/bin
+RUN source opt/bin/activate
 
 RUN python3 -m pip install ".[convert,cwl,prov,display]"
 RUN cd ..
