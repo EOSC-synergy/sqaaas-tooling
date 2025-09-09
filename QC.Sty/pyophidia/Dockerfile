@@ -1,12 +1,12 @@
-FROM python:3.12
+FROM Ubuntu:latest
 
 COPY requirements.txt ./
 COPY find_oph_workflows.py /usr/bin
 
 RUN chmod +x /usr/bin/find_oph_workflows.py
 
-RUN apt-get -y update
-RUN apt-get install source
+#RUN apt-get -y update
+#RUN apt-get install source
 #RUN apt-get -y install git
 #RUN apt-get -y install python3
 #RUN apt-get -y install pip
