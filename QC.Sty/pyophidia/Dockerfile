@@ -13,6 +13,9 @@ RUN apt-get -y install pip
 RUN git clone https://github.com/OphidiaBigData/PyOphidia -b release
 RUN cd PyOphidia
 
+RUN python3 -m venv .
+RUN source ./bin/activate
+
 RUN python3 -m pip install ".[convert,cwl,prov,display]"
 RUN cd ..
 
