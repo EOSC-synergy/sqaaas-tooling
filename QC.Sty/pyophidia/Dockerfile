@@ -17,7 +17,7 @@ RUN cd PyOphidia
 
 RUN python3 -m venv opt
 RUN ls opt/bin/
-RUN source opt/bin/
+#RUN source opt/bin/
 
 RUN pwd
 ENV PATH="PyOphidia/opt/bin:$PATH"
