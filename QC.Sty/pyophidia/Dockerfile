@@ -16,8 +16,8 @@ RUN git clone https://github.com/OphidiaBigData/PyOphidia -b release
 #RUN cd PyOphidia
 WORKDIR PyOphidia
 RUN python3 -m venv .
-RUN ls opt/bin/
-RUN source opt/bin/
+RUN ls bin/
+RUN source bin/
 
 RUN pwd
 RUN ls
