@@ -11,6 +11,6 @@ RUN apt-get -y install git
 RUN git clone https://github.com/OphidiaBigData/PyOphidia -b release
 RUN cd PyOphidia
 
-RUN sudo python -m pip install ".[convert,cwl,prov,display]"
+RUN python -m pip install ".[convert,cwl,prov,display]"
 RUN cd ..
 
