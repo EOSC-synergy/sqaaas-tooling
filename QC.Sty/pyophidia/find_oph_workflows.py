@@ -5,7 +5,7 @@ import urllib
 import os
 import ast
 import pyophidia
-
+print(os.system('ls'))
 #function to find files
 def find(
     pattern,
