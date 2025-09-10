@@ -1,3 +1,22 @@
-argparse
-PyOphidia @git+https://github.com/OphidiaBigData/PyOphidia@release
+bokeh
+cartopy
+lightning
+matplotlib
+munch
+numpy
+pandas
+scipy
+shapely
+requests
+tqdm
+timm
+toml
+xarray
 cwltool
+haversine==2.9.0
+torch_geometric==2.6.1
+cftime
+imageio
+netcdf4
+dask
+zarr
