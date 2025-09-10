@@ -1,9 +1,7 @@
 FROM ubuntu:latest
 
 COPY requirements.txt ./
-COPY find_oph_workflows.py /usr/bin
 
-RUN chmod +x /usr/bin/find_oph_workflows.py
 
 RUN apt-get -y update
 #RUN apt-get install source
@@ -18,7 +16,9 @@ WORKDIR PyOphidia
 RUN python3 -m venv . ; . bin/activate ; python3 -m pip install ".[convert,cwl,prov,display]"
 RUN ls bin/
 
+COPY find_oph_workflows.py PyOphidia/
 
+RUN chmod +x PyOphidia/find_oph_workflows.py
 RUN pwd
 RUN ls
   
