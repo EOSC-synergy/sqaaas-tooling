@@ -19,10 +19,10 @@ RUN chmod +x usr/bin/find_oph_workflows.py
 RUN git clone https://github.com/OphidiaBigData/PyOphidia -b release
 #RUN cd PyOphidia
 WORKDIR PyOphidia
-#RUN python3 -m venv . ; . bin/activate ; python3 -m pip install ".[convert,cwl,prov,display]"
+RUN python3 -m venv . ; . bin/activate ; python3 -m pip install ".[convert,cwl,prov,display]"
 #RUN ls bin/
 
-RUN sudo python3 -m pip install ".[convert,cwl,prov,display]" 
+#RUN  python3 -m pip install ".[convert,cwl,prov,display]" 
 
 RUN pwd
 RUN ls
