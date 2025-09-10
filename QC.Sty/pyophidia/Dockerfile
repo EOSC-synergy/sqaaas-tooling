@@ -22,7 +22,7 @@ WORKDIR PyOphidia
 #RUN python3 -m venv . ; . bin/activate ; python3 -m pip install ".[convert,cwl,prov,display]"
 #RUN ls bin/
 
-RUN sudo python3 -m pip install ".[convert,cwl,prov,display]" --break-system-packages
+RUN sudo python3 -m pip install ".[convert,cwl,prov,display]" 
 
 RUN pwd
 RUN ls
