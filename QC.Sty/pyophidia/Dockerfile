@@ -10,6 +10,11 @@ RUN apt-get -y install python3
 RUN apt-get -y install pip
 RUN apt-get -y install python3.12-venv
 
+COPY find_oph_workflows.py usr/bin
+
+RUN chmod +x usr/bin/find_oph_workflows.py
+
+
 RUN git clone https://github.com/OphidiaBigData/PyOphidia -b release
 #RUN cd PyOphidia
 WORKDIR PyOphidia
@@ -17,9 +22,7 @@ WORKDIR PyOphidia
 #RUN ls bin/
 
 RUN python3 -m pip install ".[convert,cwl,prov,display]" --break-system-packages
-COPY find_oph_workflows.py usr/bin
 
-RUN chmod +x usr/bin/find_oph_workflows.py
 RUN pwd
 RUN ls
   
