@@ -6,6 +6,7 @@ COPY requirements.txt ./
 RUN apt-get -y update
 #RUN apt-get install source
 RUN apt-get -y install git
+RUN apt-get -y install sudo
 RUN apt-get -y install python3
 RUN apt-get -y install pip
 RUN apt-get -y install python3.12-venv
