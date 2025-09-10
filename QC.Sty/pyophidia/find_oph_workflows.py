@@ -1,3 +1,5 @@
+export PYTHONPATH=PyOphidia/bin
+
 from pyophidia import Experiment
 import json
 import argparse
