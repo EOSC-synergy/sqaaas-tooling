@@ -17,9 +17,9 @@ WORKDIR PyOphidia
 #RUN ls bin/
 
 RUN python3 -m pip install ".[convert,cwl,prov,display]" --break-system-packages
-COPY find_oph_workflows.py PyOphidia/
+COPY find_oph_workflows.py usr/bin
 
-RUN chmod +x PyOphidia/find_oph_workflows.py
+RUN chmod +x usr/bin/find_oph_workflows.py
 RUN pwd
 RUN ls
   
