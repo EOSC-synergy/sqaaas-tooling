@@ -57,6 +57,24 @@
                              }
                          }
         },
+        "Jupyter": {
+            "pynblint": {
+                "version": "0.1.6",
+                "docs": "https://pynblint.readthedocs.io/en",
+                "docker": {
+                    "dockerfile": "QC.Sty/pynblint/Dockerfile",
+                    "reviewed": "2025-12-2025"
+                },
+                "args": [
+                ],
+                "reporting": {
+                    "validator": "generic_file_evaluator",
+                    "subcriterion": "QC.Sty01",
+                    "lang_name": "Jupyter Notebook",
+                    "tool_name": "pynblint",
+                    "requirement_level": "RECOMMENDED"
+                }
+            },
 
         "C++": {
             "oclint": {
