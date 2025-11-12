@@ -6,7 +6,7 @@ import sys
 #parameters
 max_warnings=3 #max number of warnings per file before failure
 
-
+os.chdir('/')
 path=os.getcwd()
 print(path,os.listdir())
 with open('/ls.txt','r') as file:
@@ -19,7 +19,7 @@ final_file_list=list(set(actual_file_list)-set(base_file_list))
 
 path=final_file_list[0]
 
-#print (final_file_list)
+print (final_file_list)
 
 #print('pynblint ' + path + ' -o report.json -S -q -y')
 
