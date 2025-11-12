@@ -11,4 +11,4 @@ RUN  chmod +x /usr/bin/notebook_evaluator.py
 
 
 
-RUN  git clone https://gitlab.a.incd.pt/envri-hub-next/analytical-workflow-templates
+#RUN  git clone https://gitlab.a.incd.pt/envri-hub-next/analytical-workflow-templates
