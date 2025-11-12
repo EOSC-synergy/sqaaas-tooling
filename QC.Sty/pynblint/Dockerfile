@@ -1,5 +1,5 @@
 
-FROM ubuntu:22.04
+FROM python:3.10
 
 RUN  apt-get update &&  apt-get install -y  pip git
 
