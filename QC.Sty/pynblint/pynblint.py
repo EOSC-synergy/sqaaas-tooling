@@ -9,7 +9,7 @@ max_warnings=3 #max number of warnings per file before failure
 
 path=os.getcwd()
 print(path,os.listdir())
-with open('ls.txt','r') as file:
+with open('./ls.txt','r') as file:
    base_file_list = file.read().splitlines()
 
 actual_file_list= os.listdir()
