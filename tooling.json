@@ -75,6 +75,7 @@
                     "requirement_level": "RECOMMENDED"
                 }
             },
+            },
 
         "C++": {
             "oclint": {
