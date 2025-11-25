@@ -68,7 +68,7 @@
                 "args": [
                 ],
                 "reporting": {
-                    "validator": "general_file_evaluator",
+                    "validator": "general_file_reporter",
                     "subcriterion": "QC.Sty01",
                     "lang_name": "Jupyter Notebook",
                     "tool_name": "pynblint.py",
