@@ -58,7 +58,7 @@
                          }
         },
         "Jupyter": {
-            "pynblint": {
+            "pynblint.py": {
                 "version": "0.1.6",
                 "docs": "https://pynblint.readthedocs.io/en",
                 "docker": {
@@ -71,7 +71,7 @@
                     "validator": "general_file_evaluator",
                     "subcriterion": "QC.Sty01",
                     "lang_name": "Jupyter Notebook",
-                    "tool_name": "pynblint",
+                    "tool_name": "pynblint.py",
                     "requirement_level": "RECOMMENDED"
                 }
             }
