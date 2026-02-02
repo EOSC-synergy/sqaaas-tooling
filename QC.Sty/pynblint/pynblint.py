@@ -63,7 +63,7 @@ def evaluate_json_out(lints):
         "failed_reasons_list": failed_reasons_list,
         "criterion": 'QC.Sty',
         "subcriterion" : "QC.Sty01",
-        "subcriterion_data" : 'testQCsub',#criterion_data[subcriterion],
+
         "subcriterion_valid" : passed    }
     return(json.dumps(results))
 
