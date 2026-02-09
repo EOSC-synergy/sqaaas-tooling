@@ -62,7 +62,7 @@ def evaluate_json_out(lints):
         "passed_reasons_list": passed_reasons_list,
         "failed_reasons_list": failed_reasons_list,
         "criterion": 'QC.Sty',
-        "subcriterion" : {'id': 'QC.Sty01', 'description': 'Is the software product following a style standard for Python files?', 'hint': 'Please check & solve the security weaknesses found by the linter tool', 'valid': True, 'evidence': 'Python files are compliant with flake8 (pycodestyle, pyflakes, mccabe) standard', 'requirement_level': 'RECOMMENDED'},
+        "subcriterion" : {'id': 'QC.Sty02', 'description': 'Is the software product following a style standard for Python files?', 'hint': 'Please check & solve the security weaknesses found by the linter tool', 'valid': True, 'evidence': 'Python files are compliant with flake8 (pycodestyle, pyflakes, mccabe) standard', 'requirement_level': 'RECOMMENDED'},
 
         "subcriterion_valid" : passed    }
     return(json.dumps(results))
