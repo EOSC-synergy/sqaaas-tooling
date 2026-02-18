@@ -914,7 +914,7 @@
                 "Go": ["staticcheck"],
                 "Ruby": ["rubocop"],
                 "Java": ["checkstyle"],
-                "Jupyter Notebook": ["pynblint.py"]
+                "Jupyter Notebook": ["flake8"]
             }
         },
         "QC.Uni": {
