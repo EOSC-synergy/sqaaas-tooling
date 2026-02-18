@@ -57,7 +57,7 @@
                              }
                          }
         },
-        "Jupyter": {
+        "Jupyter Notebook": {
             "pynblint.py": {
                 "version": "0.1.6",
                 "docs": "https://pynblint.readthedocs.io/en",
