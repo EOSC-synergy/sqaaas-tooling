@@ -54,7 +54,15 @@ def evaluate_json_out(lints):
           passed_reasons_list.append({notebook_name:lint['lints']})
     
     if warnings_counter > len(lints)*max_warnings:
-       passed = False   
+       passed = False
+    subcriterion_id='QC.Sty01'
+    subcriterion_description = 'Is the software product following a style standard for Jupyter Notebooks?'
+    subcriterion_hint= 'Check the following notebook files: '
+    for archive in failed_list:
+        subcriterion_hint+= archive +', '
+    "subcriterion_valid" : passed
+    subcriterion_evidence= failed_reasons_list
+    subcriterion_requirement_level='RECOMMENDED'   
     results = {
         "result": passed,
         "passed_list": passed_list,
@@ -62,9 +70,9 @@ def evaluate_json_out(lints):
         "passed_reasons_list": passed_reasons_list,
         "failed_reasons_list": failed_reasons_list,
         "criterion": 'QC.Sty',
-        "subcriterion" : [{'id': 'QC.Sty01', 'description': 'Is the software product following a style standard for Jupyter Notebooks s?', 'hint': 'Please check & solve the security weaknesses found by the linter tool', 'valid': True, 'evidence': 'Python files are compliant with flake8 (pycodestyle, pyflakes, mccabe) standard', 'requirement_level': 'RECOMMENDED'}],
+        "subcriterion" : [{'id': subcriterion_id, 'description': subcriterion_description, 'hint': subcriterion_hint, 'valid': subcriterion_valid, 'evidence': failed_reasons_list, 'requirement_level': subcriterion_requirement_level}],
 
-        "subcriterion_valid" : passed    }
+            }
     return(json.dumps(results))
 
 res=evaluate_json_out(data['notebook_level_lints'])
