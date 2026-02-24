@@ -60,8 +60,8 @@ def evaluate_json_out(lints):
     subcriterion_hint= 'Check the following notebook files: '
     for archive in failed_list:
         subcriterion_hint+= archive +', '
-    "subcriterion_valid" : passed
-    subcriterion_evidence= failed_reasons_list
+    subcriterion_valid = passed
+    subcriterion_evidence = failed_reasons_list
     subcriterion_requirement_level='RECOMMENDED'   
     results = {
         "result": passed,
