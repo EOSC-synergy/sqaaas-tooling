@@ -41,9 +41,6 @@ def evaluate_json_out(lints):
 
     for lint in lints:
         notebook_name = lint["notebook_metadata"]["notebook_name"]
-        # print(lint.keys())
-        # print(lint['notebook_metadata'])
-        # print (len(lint['lints']))
         warnings_counter += len(lint["lints"])
         if len(lint["lints"]) > max_warnings:
             # print(lint['lints'])
@@ -64,7 +61,10 @@ def evaluate_json_out(lints):
     for archive in failed_list:
         subcriterion_hint += archive + ", "
     subcriterion_valid = passed
-    subcriterion_evidence = failed_reasons_list
+    if passed:
+        subcriterion_evidence = "The notebooks follow enough standards. Check failed reasons list for more info"
+    else:
+        subcriterion_evidence = "The notebooks do not follow enough standards. Check Failed reasons list for more info"
     subcriterion_requirement_level = "RECOMMENDED"
     results = {
         "result": passed,
