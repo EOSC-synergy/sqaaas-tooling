@@ -20,7 +20,6 @@ final_file_list = list(set(actual_file_list) - set(base_file_list))
 path = final_file_list[0]
 
 
-# print('pynblint ' + path + ' -o report.json -S -q -y')
 
 os.system("pynblint " + path + " -o report.json -S -q -y")
 with open("report.json", "r") as file:
@@ -79,7 +78,7 @@ def evaluate_json_out(lints):
                 "description": subcriterion_description,
                 "hint": subcriterion_hint,
                 "valid": subcriterion_valid,
-                "evidence": failed_reasons_list,
+                "evidence": subcriterion_evidence,
                 "requirement_level": subcriterion_requirement_level,
             }
         ],
