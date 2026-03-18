@@ -21,7 +21,7 @@ path = final_file_list[0]
 
 
 
-os.system("pynblint " + path + " -o report.json -S -q -y")
+os.system("pynblint " + path + " -o report.json -S -q -y 2> null.txt")
 with open("report.json", "r") as file:
     data = json.load(file)
 
