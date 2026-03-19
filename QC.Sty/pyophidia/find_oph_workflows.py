@@ -8,6 +8,7 @@ import ast
 import subprocess
 import pyophidia
 
+
 def find(
     pattern,
     path,
@@ -84,7 +85,7 @@ def evaluate_workflow_path(candidates, arguments={"filename": ["1", "historic"]}
             reasons_list.append(msg)
 
         results = {
-            "result": pyophidia.__file__,#passed
+            "result": pyophidia.__file__,  # passed
             "passed_list": passed_list,
             "failed_list": failed_list,
             "reasons_list": reasons_list,
@@ -110,27 +111,36 @@ def download(url):
     pathfile = ["downloaded_workflow.json"]
     return pathfile
 
+
 def cwl_converter(path):
-    #subprocess.run(["ls"])
-    #os.system("pip freeze")
-    #os.system("pip show pyophidia")
-    #os.system("ln -s /usr/local/lib/python3.10/site-packages/pyophidia/utils/tasks/ tasks")
+    # subprocess.run(["ls"])
+    # os.system("pip freeze")
+    # os.system("pip show pyophidia")
+    # os.system("ln -s /usr/local/lib/python3.10/site-packages/pyophidia/utils/tasks/ tasks")
     ophexperiment = Experiment(
         name="validation", author="user", abstract="validation test"
     )
-    cwl_paths=find(".cwl", path)
-    json_paths=[]
+    cwl_paths = find(".cwl", path)
+    json_paths = []
     for cwl_workflow in cwl_paths:
-          print(cwl_workflow)
-          print("ln -s /usr/local/lib/python3.10/site-packages/pyophidia/utils/tasks/  "+os.path.dirname(cwl_workflow)+"tasks")
-          os.system("ln -s /usr/local/lib/python3.10/site-packages/pyophidia/utils/tasks/ "+str(os.path.dirname(cwl_workflow)))#+"tasks/")
-          print(os.system('ls intertwin/vorticity/ '))
-          work=ophexperiment.load_cwl(cwl_workflow,"--nthreads 5")
-          #print('le worki ',work)
-          with open(cwl_workflow+".json","w") as new_json:
-               json.dump(work,new_json)
-          json_paths.append(cwl_workflow+".json")    
-    return(cwl_paths,json_paths)
+        print(cwl_workflow)
+        print(
+            "ln -s /usr/local/lib/python3.10/site-packages/pyophidia/utils/tasks/  "
+            + os.path.dirname(cwl_workflow)
+            + "tasks"
+        )
+        os.system(
+            "ln -s /usr/local/lib/python3.10/site-packages/pyophidia/utils/tasks/ "
+            + str(os.path.dirname(cwl_workflow))
+        )  # +"tasks/")
+        print(os.system("ls intertwin/vorticity/ "))
+        work = ophexperiment.load_cwl(cwl_workflow, "--nthreads 5")
+        # print('le worki ',work)
+        with open(cwl_workflow + ".json", "w") as new_json:
+            json.dump(work, new_json)
+        json_paths.append(cwl_workflow + ".json")
+    return (cwl_paths, json_paths)
+
 
 def main():
     # get input arguments
@@ -148,10 +158,10 @@ def main():
     if args.args_path:
         res = evaluate_workflow_path(candid, args.args_path)
     else:
-        
-        cwl_paths,json_paths=cwl_converter(args.path)
+
+        cwl_paths, json_paths = cwl_converter(args.path)
         if json_paths:
-            candid=candid+json_paths
+            candid = candid + json_paths
         res = evaluate_workflow_path(
             candid,
         )
