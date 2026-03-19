@@ -5,7 +5,7 @@ RUN  apt-get update &&  apt-get install -y  pip git
 
 COPY requirements.txt ./
 COPY ls.txt ./
-RUN pip install -r requirements.txt #--break-system-packages 
+RUN pip install -r requirements.txt #--break-system-packages
 COPY pynblint.py /usr/bin
 RUN  chmod +x /usr/bin/pynblint.py
 
